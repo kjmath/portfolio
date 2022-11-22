@@ -64,9 +64,14 @@ plugins:
 author:
   name   : "Kelly Mathesius"
   avatar : "/assets/images/bio-photo.jpg"
-  email  : "kelly.mathesius@gmail.com"
   bio    : "My awesome biography constrained to a sentence or two goes here."
   links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:kelly.mathesius@gmail.com"
+    - label: "Resume"
+      icon: "far fa-fw fa-file-pdf"
+      url: /assets/files/resume.pdf
     # - label: "Website"
     #   icon: "fas fa-fw fa-link"
     #   url: "https://"

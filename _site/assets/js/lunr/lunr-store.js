@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Post: Standard",
-        "excerpt":"All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she...","categories": ["Blog"],
+        "excerpt":"you can get the PDF directly. All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it...","categories": ["Blog"],
         "tags": ["Post Formats","readability","standard"],
         "url": "/portfolio/blog/post-standard/",
         "teaser": "/portfolio/assets/images/Saturn_during_Equinox.jpeg"
