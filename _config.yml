@@ -65,6 +65,7 @@ author:
   name   : "Kelly Mathesius"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : "My awesome biography constrained to a sentence or two goes here."
+  location: "Cambridge, MA"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
@@ -101,13 +102,16 @@ collections:
   publications:
     output: true
     permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 
 defaults:
   # _projects
   - scope:
       path: ""
-      type: posts
+      type: projects
     values:
       layout: single
       author_profile: true

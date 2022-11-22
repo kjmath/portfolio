@@ -2,6 +2,6 @@
 title: "Projects"
 permalink: /projects/
 layout: collection
-collection: posts
+collection: projects
 author_profile: true
 ---
