@@ -33,8 +33,8 @@ remote_theme: mmistakes/minimal-mistakes
 # theme: "minimal-mistakes-jekyll"
 # Outputting
 permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+# paginate: 5 # amount of posts to show
+# paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
@@ -118,7 +118,7 @@ defaults:
   # _publications
   - scope:
       path: ""
-      type: posts
+      type: publications
     values:
       layout: single
       author_profile: true
