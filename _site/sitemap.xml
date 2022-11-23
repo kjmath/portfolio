@@ -57,8 +57,12 @@
 <lastmod>2019-04-18T15:34:30-04:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/portfolio/publications/2010-01-07-post-modified/</loc>
-<lastmod>2010-01-07T00:00:00-05:00</lastmod>
+<loc>http://localhost:4000/portfolio/publications/pub1/</loc>
+<lastmod>2022-11-23T10:50:03-05:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/portfolio/publications/pub2/</loc>
+<lastmod>2022-11-23T10:50:03-05:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/portfolio/</loc>
