@@ -84,7 +84,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Publication 1",
-        "excerpt":"This post has been updated and should show a modified date if used in a layout. All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a...","categories": ["pub"],
+        "excerpt":"This post has been updated and should show a modified date if used in a layout. All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a...","categories": [],
         "tags": [],
         "url": "/portfolio/publications/pub1/",
         "teaser": null

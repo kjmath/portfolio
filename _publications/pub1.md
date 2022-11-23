@@ -1,7 +1,5 @@
 ---
 title: "Publication 1"
-categories:
-  - pub
 
 ---
 
