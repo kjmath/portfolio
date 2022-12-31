@@ -1,13 +1,9 @@
 ---
-title: "Post: Modified Date"
-last_modified_at: 2016-03-09T16:20:02-05:00
-categories:
-  - Blog
-tags:
-  - Post Formats
-  - readability
-  - standard
-order: 6
+title: "Level 3 Rocketry Certification"
+header:
+  teaser: /assets/images/L3-composite.png
+excerpt: This is an excerpt.
+order: 1
 ---
 
 This post has been updated and should show a modified date if used in a layout.

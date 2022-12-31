@@ -59,18 +59,6 @@ var store = [{
         "url": "/portfolio/projects/2010-01-08-post-chat/",
         "teaser": null
       },{
-        "title": "Post: Notice",
-        "excerpt":"A notice displays information that explains nearby content. Often used to call attention to a particular detail. When using Kramdown {: .notice} can be added after a sentence to assign the .notice to the &lt;p&gt;&lt;/p&gt; element. Changes in Service: We just updated our privacy policy here to better service our...","categories": ["Blog"],
-        "tags": ["Post Formats","notice"],
-        "url": "/portfolio/projects/2010-02-05-post-notice/",
-        "teaser": null
-      },{
-        "title": "Post: Quote",
-        "excerpt":"   Only one thing is impossible for God: To find any sense in any copyright law on the planet.       Mark Twain   ","categories": ["Blog"],
-        "tags": ["Post Formats","quote"],
-        "url": "/portfolio/projects/2010-02-05-post-quote/",
-        "teaser": null
-      },{
         "title": "Post: Link",
         "excerpt":"This theme supports link posts, made famous by John Gruber. To use, just add link: http://url-you-want-linked to the post’s YAML front matter and you’re done.      And this is how a quote looks.    Some link can also be shown.  ","categories": ["Blog"],
         "tags": ["link","Post Formats"],
@@ -83,15 +71,15 @@ var store = [{
         "url": "/portfolio/projects/2019-04-18-welcome-to-jekyll/",
         "teaser": null
       },{
-        "title": "Publication 1",
+        "title": "Level 3 Rocketry Certification",
         "excerpt":"This post has been updated and should show a modified date if used in a layout. All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a...","categories": [],
         "tags": [],
-        "url": "/portfolio/publications/pub1/",
-        "teaser": null
+        "url": "/portfolio/projects/L3-rocket/",
+        "teaser": "/portfolio/assets/images/L3-composite.png"
       },{
-        "title": "Publication 1",
+        "title": "Manufacturing Methods for a Solid Rocket Motor Propellaing a Small, Fast Flight Vehicle",
         "excerpt":" ","categories": [],
         "tags": [],
-        "url": "/portfolio/publications/pub2/",
+        "url": "/portfolio/publications/sm-thesis/",
         "teaser": null
       }]

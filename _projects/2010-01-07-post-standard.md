@@ -11,6 +11,7 @@ tags:
   - Post Formats
   - readability
   - standard
+order: 3
 ---
 you can [get the PDF]({{ site.baseurl }}/assets/files/resume.pdf) directly.
 

@@ -64,7 +64,11 @@ plugins:
 author:
   name   : "Kelly Mathesius"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : >
+    An engineer, maker, and PhD candidate in the MIT Department of Aeronautics
+    and Astronautics, with a multi-disciplinary skillset in design,
+    fabrication, and modelling and optimization of constrained physical
+    systems.
   location: "Cambridge, MA"
   links:
     - label: "Email"
