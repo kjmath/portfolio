@@ -5,3 +5,5 @@ main:
     url: /projects/
   - title: "Publications"
     url: /publications/
+  - title: "Resume"
+    url: /assets/files/resume.pdf

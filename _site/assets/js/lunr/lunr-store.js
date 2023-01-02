@@ -71,6 +71,12 @@ var store = [{
         "url": "/portfolio/projects/2019-04-18-welcome-to-jekyll/",
         "teaser": null
       },{
+        "title": "3D Printed Titanium Rocket Closure",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/3D-print-closure/",
+        "teaser": null
+      },{
         "title": "Level 3 Rocketry Certification",
         "excerpt":"             Video from onboard camera on L3 rocket.     Overview  I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 Certification program.  ","categories": [],
         "tags": [],
