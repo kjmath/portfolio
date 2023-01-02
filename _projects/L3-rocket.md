@@ -2,10 +2,14 @@
 title: "Level 3 Rocketry Certification"
 header:
   teaser: /assets/images/L3-composite.png
-excerpt: This is an excerpt.
+excerpt: I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 certification program.
 order: 1
+share: false
 ---
 
-This post has been updated and should show a modified date if used in a layout.
+{% include video id="tfCgWSBuRZg" provider="youtube" caption="asdf" %}
+<figcaption>Video from onboard camera on L3 rocket.</figcaption>
+<br>
 
-All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. One day when she was two years old she was playing in a garden, and she plucked another flower and ran with it to her mother. I suppose she must have looked rather delightful, for Mrs. Darling put her hand to her heart and cried, "Oh, why can't you remain like this for ever!" This was all that passed between them on the subject, but henceforth Wendy knew that she must grow up. You always know after you are two. Two is the beginning of the end.
+# Overview
+I designed, built, and flew a high-power rocket as part of the National Association of Rocketry [Level 3 Certification program](https://www.nar.org/high-power-rocketry-info/level-3-hpr-certification/).
