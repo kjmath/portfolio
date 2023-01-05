@@ -78,10 +78,10 @@ var store = [{
         "teaser": null
       },{
         "title": "Level 3 Rocketry Certification",
-        "excerpt":"             Video from onboard camera on L3 rocket.     Overview  I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 Certification program.  ","categories": [],
+        "excerpt":"Video from an onboard camera on L3 rocket. Overview I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 Certification program. This certification involves building, flying, and successfully recovering a rocket that safely use an M impulse class or higher commercial solid...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/L3-rocket/",
-        "teaser": "/portfolio/assets/images/L3-composite.png"
+        "teaser": "/portfolio/assets/images/L3-rocket/L3-composite.png"
       },{
         "title": "Manufacturing Methods for a Solid Rocket Motor Propelling a Small, Fast Flight Vehicle",
         "excerpt":" ","categories": [],
