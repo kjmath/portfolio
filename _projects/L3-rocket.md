@@ -132,3 +132,14 @@ The rocket was successfully flown and recovered at a launch site in Berwick, Mai
 ![rocket-on-rail]({{ site.baseurl }}/assets/images/L3-rocket/rocket-on-rail.JPG){:width="75%"}{: .align-center}
 <figcaption>The completed rocket on the launch rail just before launch.</figcaption>
 {: .text-center}
+
+The parachute deployements occured as planned, and the rocket was recovered safely in re-flyable condition. An image of the seperated rocket in descent under the main parachute is shown in the figure below.
+
+![dual-deploy]({{ site.baseurl }}/assets/images/L3-rocket/dual-deploy.JPG){:width="75%"}{: .align-center}
+<figcaption>Rocket descending under the main parachute.</figcaption>
+{: .text-center}
+
+According to flight data from the StrattoLogger alitimeter onboard, the rocket achieved an apogee of 8691', and a maximum of speed of 1012 ft/s or Mach 0.96. The maximum altitude was within 8% of the predicted apogee of 8090' estimated using OpenRocket.
+
+![dual-deploy]({{ site.baseurl }}/assets/images/L3-rocket/altitude-plot.png)
+<figcaption>Annotated plot of the rocket altitude vs. time since launch.</figcaption>
