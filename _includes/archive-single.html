@@ -32,6 +32,6 @@
         <a href="{{ post.url | relative_url }}"><img src="{{ teaser | relative_url }}" alt="{{ post.title }}"></a>
       </div>
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 200 }}</p>{% endif %}
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html }}</p>{% endif %}
   </article>
 </div>
