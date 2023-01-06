@@ -3,7 +3,7 @@ title: "Level 3 Rocketry Certification"
 header:
   teaser: /assets/images/L3-rocket/L3-composite.png
 excerpt: I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 certification program.
-order: 1
+order: 3
 share: false
 toc: true
 ---

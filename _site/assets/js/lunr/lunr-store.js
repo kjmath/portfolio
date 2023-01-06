@@ -41,8 +41,8 @@ var store = [{
         "url": "/portfolio/blog/welcome-to-jekyll/",
         "teaser": null
       },{
-        "title": "3D Printed Titanium Rocket Closure",
-        "excerpt":"  3D printed titanium rocket closure. This part is approximately 8 cm across.  Design   The PDF of this drawing can also be viewed here.   Analysis   Manufacturing   Test  ","categories": [],
+        "title": "3D Printed Titanium Rocket Motor Closure",
+        "excerpt":"I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor. Design This after closure is a part of a rocket motor I use for research of small, low-thrust solid rocket motors...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/3D-print-closure/",
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
@@ -53,10 +53,16 @@ var store = [{
         "url": "/portfolio/projects/L3-rocket/",
         "teaser": "/portfolio/assets/images/L3-rocket/L3-composite.png"
       },{
-        "title": "Ceramic Nozzle Development",
-        "excerpt":"TODO  ","categories": [],
+        "title": "Small, Long Endurance Ceramic Rocket Nozzle Development",
+        "excerpt":"Overview Typical solid rocket motors rely on transient methods – such as ablation or heat-sinking – for managing heat transfer through the nozzle and maintaining acceptable temperatures in the motor case. A large motor can use an ablative nozzle, which might erode by several millimeters during the motor burn; since...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
+        "teaser": null
+      },{
+        "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/experiments-emission/",
         "teaser": null
       },{
         "title": "Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development",
