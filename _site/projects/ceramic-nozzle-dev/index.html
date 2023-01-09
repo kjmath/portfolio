@@ -30,11 +30,13 @@
 
 
 
+  <meta property="og:image" content="http://localhost:4000/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png">
 
 
 
 
-  <meta property="article:published_time" content="2023-01-06T17:33:47-05:00">
+
+  <meta property="article:published_time" content="2023-01-09T17:50:37-05:00">
 
 
 
@@ -193,7 +195,7 @@
           
         
           
-            <li><a href="https://github.com/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+            <li><a href="https://github.com/kjmath" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
       
@@ -264,7 +266,7 @@
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Small, Long Endurance Ceramic Rocket Nozzle Development">
     <meta itemprop="description" content="I designed, manufactured, and tested ceramic nozzles suitable for small, long-endurance rocket motors with the novel use of 3D-printed silica and alumina-silicate materials.">
-    
+    <meta itemprop="datePublished" content="2023-01-09T17:50:37-05:00">
     
 
     <div class="page__inner-wrap">
@@ -304,7 +306,32 @@
 
 <p><em>This nozzle was designed in collaboration with Dr. Matthew Vernacchia, and more information can be found in our paper <a href="https://doi.org/10.2514/1.B38104">here</a>.</em></p>
 
-<p>Dr. Vernacchia and I designed a two-piece nozzle configuration with a 3D-printed cellular ceramic nozzle insulator.</p>
+<p>Dr. Vernacchia and I designed a two-piece nozzle configuration with a 3D-printed cellular ceramic nozzle insulator. The two-piece nozzle configuration, illustrated generally in the figure below, uses a nozzle insulator and contoured nozzle insert which are manufactured separately and then bonded together with a silica adhesive. The contoured nozzle insert is turned from boron nitride rod.</p>
+
+<p><img src="/portfolio/assets/images/ceramic-nozzle-dev/two-piece-concept.png" alt="two-piece-concept" width="75%" class="align-center" /></p>
+<figcaption class="text-center">Two-piece nozzle concept with nozzle insert and insulator.</figcaption>
+
+<p>The 3D-printed ceramic insulator is based on a hexagonal honeycomb that is wrapped around a cylinder, as shown below. This design concept has several advantages: the honeycomb structure reduces the stiffness of the nozzle, making it more resistant to thermal shock; thin wall reduce conductive heat transfer radially through the part; small cells reduce convection; and the multiple layers of cell walls create redundant gas seals.</p>
+
+<p><img src="/portfolio/assets/images/ceramic-nozzle-dev/cellular-concept.png" alt="cellular-concept" width="75%" class="align-center" /></p>
+<figcaption class="text-center">Concept for a 3D-printed cellular ceramic nozzle insulator.</figcaption>
+
+<p>The design is compatible with a stereolithography printing process, and was ultimately manufactured using a Form 2 stereolithography printer. The part is printed using the Formlabs Silica resin, which consists of a photosensitive polymer resin filled with silic particles. After printing, the part must be subsequently fired in a kiln to burn off the polymer and sinter the silica particles together. This results in part shrinkage, and so the part must be oversized when printing. An image of a printed insulator with a bonded contoured nozzle insert is shown below.</p>
+
+<p><img src="/portfolio/assets/images/ceramic-nozzle-dev/bonded-nozzle.JPG" alt="bonded-nozzle" width="75%" class="align-center" /></p>
+<figcaption class="text-center">3D-printed silica nozzle insulator with bonded nozzle insert.</figcaption>
+
+<p>The nozzles were manufactured and tested successfully in small, long-endurance test motors.
+However, there are some manufacturing and performance drawbacks for this nozzle design.</p>
+
+<p>Boron nitride is a relatively soft material, and consequently the tested nozzles using the boron nitride inserts showed nozzle erosion, which decreases the expansion ratio and specific impulse of the motor.</p>
+
+<p>The 3D-printing process for the cellular ceramic insulation was also unreliable.
+The thin cell walls were printed near the minimum resolution of the printer for this resin, which lead to inconsistent wall thicknesses.
+The silica filled polymer used for the printing process was especially viscous, and often led to failed prints where the insulator broke off from its supports mid-print.
+The insulators had inconsistent material shrinkage during the kiln firing process, which varied between 14 - 20 % in the \(r \theta\) directions and 15 - 22 % in the \(z\) direction for 29 different nozzle insulator iterations. Additionally, the use of a two-piece configuration inherently requires an additional machining step and a bonding step than would be required by a configuration where the nozzle insulator and insert was a single piece.</p>
+
+<p>Following these manufacturing difficulties, I developed a new single-component nozzle design, which is discussed in the next section.</p>
 
 <h2 id="nozzle-2-single-piece-alumina-silicate-nozzle">Nozzle 2: Single-piece alumina-silicate nozzle</h2>
 
@@ -317,6 +344,8 @@
 
 
         
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2023-01-09T17:50:37-05:00">January 9, 2023</time></p>
 
       </footer>
 

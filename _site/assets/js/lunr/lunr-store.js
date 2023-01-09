@@ -47,6 +47,12 @@ var store = [{
         "url": "/portfolio/projects/3D-print-closure/",
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
       },{
+        "title": "3D Printed Widgets",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/3D-printed-widgets/",
+        "teaser": null
+      },{
         "title": "Level 3 Rocketry Certification",
         "excerpt":"Video from an onboard camera on L3 rocket. Overview I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 Certification program. This certification involves building, flying, and successfully recovering a rocket that safely use an M impulse class or higher commercial solid...","categories": [],
         "tags": [],
@@ -57,7 +63,7 @@ var store = [{
         "excerpt":"Overview Typical solid rocket motors rely on transient methods – such as ablation or heat-sinking – for managing heat transfer through the nozzle and maintaining acceptable temperatures in the motor case. A large motor can use an ablative nozzle, which might erode by several millimeters during the motor burn; since...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
-        "teaser": null
+        "teaser": "/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png"
       },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
         "excerpt":" ","categories": [],
