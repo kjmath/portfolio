@@ -71,6 +71,12 @@ var store = [{
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": null
       },{
+        "title": null,
+        "excerpt":" ","categories": [],
+        "tags": null,
+        "url": "/portfolio/projects/ti-alloys/",
+        "teaser": null
+      },{
         "title": "Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development",
         "excerpt":" ","categories": [],
         "tags": [],
