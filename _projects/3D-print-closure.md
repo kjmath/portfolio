@@ -6,6 +6,7 @@ excerpt: I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration
 order: 2
 share: false
 toc: true
+toc_sticky: true
 ---
 
 I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor.

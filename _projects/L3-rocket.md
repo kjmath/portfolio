@@ -6,6 +6,7 @@ excerpt: I designed, built, and flew a high-power rocket as part of the National
 order: 3
 share: false
 toc: true
+toc_sticky: true
 ---
 
 {% include video id="tfCgWSBuRZg" provider="youtube" caption="asdf" %}
