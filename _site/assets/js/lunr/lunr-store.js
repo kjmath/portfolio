@@ -71,6 +71,12 @@ var store = [{
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": null
       },{
+        "title": "Popsicle 3D-Printer",
+        "excerpt":"             A 3D-printer for frozen popsicles. ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/popsicle-printer/",
+        "teaser": null
+      },{
         "title": "Structure and Properties of Titanium and its Alloys",
         "excerpt":"asdfasdf  ","categories": [],
         "tags": [],
