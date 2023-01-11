@@ -1,3 +1,3 @@
 # kjmath.github.io
 
-TODO
+A website for my engineering portfolio.
