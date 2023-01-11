@@ -78,7 +78,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Structure and Properties of Titanium and its Alloys",
-        "excerpt":"asdfasdf  ","categories": [],
+        "excerpt":" ","categories": [],
         "tags": [],
         "url": "/portfolio/projects/ti-alloys/",
         "teaser": null
