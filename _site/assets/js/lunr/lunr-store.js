@@ -72,10 +72,10 @@ var store = [{
         "teaser": null
       },{
         "title": "Popsicle 3D-Printer",
-        "excerpt":"             A 3D-printer for frozen popsicles. ","categories": [],
+        "excerpt":"Designed and built in collaboration with Juju Wang and Prashanth Prakash. Description My friends and I built a printer to make edible, frozen popsicles. We started with a Velleman K8200 printer, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/popsicle-printer/",
-        "teaser": null
+        "teaser": "/portfolio/assets/images/popsicle-printer/popsicle-printer-composite.png"
       },{
         "title": "Structure and Properties of Titanium and its Alloys",
         "excerpt":" ","categories": [],

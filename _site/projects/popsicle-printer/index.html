@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>Popsicle 3D-Printer - Kelly Mathesius</title>
-<meta name="description" content="Blurb">
+<meta name="description" content="A 3D-Printer for frozen popsicles. My friends and I built this by adapting a bed-XY printer with a custom chilled build platform and a slush extruder mechanism.">
 
 
   <meta name="author" content="Kelly Mathesius">
@@ -26,15 +26,17 @@
 <meta property="og:url" content="http://localhost:4000/portfolio/projects/popsicle-printer/">
 
 
-  <meta property="og:description" content="Blurb">
+  <meta property="og:description" content="A 3D-Printer for frozen popsicles. My friends and I built this by adapting a bed-XY printer with a custom chilled build platform and a slush extruder mechanism.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/portfolio/assets/images/popsicle-printer/popsicle-printer-composite.png">
 
 
 
 
 
-
-
-  <meta property="article:published_time" content="2023-01-11T11:24:28-05:00">
+  <meta property="article:published_time" content="2023-01-11T17:17:37-05:00">
 
 
 
@@ -263,7 +265,7 @@
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Popsicle 3D-Printer">
-    <meta itemprop="description" content="Blurb">
+    <meta itemprop="description" content="A 3D-Printer for frozen popsicles. My friends and I built this by adapting a bed-XY printer with a custom chilled build platform and a slush extruder mechanism.">
     
     
 
@@ -282,6 +284,14 @@
 
       <section class="page__content e-content" itemprop="text">
         
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#description">Description</a><ul><li><a href="#slush-extruder">Slush extruder</a></li><li><a href="#chilled-build-plate">Chilled build plate</a></li><li><a href="#integration-with-printer">Integration with printer</a></li><li><a href="#calibration-and-tuning">Calibration and tuning</a></li></ul></li><li><a href="#gallery-of-popsicle-attempts">Gallery of Popsicle Attempts</a></li></ul>
+
+            </nav>
+          </aside>
+        
         
 <!-- Courtesy of embedresponsively.com -->
 
@@ -289,7 +299,52 @@
     <iframe src="https://www.youtube-nocookie.com/embed/x69az8HE6NU" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
   </div>
 
-<figcaption>A 3D-printer for frozen popsicles.</figcaption>
+<p><em>Designed and built in collaboration with Juju Wang and Prashanth Prakash.</em></p>
+
+<h2 id="description">Description</h2>
+
+<p>My friends and I built a printer to make edible, frozen popsicles. We started with a <a href="https://www.velleman.eu/products/view/?id=412554">Velleman K8200 printer</a>, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and is rigidly attached to a piece of aluminum framing. This made it easier for us to change out the filament extruder for our custom slush extruder.</p>
+
+<h3 id="slush-extruder">Slush extruder</h3>
+
+<p>A screw drive mechanism was used to extrude a partially frozen slush feedstock, as shown in the figure below.</p>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/screw-drive.png" alt="screw-dirve" width="75%" class="align-center" /></p>
+<figcaption class="text-center">A screw drive mechanism with a reservoir was used to extrude slush feedstock.</figcaption>
+
+<h3 id="chilled-build-plate">Chilled build plate</h3>
+
+<p>In order to freeze the slush feedstock into a solid popsicle, a chilled build plate was used. This was done by submerging a tray in a bath of dry ice and ethanol. We chose this method over other possible methods (refrigeration unit or LN2 injection in slush) because it was mechanically simple, and allowed us to use the printer in ambient, open air. This chilled build plate concept is shown below.</p>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/build-plate.png" alt="build-plate" width="100%" class="align-center" /></p>
+<figcaption class="text-center">Slush feedstock was printed and frozen onto a build plate chilled with a dry ice bath.</figcaption>
+
+<h3 id="integration-with-printer">Integration with printer</h3>
+
+<p>The chilled build plate was attached to the printer using simple sheet metal brackets:</p>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/plate-bracket.png" alt="plate-attach" width="100%" class="align-center" /></p>
+
+<p>The end of the screw drive mechanism was designed to key directly with the filament extruder motor that came with the base printer kit:</p>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/motor-screw-mate.png" alt="motor-screw-mate" width="100%" class="align-center" /></p>
+
+<h3 id="calibration-and-tuning">Calibration and tuning</h3>
+
+<p>The relationship between the screw drive extruder mass flow rate and motor speed was measured. This measurement then let us characterize the first layer freezing time vs extrude mass flow rate:</p>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/first-layer-freeze.png" alt="first-layer-freeze" width="100%" class="align-center" /></p>
+
+<p>We selected a mass flow rate of 1.2 g/s, and with that flow rate we characterized the layer freezing time vs layer number:</p>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/layer-num-freeze.png" alt="layer-num-freeze" width="100%" class="align-center" /></p>
+
+<p>Once we’d characterized these printer parameters, we could write custom gcode for (attempted) printing various popsicle shapes.</p>
+
+<h2 id="gallery-of-popsicle-attempts">Gallery of Popsicle Attempts</h2>
+
+<p><img src="/portfolio/assets/images/popsicle-printer/popsicle-gallery.png" alt="popsicle-gallery" width="100%" class="align-center" /></p>
+
 
         
       </section>
