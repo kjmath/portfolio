@@ -50,7 +50,7 @@ We selected a mass flow rate of 1.2 g/s, and with that flow rate we characterize
 
 ![layer-num-freeze]({{ site.baseurl }}/assets/images/popsicle-printer/layer-num-freeze.png){:width="100%"}{: .align-center}
 
-Once we'd characterized these printer parameters, we could write custom gcode for (attempted) printing various popsicle shapes.
+Once we'd characterized these printer parameters, we could write custom gcode for (attempted) printing of various popsicle shapes.
 
 ## Gallery of Popsicle Attempts
 

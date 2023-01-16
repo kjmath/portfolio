@@ -65,6 +65,12 @@ var store = [{
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
         "teaser": "/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png"
       },{
+        "title": "Combustion Instability in Solid Rocket Motors",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/combustion-instabilities/",
+        "teaser": "/portfolio/assets/images/combustion-instability/composite.png"
+      },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
         "excerpt":" ","categories": [],
         "tags": [],
