@@ -18,7 +18,7 @@
       {% else %}
         {% if post.link %}
           {% if post.no_link_icon %}
-            <a href="{{ post.link }}">{{ title }}</a> 
+            <a href="{{ post.link }}" rel="permalink">{{ title }}</a> 
             <!-- <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a> -->
           {% else %}
             <a href="{{ post.link }}">{{ title }}<i class="fas fa-link" aria-hidden="true" title="permalink"></i></a> 
