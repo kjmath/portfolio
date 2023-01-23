@@ -72,10 +72,10 @@ var store = [{
         "teaser": "/portfolio/assets/images/combustion-instability/composite.png"
       },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
-        "excerpt":" ","categories": [],
+        "excerpt":"Rocket Exhaust Plumes Overview A rocket exhaust plume is the formation of hot, high-velocity combustion products that exit the nozzle of a rocket. Depending on the propellants used, the combustion products may have only gaseous constituents, or may have condensed particles as well. Rocket exhaust plumes are not uniform in...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/experiments-emission/",
-        "teaser": null
+        "teaser": "/portfolio/assets/images/experiments-emission/composite.png"
       },{
         "title": "Popsicle 3D-Printer",
         "excerpt":"Designed and built in collaboration with Juju Wang and Prashanth Prakash. Description My friends and I built a printer to make edible, frozen popsicles. We started with a Velleman K8200 printer, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and...","categories": [],
