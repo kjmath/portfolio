@@ -65,7 +65,7 @@ var store = [{
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
         "teaser": "/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png"
       },{
-        "title": "Combustion Instability in Solid Rocket Motors",
+        "title": "Combustion Instability Modeling in Solid Rocket Motors",
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "/portfolio/projects/combustion-instabilities/",

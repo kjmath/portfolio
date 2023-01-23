@@ -1,6 +1,6 @@
 ---
 title: "Popsicle 3D-Printer"
-excerpt: "A 3D-Printer for frozen popsicles. My friends and I built this by adapting a bed-XY printer with a custom chilled build platform and a slush extruder mechanism."
+excerpt: "A 3D-printer for frozen popsicles. My friends and I built this by adapting a bed-XY printer with a custom chilled build platform and a slush extruder mechanism."
 header:
   teaser: /assets/images/popsicle-printer/popsicle-printer-composite.png
 order: 3.1

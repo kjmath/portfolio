@@ -89,7 +89,7 @@ The nozzle and motor case are designed with a tapered interface with the motor c
 
 A series of simple thermal shock experiments using water quenching were conducted on the alumina silicate material [^4].
 Four samples of alumina silicate material were prepared from 2.5 cm diameter rod.
-The samples were cut on a bandsaw in 2.5 cm lengths and dges were sanded to remove any sharp protrusions resulting from the cut.
+The samples were cut on a bandsaw in 2.5 cm lengths and edges were sanded to remove any sharp protrusions resulting from the cut.
 The samples were then fired in a kiln to achieve their full-fired material properties.
 
 The prepared samples were then heated in a kiln to a series of incremental temperatures.
@@ -112,7 +112,7 @@ This research motor, discussed further [here]({{ site.baseurl }}/projects/experi
 An image of one of these nozzles being used in a static fire is shown below.
 In the first seven static fires, the nozzle was water-cooled by flowing water in a channel around the nozzle.
 These tests are still valuable for evaluating thermal shock performance of the nozzle, but are not suited for evaluating thermal insulation performance.
-In eigth static fire ("SF8"), water was not flowed through the water cooling channel.
+In the eighth static fire ("SF8"), water was not flowed through the water cooling channel.
 This test is more suited to evaluating thermal insulation performance.
 Thermocouples were embedded in the bond line between the nozzle and aft closure for SF8 to evaluate the insulation performance, which will be discussed in the [next subsection](#nozzle-thermal-insulation-performance).
 
@@ -150,14 +150,14 @@ The nozzle internal convection coefficients were based on a seperate computation
 An external convective boundary condition with an adiabatic wall temperature of 298 K and a convection coefficient of 10 W m<sup>-2</sup> K<sup>-1</sup> is assumed to account for natural convection at the outer surface of the motor.
 The alumina silicate is assumed to have a constant thermal conductivity of 2.5 W m<sup>-1</sup> K<sup>-1</sup> [^1].
 
-The simulated and averaged measured bond line temperatures are plotted in \autoref{fig:SF8_temp_compare} for times between \say{laser on} and \say{thrust off}.
+The simulated and averaged measured bond line temperatures are plotted below for times between "laser on" and "thrust off".
 The simulation shows a monotonic rise in temperature.
 This is the expected behavior before burnout as the heat transferred from the hot combustion gases flowing through the nozzle soaks through the nozzle.
 Again, the thermocouple data shows an initial peak due to the flame leakage around the laser holder before it released.
 The temperature then decreases after the laser holder falls away and the excess heat is distributed through the large heat capacity of the motor case.
 Then, the temperature increases again as the heat from the hot combustion gases soaks through the nozzle to the bond line.
 After the initial peak in thermocouple temperature due to the flame leakage, the agreement between the thermocouple data and the simulation is surprisingly good.
-This suggests that the alumia-silicate material is behaving as expected, and has acceptable thermal performance in the contect of a rocket nozzle for a small, long-endurance motor.
+This suggests that the alumia-silicate material is behaving as expected, and has acceptable thermal performance in the context of a rocket nozzle for a small, long-endurance motor.
 
 ![temp-compare]({{ site.baseurl }}/assets/images/ceramic-nozzle-dev/temp-compare.png){:width="100%"}{: .align-center}
 <figcaption>The simulated bond line temperature shows good agreement with the thermocouple data after the initial temperature peak due to flame leakage around the laser holder before it released.</figcaption>{: .text-center}
