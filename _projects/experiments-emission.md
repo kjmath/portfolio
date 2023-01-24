@@ -118,7 +118,7 @@ The figure below illustrates the positioning of the radiometer with respect to t
 
 ![radiometer-location]({{ site.baseurl }}/assets/images/experiments-emission/radiometer_location2.jpg)
 
-### Thrust and chamber pressure
+### Thrust and Chamber Pressure
 
 Thrust is measured using an Omega LCEB-5 load cell with a rated capacity of 5 lbf (22 N).
 The load cell is connected to a swung platform on a thrust stand[^1], shown below, on which the motor is mounted.
