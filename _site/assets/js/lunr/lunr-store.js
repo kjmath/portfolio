@@ -48,10 +48,10 @@ var store = [{
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
       },{
         "title": "3D Printed Widgets",
-        "excerpt":" ","categories": [],
+        "excerpt":"A random collection of neat things I’ve designed and printed. Spice Rack A spice rack that fits over the lip of my kitchen counter, printed in four pieces and then epoxied together. Worm Gear A fun worm gear desk toy I designed and printed. Peg Board Hooks A collection of...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/3D-printed-widgets/",
-        "teaser": null
+        "teaser": "/portfolio/assets/images/3D-printed-widgets/composite.png"
       },{
         "title": "Level 3 Rocketry Certification",
         "excerpt":"Video from an onboard camera on L3 rocket. Overview I designed, built, and flew a high-power rocket as part of the National Association of Rocketry Level 3 Certification program. This certification involves building, flying, and successfully recovering a rocket that safely use an M impulse class or higher commercial solid...","categories": [],

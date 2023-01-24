@@ -7,4 +7,4 @@ author_profile: true
 sort_by: order
 toc: true
 ---
-TODO blurb here?
+A selection of hardware and software projects I've worked on.
