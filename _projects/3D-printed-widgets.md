@@ -10,11 +10,11 @@ toc_sticky: true
 ---
 A random collection of neat things I've designed and printed.
 
-## Spice Rack
+## Drill Alignment Jig
 
-A spice rack that fits over the lip of my kitchen counter, printed in four pieces and then epoxied together.
+A drill alignment jig with press-fit drill bushings. The two-piece jig clamps around an awkardly shaped part and lets me align the drill bit easily.
 
-![spice-rack]({{ site.baseurl }}/assets/images/3D-printed-widgets/spice-rack.jpg)
+![drill-jig]({{ site.baseurl }}/assets/images/3D-printed-widgets/drill-jig.jpg){:width="75%"}{: .align-center}
 
 ## Worm Gear
 
@@ -27,6 +27,12 @@ A fun worm gear desk toy I designed and printed.
 A collection of hooks for mounting tools to my peg board.
 
 ![peg-board]({{ site.baseurl }}/assets/images/3D-printed-widgets/peg-board.jpg){:width="75%"}{: .align-center}
+
+## Spice Rack
+
+A spice rack that fits over the lip of my kitchen counter, printed in four pieces and then epoxied together.
+
+![spice-rack]({{ site.baseurl }}/assets/images/3D-printed-widgets/spice-rack.jpg)
 
 ## Beer Tap Handles
 
@@ -46,12 +52,6 @@ Some custom cookie cutters for a cookie making contest.
 Snap-on brush hooks for holding dish brushes on a rail over my kitchen sink.
 
 ![brush-hook]({{ site.baseurl }}/assets/images/3D-printed-widgets/brush-hook.jpg){:width="75%"}{: .align-center}
-
-## Drill Alignment Jig
-
-A drill alignment jig with press-fit drill bushings. The two-piece jig clamps around an awkardly shaped part and lets me align the drill bit easily.
-
-![drill-jig]({{ site.baseurl }}/assets/images/3D-printed-widgets/drill-jig.jpg){:width="75%"}{: .align-center}
 
 ## Window Box Brackets
 

@@ -6,7 +6,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
       },{
         "title": "3D Printed Widgets",
-        "excerpt":"A random collection of neat things I’ve designed and printed. Spice Rack A spice rack that fits over the lip of my kitchen counter, printed in four pieces and then epoxied together. Worm Gear A fun worm gear desk toy I designed and printed. Peg Board Hooks A collection of...","categories": [],
+        "excerpt":"A random collection of neat things I’ve designed and printed. Drill Alignment Jig A drill alignment jig with press-fit drill bushings. The two-piece jig clamps around an awkardly shaped part and lets me align the drill bit easily. Worm Gear A fun worm gear desk toy I designed and printed....","categories": [],
         "tags": [],
         "url": "/portfolio/projects/3D-printed-widgets/",
         "teaser": "/portfolio/assets/images/3D-printed-widgets/composite.png"
