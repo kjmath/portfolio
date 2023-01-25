@@ -6,4 +6,5 @@ excerpt: 'A simulator for multi-process manufacturing systems with production of
 # nolink: true
 link: https://github.com/kjmath/prodsim
 order: 2.3
+share: false
 ---
