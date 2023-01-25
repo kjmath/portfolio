@@ -29,7 +29,7 @@ The rocket had a dry weight of 25.0 lbs, and an expected apogee 8,090 feet. The 
 
 ### Airframe Body Tubes
 
-The tubes are made from 6” diameter phenolic tubing from Public Missiles. A two-ply fiberglass overwrap using the West Systems epoxy system was completed to reinforce the airframe. The fiber glass was first spread on a piece of mylar and then coated in epoxy. The wet fiber glass was then rolled onto the phenolic tubing, and was smoothed to eliminate bubbles forming beneath the layup. Peel-ply was applied at the completion of the layup, and the layup was cured in atmosphere for 24 hours. The layup can be seen completed on a mandrel below.
+The tubes are made from 6” diameter phenolic tubing from Public Missiles. A two-ply fiberglass overwrap using the West Systems epoxy system was completed to reinforce the airframe. The fiberglass was first spread on a piece of mylar and then coated in epoxy. The wet fiberglass was then rolled onto the phenolic tubing, and was smoothed to eliminate bubbles forming beneath the layup. Peel-ply was applied at the completion of the layup, and the layup was cured in atmosphere for 24 hours. The layup can be seen completed on a mandrel below.
 
 ![tube-layup]({{ site.baseurl }}/assets/images/L3-rocket/tube_layup.png)
 <figcaption>Applying the fiberglass to the airframe tubing.</figcaption>
