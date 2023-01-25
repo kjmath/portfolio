@@ -42,6 +42,12 @@
         </div>
       {% endif %}
     {% endif %}
-    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html }}</p>{% endif %}
+    {% if post.excerpt %}
+      {% if post.no_html %}
+        <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
+      {% else %}
+        <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html }}</p>
+      {% endif  %}
+    {% endif %}
   </article>
 </div>
