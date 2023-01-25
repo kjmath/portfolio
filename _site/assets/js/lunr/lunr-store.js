@@ -41,6 +41,12 @@ var store = [{
         "url": "/portfolio/projects/manf-process-simulator/",
         "teaser": "/portfolio/assets/images/manf-process-simulator/composite.png"
       },{
+        "title": "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Raidant Emission",
+        "excerpt":"Motivation Exhaust plume radiant emission is coupled to a number of other vehicle disciplines for a solid rocket powered vehicle. The solid rocket motor produces and accelerates the hot exhaust species that form the exhaust plume. The vehicle trajectory affects the free stream conditions – such as temperature, pressure and...","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/modeling-emission/",
+        "teaser": null
+      },{
         "title": "Popsicle 3D Printer",
         "excerpt":"Designed and built in collaboration with Juju Wang and Prashanth Prakash. Description My friends and I built a printer to make edible, frozen popsicles. We started with a Velleman K8200 printer, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and...","categories": [],
         "tags": [],
