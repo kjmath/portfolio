@@ -18,7 +18,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/L3-rocket/L3-composite.png"
       },{
         "title": "Small, Long Endurance Ceramic Rocket Nozzle Development",
-        "excerpt":"Overview Typical solid rocket motors rely on transient methods – such as ablation or heat-sinking – for managing heat transfer through the nozzle and maintaining acceptable temperatures in the motor case. A large motor can use an ablative nozzle, which might erode by several millimeters during the motor burn; since...","categories": [],
+        "excerpt":"I developed two different nozzle designs to address the challenging requirements for small, long-endurance rocket motors. This work includes: designing and manufacturing a two-piece nozzle design with a 3D printed cellular ceramic insulator using a stereolithography process; designing a single-piece nozzle design with the novel application of a machinable alumina-silicate...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
         "teaser": "/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png"
@@ -57,6 +57,12 @@ var store = [{
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/low-thrust-paper/",
+        "teaser": null
+      },{
+        "title": "Strategies for Reuse of Launch Vehicle First Stages",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/publications/lvreuse/",
         "teaser": null
       },{
         "title": "Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications",
