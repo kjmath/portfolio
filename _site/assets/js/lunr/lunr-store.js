@@ -35,6 +35,12 @@ var store = [{
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": "/portfolio/assets/images/experiments-emission/composite.png"
       },{
+        "title": "Multi-Process Manufacturing System Simulator",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/manf-process-simulator/",
+        "teaser": "/portfolio/assets/images/manf-process-simulator/composite.png"
+      },{
         "title": "Popsicle 3D Printer",
         "excerpt":"Designed and built in collaboration with Juju Wang and Prashanth Prakash. Description My friends and I built a printer to make edible, frozen popsicles. We started with a Velleman K8200 printer, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and...","categories": [],
         "tags": [],
