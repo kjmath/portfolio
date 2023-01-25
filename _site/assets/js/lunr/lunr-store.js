@@ -54,7 +54,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development",
-        "excerpt":" ","categories": [],
+        "excerpt":"Matthew T. Vernacchia, Kelly J. Mathesius, and R. John Hansman. “Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development”. In: Journal of Propulsion and Power 38.1 (2022).   Open access version can be found here.    ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/low-thrust-paper/",
         "teaser": null
@@ -66,7 +66,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications",
-        "excerpt":" ","categories": [],
+        "excerpt":"Matthew T. Vernacchia, Kelly J. Mathesius, and R. J. Hansman. “Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications”. In: Journal of Propulsion and Power 37.5 (2021).   Open access version can be found here.    ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/oxamide-paper/",
         "teaser": null
