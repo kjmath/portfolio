@@ -69,7 +69,7 @@ The propellant was mixed in a custom vacuum mixer made from a heavily modified B
 Mixing propellant under vacuum helps to remove water and other volatiles from the propellant precursors and prevent air from being mixed into the propellant during mixing.
 The mixer has a single rotating shaft that passes up through the center of the bowl, with an attachment for two geared paddles for mixing in the bowl. 
 The relative simplicity of this mixer design -- as opposed to the design of planetary mixers -- means only a single rotating shaft needs to be sealed in order to pull vacuum.
-A 3D-printed insert with o-rings seals the rotating shaft to the rest of the mixing bowl. 
+A 3D printed insert with o-rings seals the rotating shaft to the rest of the mixing bowl. 
 An image of the shaft seal insert is shown below. 
 
 ![shaft-seal]({{ site.baseurl }}/assets/images/experiments-emission/shaft-seal.png)

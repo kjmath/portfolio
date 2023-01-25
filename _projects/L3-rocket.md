@@ -54,7 +54,7 @@ The motor mount tube was installed in the main airframe. Again, the inner surfac
 Through-the-wall fin mounting methods were used. Carefully measured slots were cut in the airframe using a dremel to mount the fins to the motor mount tube. A jig was 3D printed to enable even and perpendicular mounting of the fins with the airframe.
 
 ![fin-mount-jig]({{ site.baseurl }}/assets/images/L3-rocket/fin-mount-jig.png)
-<figcaption>A 3D-printed alignment jig was used to align the fins with the rocket airframe.</figcaption>
+<figcaption>A 3D printed alignment jig was used to align the fins with the rocket airframe.</figcaption>
 
 Fillets were applied with epoxy at every interface between the fins and the airframe. In image of some of the internal fillets between the fin tabs and motor mount tube are shown below.
 
@@ -80,7 +80,7 @@ An inner bulkhead then bolts into this ring with 8 4-40 screws. A u-bolt is atta
 Ballast was required for this rocket, both to ensure its stability and keep it under the maximum alitude allowed by the launch field. The ballast was attached to the removable inner bulkhead, and was mounted such that it would be attached inside of the nosecone. A container was 3D printed with a high infill density to provide a sturdy mounting point for the ballast. 3.5 pounds of lead shot is contained in this container in a plastic bag. This container is bolted onto the inner bulkhead with 6 4-40 screws, as shown below.
 
 ![ballast-in-container]({{ site.baseurl }}/assets/images/L3-rocket/ballast-in-container.png)
-<figcaption>A 3D-printed container was used to secure lead shot ballst in the nosecone of the rocket.</figcaption>
+<figcaption>A 3D printed container was used to secure lead shot ballst in the nosecone of the rocket.</figcaption>
 <br>
 
 ![ballast-on-bulkhead]({{ site.baseurl }}/assets/images/L3-rocket/ballast-on-bulkhead.png)
@@ -121,7 +121,7 @@ Pyrotechnic devices were tested successfully in a full-powered ground test with 
 
 ## Stability Evaluation
 
-OpenRocket was used to determine the CP location. The CG location was physically measured by assembling the rocket and finding the balance point. Both these quantities are shown in the image below. Assuming a 12' launch rail, this gives a stability of 1.6 calibers off the rail.
+OpenRocket was used to determine the CP location. The CG location was physically measured by assembling the rocket and finding the balance point. Both these quantities are shown in the image below. Assuming a 12' launch rail, this gives a stability of 1.6 calibers at the rail-end velocity.
 
 ![stability]({{ site.baseurl }}/assets/images/L3-rocket/stability.png)
 <figcaption>The CG (63.0" from the nosecone) is forward of the CP (72.4") from the nosecone, giving a passively stable vehicle with 1.6 calibers of stabillity.</figcaption>
