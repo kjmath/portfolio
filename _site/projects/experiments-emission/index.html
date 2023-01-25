@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-01-24T23:15:41-05:00">
+  <meta property="article:published_time" content="2023-01-24T23:41:21-05:00">
 
 
 
@@ -296,7 +296,17 @@
             </nav>
           </aside>
         
-        <h2 id="rocket-exhaust-plumes-overview">Rocket Exhaust Plumes Overview</h2>
+        <p>I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission. This research includes:</p>
+
+<ul>
+  <li>designing and building a solid rocket motor with a water-cooled nozzle;</li>
+  <li>developing a process for manufacturing solid rocket propellant, including building a custom vacuum mixer;</li>
+  <li>developing an x-ray inspection process for propellant;</li>
+  <li>conducting instrumented static fires of solid rocket motors, collecting calibrated radiometric, thrust, and chamber pressure and measurements; and</li>
+  <li>analyzing raw radiometric data to evaluate motor exhaust plume radiant intensity.</li>
+</ul>
+
+<h2 id="rocket-exhaust-plumes-overview">Rocket Exhaust Plumes Overview</h2>
 
 <p><img src="/portfolio/assets/images/experiments-emission/1D_plume_model.png" alt="plume-model" /></p>
 
@@ -307,8 +317,6 @@ Rocket exhaust plumes are not uniform in structure, temperatures, velocities, or
 <p>The hot gases and condensed particles (if present) in an exhaust plume emit radiant energy, producing a characteristic plume spectral radiant emission “signature” for a particular propulsion system.
 Gaseous species in the exhaust plume – such as CO, CO<sub>2</sub>, H<sub>2</sub>O, and HCl – emit radiation within particular spectral bands; the strongest of these spectral bands emit in the infrared.
 Condensed phases – typically soot or alumina particles, if present – usually produce a continuous emission spectrum, which usually peaks in the infrared for typical temperatures prevailing in rocket exhaust plumes.</p>
-
-<p>I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission.</p>
 
 <h2 id="experiments-overview">Experiments Overview</h2>
 
@@ -345,15 +353,17 @@ The tapered design is desirable, since the pressure load on the nozzle due to pr
 <h3 id="formula">Formula</h3>
 
 <p>Two different propellant formulations were used: a “baseline” formulation, and formulation with 8% oxamide burn rate supressant.
-The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant wit 80% ammonium perchloarte oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
+The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchloarte oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
 To create the 8% oxamide formula, the baseline propellant formulation is simply diluted with the desired mass fraction of the additive.</p>
 
 <h3 id="manufacturing">Manufacturing</h3>
 
 <p><img src="/portfolio/assets/images/experiments-emission/mixer-good.png" alt="mixer" /></p>
 
+<p>Mixing propellant under vacuum helps to remove water and other volatiles from the propellant precursors and prevent air from being mixed into the propellant during mixing.
+Because commercial vaccuum mixers with appropriate volume and power requirements cost over $15k and have several months lead time, a custom vacuum mixer was built.</p>
+
 <p>The propellant was mixed in a custom vacuum mixer made from a heavily modified Bosch Universal Plus MUM6N10 kitchen mixer with a 6.2 L capacity.
-Mixing propellant under vacuum helps to remove water and other volatiles from the propellant precursors and prevent air from being mixed into the propellant during mixing.
 The mixer has a single rotating shaft that passes up through the center of the bowl, with an attachment for two geared paddles for mixing in the bowl. 
 The relative simplicity of this mixer design – as opposed to the design of planetary mixers – means only a single rotating shaft needs to be sealed in order to pull vacuum.
 A 3D printed insert with o-rings seals the rotating shaft to the rest of the mixing bowl. 
@@ -378,8 +388,8 @@ Propellants grains with significant voids were not used, since the voids would l
 <h2 id="test-setup">Test Setup</h2>
 
 <p>All motor tests were conducted in a reinforced concrete blast chamber located on MIT campus.
-The motors were mounted to a custom thrust stand (described TODO) positioned in front of a high-emissivity background.
-Thrust, chamber pressure, and exhaust plume radiant emission measurements were collected for each motor; the instrumentation for these measurements is discussed in TODO.
+The motors were mounted to a custom thrust stand (described <a href="#thrust-and-chamber-pressure">here</a>) positioned in front of a high-emissivity background.
+Thrust, chamber pressure, and exhaust plume radiant emission measurements were collected for each motor; the instrumentation for these measurements is discussed <a href="#instrumentation">below</a>.
 An exhaust duct was positioned downstream of the motor to collect the exhaust and vent it outside.
 This ventilation helped to prevent the exhaust gases from stagnating downstream of the motor and subsequently obstructing the exhaust plume radiant emission measurement.
 An image of the test facility is given below.</p>

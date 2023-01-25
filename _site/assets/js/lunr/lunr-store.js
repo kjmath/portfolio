@@ -30,7 +30,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/combustion-instability/composite.png"
       },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
-        "excerpt":"Rocket Exhaust Plumes Overview A rocket exhaust plume is the formation of hot, high-velocity combustion products that exit the nozzle of a rocket. Depending on the propellants used, the combustion products may have only gaseous constituents, or may have condensed particles as well. Rocket exhaust plumes are not uniform in...","categories": [],
+        "excerpt":"I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission. This research includes: designing and building a solid rocket motor with a water-cooled nozzle; developing a process for...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": "/portfolio/assets/images/experiments-emission/composite.png"
