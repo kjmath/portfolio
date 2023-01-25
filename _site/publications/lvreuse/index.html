@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>3D Printed Titanium Rocket Motor Closure - Kelly Mathesius</title>
-<meta name="description" content="I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor.">
+<!-- begin _includes/seo.html --><title>Strategies for Reuse of Launch Vehicle First Stages - Kelly Mathesius</title>
+<meta name="description" content="presented by Matthew Vernacchia and Kelly Mathesius at the 2018 Interantional Astronautical Congress (paper code IAC-18,D2,4,3, x47508)">
 
 
   <meta name="author" content="Kelly Mathesius">
@@ -22,15 +22,13 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Kelly Mathesius">
-<meta property="og:title" content="3D Printed Titanium Rocket Motor Closure">
-<meta property="og:url" content="http://localhost:4000/portfolio/projects/3D-print-closure/">
+<meta property="og:title" content="Strategies for Reuse of Launch Vehicle First Stages">
+<meta property="og:url" content="http://localhost:4000/portfolio/publications/lvreuse/">
 
 
-  <meta property="og:description" content="I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor.">
+  <meta property="og:description" content="presented by Matthew Vernacchia and Kelly Mathesius at the 2018 Interantional Astronautical Congress (paper code IAC-18,D2,4,3, x47508)">
 
 
-
-  <meta property="og:image" content="http://localhost:4000/portfolio/assets/images/printed-closure/printed-closure-composite.png">
 
 
 
@@ -43,7 +41,7 @@
 
 
 
-<link rel="canonical" href="http://localhost:4000/portfolio/projects/3D-print-closure/">
+<link rel="canonical" href="http://localhost:4000/portfolio/publications/lvreuse/">
 
 
 
@@ -268,8 +266,8 @@
 
 
   <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="3D Printed Titanium Rocket Motor Closure">
-    <meta itemprop="description" content="I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor.">
+    <meta itemprop="headline" content="Strategies for Reuse of Launch Vehicle First Stages">
+    <meta itemprop="description" content="presented by Matthew Vernacchia and Kelly Mathesius at the 2018 Interantional Astronautical Congress (paper code IAC-18,D2,4,3, x47508)">
     
     
 
@@ -277,7 +275,7 @@
       
         <header>
           <h1 id="page-title" class="page__title p-name" itemprop="headline">
-            <a href="http://localhost:4000/portfolio/projects/3D-print-closure/" class="u-url" itemprop="url">3D Printed Titanium Rocket Motor Closure
+            <a href="http://localhost:4000/portfolio/publications/lvreuse/" class="u-url" itemprop="url">Strategies for Reuse of Launch Vehicle First Stages
 </a>
           </h1>
           
@@ -288,51 +286,9 @@
 
       <section class="page__content e-content" itemprop="text">
         
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#design">Design</a></li><li><a href="#analysis">Analysis</a></li><li><a href="#manufacturing">Manufacturing</a></li><li><a href="#test">Test</a></li></ul>
-
-            </nav>
-          </aside>
         
-        <p>I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor.</p>
 
-<h2 id="design">Design</h2>
-
-<p>This after closure is a part of a rocket motor I use for research of small, low-thrust solid rocket motors that will ultimately be used in small aircraft applications. As shown in the CAD below, the aft closure serves as an adapter between the aft end of the motor and the miniature nozzle. The closure has a tapered geometry, which mimics the shape of the aft end of the aircraft that this motor would be used in.</p>
-
-<p><img src="/portfolio/assets/images/printed-closure/aft-section-CAD-annotated.jpg" alt="aft-section-CAD" /></p>
-<figcaption>CAD section view of aft closure installed in motor.</figcaption>
-
-<p>Ti-6Al-4V metal is used for this part, given its relatively high maximum service temperature and (strength / density) ratio. The thickness of the closure should be as thin as possible to minimize the mass of the part. This thin, tapered part would be time-consuming to manufacture via subtractive methods, and would waste a significant amount of material in the process. Additive manufacturing was chosen for fabricating this part, and the part was designed with the constraints of additive manufacturing in mind.</p>
-
-<p>This closure was designed in collaboration with engineers at Renishaw PLC, who ultimately manufactured the part. The printed closure, after secondary machining operations, is shown below.</p>
-
-<p><img src="/portfolio/assets/images/printed-closure/closure-annotated.png" alt="closure" /></p>
-<figcaption>3D printed titanium rocket closure.</figcaption>
-
-<p>The wall thickness of the aft closure is limited by the minimum thickness that can reliably be achieved with their metal powder bed fusion process, about 1.3 mm. The part was oriented during the print with the larger diameter end of the part at the bottom. This is the best orientation for printing, since the part is generally self supporting in this orientation. The threaded through-holes on the tapered portion of the part are instrument ports. Support tabs were added on the bottom sides of these threaded ports to support them during the print. The part was printed with additional material at the base where the o-ring glands and motor case interface holes are located, so that the outer diameter and o-ring gland dimensions could be turned precisely after printing.</p>
-
-<h2 id="analysis">Analysis</h2>
-
-<p>Before designing the parts, I did some brief hand calculations to verify the hoop stress due to pressure loads and the bearing stress at the motor case interface holes would not yield the part during use. Hand calculations were completed for material properties at room temperature and at 800 K, using the MMPDS handbook to determine material properties of Ti-6Al-4V at elevated temperature. After designing the part, I subsequently used the SolidWorks Simulation FEA tool to do a more rigorous analysis of the stresses in the part to ensure the material would not yield during use in a static fire.</p>
-
-<h2 id="manufacturing">Manufacturing</h2>
-
-<p>The part was printed using a powder bed fusion process at Renishaw PLC. After completing the design, I created two STEP files for the manufactuer: one with the as-printed geometry, and one with the final machined geometry. I also created an engineering drawing with GD&amp;T to communicate the final required dimensions and tolerances. This drawing can be seen below, or a PDF of this drawing can also be viewed <a href="/portfolio/assets/images/printed-closure/aft-section-drawing.pdf">here</a>.</p>
-
-<p><img src="/portfolio/assets/images/printed-closure/aft-section-drawing.jpg" alt="aft-section-drawing" /></p>
-<figcaption>Drawing of the aft closure.</figcaption>
-
-<h2 id="test">Test</h2>
-
-<p>This aft closure was used in a static fire of a small experimental rocket motor testing a new propellant and nozzle design. The aft closure performed as expected, and showed no damage upon inspection after the motor test.</p>
-
-<p><img src="/portfolio/assets/images/printed-closure/motor-burn.png" alt="closure-burn" /></p>
-<figcaption>3D printed titanium rocket motor closure in use during a static fire of a small rocket motor.</figcaption>
-
-        
+        <div><a href="https://github.com/mvernacc/lvreuse" class="btn btn--primary">Direct Link</a></div>
       </section>
 
       <footer class="page__meta">
@@ -344,15 +300,25 @@
 
       </footer>
 
-      
+      <section class="page__share">
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Strategies+for+Reuse+of+Launch+Vehicle+First+Stages%20http%3A%2F%2Flocalhost%3A4000%2Fportfolio%2Fpublications%2Flvreuse%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fportfolio%2Fpublications%2Flvreuse%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fportfolio%2Fpublications%2Flvreuse%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
 
       
   <nav class="pagination">
     
-      <a href="#" class="pagination--pager disabled">Previous</a>
+      <a href="/portfolio/publications/low-thrust-paper/" class="pagination--pager" title="Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development
+">Previous</a>
     
     
-      <a href="/portfolio/projects/3D-printed-widgets/" class="pagination--pager" title="3D Printed Widgets
+      <a href="/portfolio/publications/oxamide-paper/" class="pagination--pager" title="Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications
 ">Next</a>
     
   </nav>

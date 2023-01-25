@@ -18,7 +18,7 @@ This after closure is a part of a rocket motor I use for research of small, low-
 ![aft-section-CAD]({{ site.baseurl }}/assets/images/printed-closure/aft-section-CAD-annotated.jpg)
 <figcaption>CAD section view of aft closure installed in motor.</figcaption>
 
-Ti-6Al-4V metal is used for this part, given its relatively high maximum service temperature and (strength / density) ratio. The thickness of the closure should be as thin as possible to minimize the mass of the part. This thin, tapered part would be time-consuming to manufacture via subtractive methods, and would waste a significant amount of material in the process. Additive manufacturing was subsequently chosen for fabricating this part, and the part was designed with the constraints of additive manufacturing in mind. 
+Ti-6Al-4V metal is used for this part, given its relatively high maximum service temperature and (strength / density) ratio. The thickness of the closure should be as thin as possible to minimize the mass of the part. This thin, tapered part would be time-consuming to manufacture via subtractive methods, and would waste a significant amount of material in the process. Additive manufacturing was chosen for fabricating this part, and the part was designed with the constraints of additive manufacturing in mind. 
 
 This closure was designed in collaboration with engineers at Renishaw PLC, who ultimately manufactured the part. The printed closure, after secondary machining operations, is shown below.
 

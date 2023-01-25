@@ -9,6 +9,14 @@ toc: true
 toc_sticky: true
 ---
 
+I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission. This research includes:
+
+- designing and building a solid rocket motor with a water-cooled nozzle;
+- developing a process for manufacturing solid rocket propellant, including building a custom vacuum mixer;
+- developing an x-ray inspection process for propellant;
+- conducting instrumented static fires of solid rocket motors, collecting calibrated radiometric, thrust, and chamber pressure and measurements; and
+- analyzing raw radiometric data to evaluate motor exhaust plume radiant intensity.
+
 ## Rocket Exhaust Plumes Overview
 
 ![plume-model]({{ site.baseurl }}/assets/images/experiments-emission/1D_plume_model.png)
@@ -20,8 +28,6 @@ Rocket exhaust plumes are not uniform in structure, temperatures, velocities, or
 The hot gases and condensed particles (if present) in an exhaust plume emit radiant energy, producing a characteristic plume spectral radiant emission "signature" for a particular propulsion system.
 Gaseous species in the exhaust plume -- such as CO, CO<sub>2</sub>, H<sub>2</sub>O, and HCl -- emit radiation within particular spectral bands; the strongest of these spectral bands emit in the infrared.
 Condensed phases -- typically soot or alumina particles, if present -- usually produce a continuous emission spectrum, which usually peaks in the infrared for typical temperatures prevailing in rocket exhaust plumes. 
-
-I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission.
 
 ## Experiments Overview
 
@@ -58,18 +64,20 @@ The tapered design is desirable, since the pressure load on the nozzle due to pr
 ### Formula
 
 Two different propellant formulations were used: a "baseline" formulation, and formulation with 8% oxamide burn rate supressant.
-The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant wit 80% ammonium perchloarte oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
+The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchloarte oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
 To create the 8% oxamide formula, the baseline propellant formulation is simply diluted with the desired mass fraction of the additive.
 
 ### Manufacturing
 
 ![mixer]({{ site.baseurl }}/assets/images/experiments-emission/mixer-good.png)
 
-The propellant was mixed in a custom vacuum mixer made from a heavily modified Bosch Universal Plus MUM6N10 kitchen mixer with a 6.2 L capacity.
 Mixing propellant under vacuum helps to remove water and other volatiles from the propellant precursors and prevent air from being mixed into the propellant during mixing.
+Because commercial vaccuum mixers with appropriate volume and power requirements cost over $15k and have several months lead time, a custom vacuum mixer was built.
+
+The propellant was mixed in a custom vacuum mixer made from a heavily modified Bosch Universal Plus MUM6N10 kitchen mixer with a 6.2 L capacity.
 The mixer has a single rotating shaft that passes up through the center of the bowl, with an attachment for two geared paddles for mixing in the bowl. 
 The relative simplicity of this mixer design -- as opposed to the design of planetary mixers -- means only a single rotating shaft needs to be sealed in order to pull vacuum.
-A 3D-printed insert with o-rings seals the rotating shaft to the rest of the mixing bowl. 
+A 3D printed insert with o-rings seals the rotating shaft to the rest of the mixing bowl. 
 An image of the shaft seal insert is shown below. 
 
 ![shaft-seal]({{ site.baseurl }}/assets/images/experiments-emission/shaft-seal.png)
@@ -91,8 +99,8 @@ Propellants grains with significant voids were not used, since the voids would l
 ## Test Setup
 
 All motor tests were conducted in a reinforced concrete blast chamber located on MIT campus.
-The motors were mounted to a custom thrust stand (described TODO) positioned in front of a high-emissivity background.
-Thrust, chamber pressure, and exhaust plume radiant emission measurements were collected for each motor; the instrumentation for these measurements is discussed in TODO.
+The motors were mounted to a custom thrust stand (described [here](#thrust-and-chamber-pressure)) positioned in front of a high-emissivity background.
+Thrust, chamber pressure, and exhaust plume radiant emission measurements were collected for each motor; the instrumentation for these measurements is discussed [below](#instrumentation).
 An exhaust duct was positioned downstream of the motor to collect the exhaust and vent it outside.
 This ventilation helped to prevent the exhaust gases from stagnating downstream of the motor and subsequently obstructing the exhaust plume radiant emission measurement.
 An image of the test facility is given below.

@@ -6,7 +6,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
       },{
         "title": "3D Printed Widgets",
-        "excerpt":"A random collection of neat things I’ve designed and printed. Spice Rack A spice rack that fits over the lip of my kitchen counter, printed in four pieces and then epoxied together. Worm Gear A fun worm gear desk toy I designed and printed. Peg Board Hooks A collection of...","categories": [],
+        "excerpt":"A random collection of neat things I’ve designed and printed. Drill Alignment Jig A drill alignment jig with press-fit drill bushings. The two-piece jig clamps around an awkardly shaped part and lets me align the drill bit easily. Worm Gear A fun worm gear desk toy I designed and printed....","categories": [],
         "tags": [],
         "url": "/portfolio/projects/3D-printed-widgets/",
         "teaser": "/portfolio/assets/images/3D-printed-widgets/composite.png"
@@ -18,7 +18,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/L3-rocket/L3-composite.png"
       },{
         "title": "Small, Long Endurance Ceramic Rocket Nozzle Development",
-        "excerpt":"Overview Typical solid rocket motors rely on transient methods – such as ablation or heat-sinking – for managing heat transfer through the nozzle and maintaining acceptable temperatures in the motor case. A large motor can use an ablative nozzle, which might erode by several millimeters during the motor burn; since...","categories": [],
+        "excerpt":"I developed two different nozzle designs to address the challenging requirements for small, long-endurance rocket motors. This work includes: designing and manufacturing a two-piece nozzle design with a 3D printed cellular ceramic insulator using a stereolithography process; designing a single-piece nozzle design with the novel application of a machinable alumina-silicate...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
         "teaser": "/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png"
@@ -30,7 +30,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/combustion-instability/composite.png"
       },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
-        "excerpt":"Rocket Exhaust Plumes Overview A rocket exhaust plume is the formation of hot, high-velocity combustion products that exit the nozzle of a rocket. Depending on the propellants used, the combustion products may have only gaseous constituents, or may have condensed particles as well. Rocket exhaust plumes are not uniform in...","categories": [],
+        "excerpt":"I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission. This research includes: designing and building a solid rocket motor with a water-cooled nozzle; developing a process for...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": "/portfolio/assets/images/experiments-emission/composite.png"
@@ -57,6 +57,12 @@ var store = [{
         "excerpt":" ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/low-thrust-paper/",
+        "teaser": null
+      },{
+        "title": "Strategies for Reuse of Launch Vehicle First Stages",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/publications/lvreuse/",
         "teaser": null
       },{
         "title": "Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications",
