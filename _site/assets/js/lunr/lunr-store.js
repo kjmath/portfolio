@@ -30,7 +30,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/combustion-instability/composite.png"
       },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
-        "excerpt":"I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission. This research includes: designing and building a solid rocket motor with a water-cooled nozzle; developing a process for...","categories": [],
+        "excerpt":"I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume infrared radiant emission. This research includes: designing and building a solid rocket motor with a water-cooled nozzle; developing a process...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": "/portfolio/assets/images/experiments-emission/composite.png"
