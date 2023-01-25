@@ -63,7 +63,7 @@ Fillets were applied with epoxy at every interface between the fins and the airf
 
 A two-ply tip-to-tip fiberglass layup was done across each of the fin pairs. The first ply was cut to be slighly smaller than the fins. The second ply was cut slightly larger than the fins, and then trimmed and sanded flush to the fins after application and epoxy cure. The cut fiberglass plies were coated with epoxy, and then applied to the surface of the fins, which were prepared with 400 grit sand paper. An image of one of these tip-to-tip layups is shown below.
 
-![fin-tip-to-tip]({{ site.baseurl }}/assets/images/L3-rocket/fin-tip-to-tip.jpg)
+![fin-tip-to-tip]({{ site.baseurl }}/assets/images/L3-rocket/fin-tip-to-tip.JPG)
 <figcaption>A tip-to-tip fiberglass layup was applied to each fin pair to increase strength and stiffness of the fins.</figcaption>
 
 Additionally, to reinforce the fin mount to the airframe, polyurethane expanding foam was used to fill the spaces between each of the three fins, as shown below. This is important to ensure the fins are not damaged when the rocket lands, which can often exert large moments on the fins.
