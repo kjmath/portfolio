@@ -9,12 +9,12 @@ toc: true
 toc_sticky: true
 ---
 
-I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume radiant emission. This research includes:
+I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume infrared radiant emission. This research includes:
 
 - designing and building a solid rocket motor with a water-cooled nozzle;
 - developing a process for manufacturing solid rocket propellant, including building a custom vacuum mixer;
 - developing an x-ray inspection process for propellant;
-- conducting instrumented static fires of solid rocket motors, collecting calibrated radiometric, thrust, and chamber pressure and measurements; and
+- conducting instrumented static fires of solid rocket motors, collecting calibrated radiometric, thrust, and chamber pressure measurements; and
 - analyzing raw radiometric data to evaluate motor exhaust plume radiant intensity.
 
 ## Rocket Exhaust Plumes Overview
