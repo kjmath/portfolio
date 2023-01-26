@@ -92,7 +92,7 @@ The indicator grains provide verification in every image that any voids present 
 One of these x-ray images is shown below.
 The two indicator grains are on the left, and the test grain is on the right.
 Many voids are visible in the test grain, and are pointed out with arrows in the image. 
-Propellants grains with significant voids were not used, since the voids would likely result in unpredictable propellant burning areas and motor chamber pressures.
+Propellant grains with significant voids were not used, since the voids would likely result in unpredictable propellant burning areas and motor chamber pressures.
 
 ![x-ray]({{ site.baseurl }}/assets/images/experiments-emission/x_ray_inspection.jpg)
 

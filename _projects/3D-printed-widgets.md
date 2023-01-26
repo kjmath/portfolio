@@ -40,9 +40,9 @@ Custom tap handles and plaque for my Dad's home-brewing project. A threaded inse
 
 ![handles]({{ site.baseurl }}/assets/images/3D-printed-widgets/handles_and_plaque.jpg)
 
-## Cookie Cutters
+## Cookie Cutter
 
-Some custom cookie cutters for a cookie making contest.
+A custom cookie cutter for a cookie making contest.
 
 ![cookie-cutters]({{ site.baseurl }}/assets/images/3D-printed-widgets/cookie-cutter-with-cookies.jpg)
 
