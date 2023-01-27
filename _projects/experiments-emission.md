@@ -35,7 +35,7 @@ A collection of experiments measuring chamber pressure, thrust, and exhaust plum
 The same end-burning motor configuration (discussed [below](#test-motor-design)) is used for all experiments, such that each motor firing had the same propellant burning area.
 
 A core test matrix of four motor static fires evaluates the effects of oxamide (a propellant burn rate supressant) and operating chamber pressure on exhaust plume radiant emission for small solid rocket motors.
-A baseline propellant formulation containing either 0 or 8% oxamide was used for the tests (discussed [here](#propellants)).
+A baseline propellant formulation containing either 0 or 8% oxamide was used for the tests (discussed [here](#propellant)).
 For each of the two oxamide contents, two static fires with different throat diameters were conducted.
 The throat diameters were chosen so that the operating chamber pressure of the motors would be approximately 1 MPa and 2.5 MPa.
 
