@@ -158,7 +158,7 @@ This peak is due to the CO<sub>2</sub> in the exhaust plume, which has a strong 
 A weaker peak at 4.7 &#956;m can also be seen, which is due to CO emission.
 The measurements at wavelengths less than 4 &#956;m for each motor test are unfortunately noisy.
 Measuring the radiant emission of these small, slow-burning solid rocket motors required operating the spectroradiometer near its lower sensitivity limit.
-Even at the maximum gain setting, the exhaust plume contrast measurements used, at most (at the \4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7 % of the dynamic range of the detector.
+Even at the maximum gain setting, the exhaust plume contrast measurements used, at most (at the 4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7 % of the dynamic range of the detector.
 For a larger motor with more emission, a band centered at 2.7 &#956;m due to both H<sub>2</sub>O and CO<sub>2</sub> and a band centered at 3.5 &#956;m for HCl would be expected, given the expected combustion products in the motor's exhaust.
 However, these weaker emission bands are not very pronounced for these small, low-thrust motors.
 
