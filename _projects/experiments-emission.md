@@ -64,7 +64,7 @@ The tapered design is desirable, since the pressure load on the nozzle due to pr
 ### Formula
 
 Two different propellant formulations were used: a "baseline" formulation, and formulation with 8% oxamide burn rate supressant.
-The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchloarte oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
+The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchlorate oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
 To create the 8% oxamide formula, the baseline propellant formulation is simply diluted with the desired mass fraction of the additive.
 
 ### Manufacturing
