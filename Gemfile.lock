@@ -294,7 +294,7 @@ DEPENDENCIES
   jekyll-sitemap
   jemoji
   minimal-mistakes-jekyll
-  nokogiri (>= 1.13.10)
+  nokogiri
   tzinfo-data
   webrick (~> 1.7)
 
