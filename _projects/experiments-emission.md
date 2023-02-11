@@ -35,7 +35,7 @@ A collection of experiments measuring chamber pressure, thrust, and exhaust plum
 The same end-burning motor configuration (discussed [below](#test-motor-design)) is used for all experiments, such that each motor firing had the same propellant burning area.
 
 A core test matrix of four motor static fires evaluates the effects of oxamide (a propellant burn rate supressant) and operating chamber pressure on exhaust plume radiant emission for small solid rocket motors.
-A baseline propellant formulation containing either 0 or 8% oxamide was used for the tests (discussed [here](#propellants)).
+A baseline propellant formulation containing either 0 or 8% oxamide was used for the tests (discussed [here](#propellant)).
 For each of the two oxamide contents, two static fires with different throat diameters were conducted.
 The throat diameters were chosen so that the operating chamber pressure of the motors would be approximately 1 MPa and 2.5 MPa.
 
@@ -64,7 +64,7 @@ The tapered design is desirable, since the pressure load on the nozzle due to pr
 ### Formula
 
 Two different propellant formulations were used: a "baseline" formulation, and formulation with 8% oxamide burn rate supressant.
-The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchloarte oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
+The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchlorate oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
 To create the 8% oxamide formula, the baseline propellant formulation is simply diluted with the desired mass fraction of the additive.
 
 ### Manufacturing
@@ -92,7 +92,7 @@ The indicator grains provide verification in every image that any voids present 
 One of these x-ray images is shown below.
 The two indicator grains are on the left, and the test grain is on the right.
 Many voids are visible in the test grain, and are pointed out with arrows in the image. 
-Propellants grains with significant voids were not used, since the voids would likely result in unpredictable propellant burning areas and motor chamber pressures.
+Propellant grains with significant voids were not used, since the voids would likely result in unpredictable propellant burning areas and motor chamber pressures.
 
 ![x-ray]({{ site.baseurl }}/assets/images/experiments-emission/x_ray_inspection.jpg)
 
@@ -158,7 +158,7 @@ This peak is due to the CO<sub>2</sub> in the exhaust plume, which has a strong 
 A weaker peak at 4.7 &#956;m can also be seen, which is due to CO emission.
 The measurements at wavelengths less than 4 &#956;m for each motor test are unfortunately noisy.
 Measuring the radiant emission of these small, slow-burning solid rocket motors required operating the spectroradiometer near its lower sensitivity limit.
-Even at the maximum gain setting, the exhaust plume contrast measurements used, at most (at the \4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7 % of the dynamic range of the detector.
+Even at the maximum gain setting, the exhaust plume contrast measurements used, at most (at the 4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7 % of the dynamic range of the detector.
 For a larger motor with more emission, a band centered at 2.7 &#956;m due to both H<sub>2</sub>O and CO<sub>2</sub> and a band centered at 3.5 &#956;m for HCl would be expected, given the expected combustion products in the motor's exhaust.
 However, these weaker emission bands are not very pronounced for these small, low-thrust motors.
 
