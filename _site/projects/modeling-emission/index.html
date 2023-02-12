@@ -30,11 +30,13 @@
 
 
 
+  <meta property="og:image" content="http://localhost:4000/portfolio/assets/images/modeling-emission/banner.png">
 
 
 
 
-  <meta property="article:published_time" content="2023-01-25T15:54:10-05:00">
+
+  <meta property="article:published_time" content="2023-02-11T20:35:39-05:00">
 
 
 
@@ -289,38 +291,141 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#motivation">Motivation</a></li><li><a href="#model-overview">Model Overview</a></li></ul>
+              <ul class="toc__menu"><li><a href="#design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</a></li><li><a href="#model-comparison-with-experimental-data">Model Comparison with Experimental Data</a><ul><li><a href="#example-1-comparison-with-plume-radiant-emission-experiments-for-small-end-burning-motors">Example 1: Comparison with Plume Radiant Emission Experiments for Small, End-burning Motors</a></li><li><a href="#example-2-comparison-with-avital-et-al-experiment">Example 2: Comparison with Avital et al. Experiment</a></li></ul></li><li><a href="#general-model-description">General Model Description</a></li><li><a href="#implementation-in-aerosandbox">Implementation in AeroSandbox</a><ul><li><a href="#defining-design-problems">Defining Design Problems</a></li><li><a href="#model-limitations">Model Limitations</a></li></ul></li><li><a href="#in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</a></li></ul>
 
             </nav>
           </aside>
         
-        <h2 id="motivation">Motivation</h2>
-
-<p>Exhaust plume radiant emission is coupled to a number of other vehicle disciplines for a solid rocket powered vehicle.
-The solid rocket motor produces and accelerates the hot exhaust species that form the exhaust plume.
-The vehicle trajectory affects the free stream conditions – such as temperature, pressure and velocity – which in turn affect the entrainment of air into the exhaust plume and subsequent chemical reactions in the plume.
-For vehicles where exhaust plume radiant emission is relevant, considering it during the design phase is important for ensuring vehicle requirements and objectives can be met while accounting for the coupling of plume radiant emission with other disciplines.</p>
-
-<p>Technology gaps exist, however, for integrating exhaust plume radiant emission in solid rocket powered vehicle design.
+        <p>For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. 
+However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory.
 Typical modeling approaches are computationally expensive, and rely on CFD and complicated integration schemes that are not well-suited for fast, iterative vehicle design.
-New, simpler models are needed that enable plume radiant emission to be practically considered during the design phase.
-These models should ideally be implemented in a flexible design optimization framework such that radiant emission can be directly coupled to key design variables and other vehicle disciplines.</p>
+To address this gap, I developed simpler models for exhaust plume radiant emission, and implemented them in the fast, flexible <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox</a> design optimization framework.</p>
 
-<p>To address these gaps, I developed and implemented an end-to-end differentiable model for exhaust plume radiant emission coupled with solid rocket motor design parameters with <a href="https://web.casadi.org/">CasADi</a> and the <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox design optimization framework</a>.</p>
+<p>During my graduate research at MIT, I worked on a broader research effort to design, build, and characterize propulsion systems for a class of small ( &lt; 10 kg), fast (&gt; 100 m s<sup>-1</sup>) aircraft.
+A proposed design for this class of aircraft utilizes a small, end-burning solid rocket motor and a class of slow-burning propellants doped with the burn rate suppressant oxamide, similar to the motors developed, tested, and measured in the static fires described in the <a href="/portfolio/projects/experiments-emission/">exhaust plume radiant emission experiments</a> I conducted.
+This aircraft concept, illustrated below, will be used as a case study to explore the capabilities of the developed plume radiant emission model.</p>
 
-<h2 id="model-overview">Model Overview</h2>
+<p><img src="/portfolio/assets/images/modeling-emission/vehicle_design_with_plume.png" alt="vehicle-design" /></p>
+<figcaption>A proposed design for a class of small ( &lt; 10 kg), fast (&gt; 100 m s<sup>-1</sup>) aircraft. Design choices such as propellant composition and nozzle throat area influence the downstream plume flow field and exhaust plume radiant intensity.</figcaption>
 
-<p><img src="/portfolio/assets/images/modeling-emission/model_concept-crop.png" alt="model-concept" />
-<!-- <figcaption>A tip-to-tip fiberglass layup was applied to each fin pair to increase strength and stiffness of the fins.</figcaption> --></p>
+<h2 id="design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</h2>
 
-<p>Six sub-models of different coupled physical phenomena were developed and implemented in this thesis to predict exhaust plume radiant intensity:</p>
+<p>The modeling and optimization work in this thesis leverages the <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox</a> framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
+AeroSandbox solves design problems using the <a href="https://web.casadi.org/">CasADi</a> framework, which in turn leverages automatic differentiation.
+Automatic differentiation is a method for evaluating computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule.
+It can be used to compute derivatives for gradient-based optimization schemes and provides a computationally efficient method to solve high-dimensional engineering problems.</p>
+
+<p>I successfully developed and implemented a differentiable model for exhaust plume radiant emission in the AeroSandbox framework (discussed further <a href="#general-model-description">below</a>).
+A comparison of the model results to experimental data is shown in the following section.</p>
+
+<h2 id="model-comparison-with-experimental-data">Model Comparison with Experimental Data</h2>
+
+<h3 id="example-1-comparison-with-plume-radiant-emission-experiments-for-small-end-burning-motors">Example 1: Comparison with Plume Radiant Emission Experiments for Small, End-burning Motors</h3>
+
+<p>In the figure below is a comparison of model results with the <a href="/portfolio/projects/experiments-emission/#results">exhaust plume radiant emission measurements</a> collected during the experiments for my graduate research. 
+For all four static fires, both the measured and modeled spectra show a distinct peak at 4.3 μm corresponding to CO<sub>2</sub> emission.
+Weaker emission peaks corresponding to a CO band at 4.7 μm and a combined CO<sub>2</sub> and H<sub>2</sub>O band at 2.7 μm.
+The measured data and modeled results show reasonable agreement across the spectrum for all four static fires, although the measured experimental data is unfortunately noisy across the spectrum, especially away from the 4.3 μm CO<sub>2</sub> peak where the measured signal is weak.
+Unfortunately, the radiant emission of these small, slow-burning solid rocket motors required operating the radiometric instrumentation near its lower sensitivity limit.
+<!-- Even at the maximum gain setting, the exhaust plume contrast measurements utilized, at most (at the 4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7% of the dynamic range of the detector. --></p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/plot_all_rad_uncorrected_annotated.png" alt="plot-all-rad" /></p>
+<figcaption>TODO</figcaption>
+
+<p><img src="/portfolio/assets/images/modeling-emission/flow_field_compare.png" alt="plot-all-flow-field" /></p>
+<figcaption>TODO</figcaption>
+
+<h3 id="example-2-comparison-with-avital-et-al-experiment">Example 2: Comparison with Avital et al. Experiment</h3>
+
+<p><img src="/portfolio/assets/images/modeling-emission/avital_rad_annotated.png" alt="avital-rad" /></p>
+<figcaption>TODO</figcaption>
+
+<h2 id="general-model-description">General Model Description</h2>
+
+<p><img src="/portfolio/assets/images/modeling-emission/model_concept-crop.png" alt="model-concept" /></p>
+<figcaption>Six inter-dependent sub-models are used to couple solid rocket motor design with motor exhaust plume radiant emission.</figcaption>
+
+<p>Six diffentiable sub-models of different coupled physical phenomena were developed and implemented to predict exhaust plume radiant intensity.
+Their dependencies and information flow are shown in the figure above.
+These models will be discussed in greater detail in later sections, but are summarized here:</p>
 
 <ol>
-  <li></li>
+  <li>
+    <p>The <em>chamber thermodynamic equilibrium</em> sub-model predicts the motor combustion chamber temperature \(T_c\) and species mass fractions \(y_{ic}\) given the propellant composition and chamber pressure \(p_c\). This sub-model uses equilibrium thermodynmics calculations.</p>
+  </li>
+  <li>
+    <p>The <em>motor internal ballistics</em> sub-model determines motor equilibrium mass flow, chamber pressure \(p_c\), and nozzle throat diameter \(d_t\) given chamber temperature \(T_c\), propellant \(a\) and \(n\) values, and desired thrust \(F\). These values are solved using a mass flow balance between the burning propellant and the nozzle exit.</p>
+  </li>
+  <li>
+    <p>The <em>isentropic nozzle flow</em> sub-model determines nozzle exit temperature \(T_e\), pressure \(p_e\), and diameter \(d_e\) given chamber temperature \(T_c\), chamber pressure \(p_c\), and nozzle throat diameter \(d_t\). For simplicity, these values are calculated using isentropic nozzle theory assuming frozen flow in the nozzle.</p>
+  </li>
+  <li>
+    <p>The <em>plume flow field</em> sub-model determines temperatures, densities, pressures, and species concentrations throughout the exhaust plume given nozzle exit properties and freestream conditions. A 1D simplified plume flow field model is implemented that captures the core effects of turbulent entrainment, jet expansion, and non-equilibrium chemistry. This 1D model is efficient and compatible with AeroSandbox, and does not rely black-box CFD codes used by many studies.</p>
+  </li>
+  <li>
+    <p>The <em>afterburning kinetics</em> sub-model determines the species production rates \(\dot{\omega}_i\) throughout the plume given temperatures, densities, and species mass fractions throughout the plume. This sub-model uses a simple, single reaction mechanism with a global reaction rate equation fit to reaction rates predicted by a 28 reaction mechanism. This fitted global reaction rate equation is significantly less stiff than more complicated reaction mechanisms used in other studies.</p>
+  </li>
+  <li>
+    <p>The <em>radiative transfer</em> sub-model determines the plume radiant intensity \(J_{\lambda}\) given temperatures, densities, and species mass fractions throughout the plume. This sub-model integrates the radiative transfer equation along lines-of-sight through the plume, and uses the Ludwig et al. single line group model<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>.</p>
+  </li>
 </ol>
+
+<h2 id="implementation-in-aerosandbox">Implementation in AeroSandbox</h2>
+
+<h3 id="defining-design-problems">Defining Design Problems</h3>
+
+<p>All design problems implemented in AeroSandbox are defined as an optimization problem, even if the problem is fully constrained.
+Standard optimization problems are written using four elements:</p>
+
+<ol>
+  <li>
+    <p><em>Variables</em> are quantities in the design problem that are not known; they are degrees of freedom and their values are solved for by the optimizer.</p>
+  </li>
+  <li>
+    <p><em>Constraints</em> put bounds on variables or expressions that are functions of variables. They constrain the feasible design space. Constraints can be defined as equalities or inequalities.</p>
+  </li>
+  <li>
+    <p>The <em>objective</em> is the function in the design problem that is to be minimized by the optimizer. This is often a relevant performance metric.</p>
+  </li>
+  <li>
+    <p><em>Parameters</em> are quantities in the design problem that have a pre-selected value that may be changed to update assumptions or perform design sweeps, but are otherwise treated as a constant by the optimizer during any particular optimization.</p>
+  </li>
+</ol>
+
+<p>AeroSandbox provides straightforward syntax for implementing each of these optimization problem elements for a design problem.
+Each of the sub-models are implemented in separate python classes as fully constrained systems of equations; that is, there are the same number of variables as there are constraints.
+Fully constrained systems do not need an objective function since the feasible space for solutions is already a single point.
+The developed models can be assembled into a larger optimization problem with additional variables, constraints, parameters, and an objective if desired.</p>
+
+<h3 id="model-limitations">Model Limitations</h3>
+
+<p>Despite its great flexibility, the AeroSandbox framework does create some limitations on the types of models that can be used.
+The most important of these limitations are described below:</p>
+
+<ol>
+  <li>
+    <p><em>Glass-box models</em>: AeroSandbox uses automatic differentiation, which evaluates computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule. In order to evaluate these derivatives, AeroSandbox needs direct access to the code for the model. Therefore models in AeroSandbox must be “glass-box”, and coded directly in python; “black-box” codes cannot be used.</p>
+  </li>
+  <li>
+    <p><em>C1-continuity</em>: AeroSandbox uses gradient descent with automatic differentiation to solve optimization problems, which requires that models be C1-continuous with respect to any problem variables. AeroSandbox has several tools for implementing surrogate models to meet the C1-continuity requirement.</p>
+  </li>
+  <li>
+    <p><em>Non-stiff differential equations</em>: AeroSandbox uses a simple trapezoidal integrator for integrating differential equations. This integrator does not converge well for stiff systems of differential equations, and therefore stiff equations should be avoided.</p>
+  </li>
+</ol>
+
+<h2 id="in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</h2>
 
 <hr />
 <p><em>Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.</em></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>C. B. Ludwig et al. <em>Handbook of Infrared Radiation from Combustion Gases.</em> NASA SP-3080. NASA Marshall Space Flight Center, 1973. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
         
       </section>
@@ -406,6 +511,10 @@ These models should ideally be implemented in a flexible design optimization fra
 
 
 
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
   </body>
