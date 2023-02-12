@@ -33,25 +33,47 @@ A comparison of the model results to experimental data is shown in the following
 
 ## Model Comparison with Experimental Data
 
-### Example 1: Comparison with Plume Radiant Emission Experiments for Small, End-burning Motors
+### Example 1: Comparison with Small, End-burning Motor Experiments
 
 In the figure below is a comparison of model results with the [exhaust plume radiant emission measurements]({{ site.baseurl }}/projects/experiments-emission/#results) collected during the experiments for my graduate research. 
 For all four static fires, both the measured and modeled spectra show a distinct peak at 4.3 &#956;m corresponding to CO<sub>2</sub> emission.
-Weaker emission peaks corresponding to a CO band at 4.7 &#956;m and a combined CO<sub>2</sub> and H<sub>2</sub>O band at 2.7 &#956;m.
+Weaker emission peaks corresponding to a CO band at 4.7 &#956;m and a combined CO<sub>2</sub> and H<sub>2</sub>O band at 2.7 &#956;m are also present.
 The measured data and modeled results show reasonable agreement across the spectrum for all four static fires, although the measured experimental data is unfortunately noisy across the spectrum, especially away from the 4.3 &#956;m CO<sub>2</sub> peak where the measured signal is weak.
 Unfortunately, the radiant emission of these small, slow-burning solid rocket motors required operating the radiometric instrumentation near its lower sensitivity limit.
 <!-- Even at the maximum gain setting, the exhaust plume contrast measurements utilized, at most (at the 4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7% of the dynamic range of the detector. -->
 
 ![plot-all-rad]({{ site.baseurl }}/assets/images/modeling-emission/plot_all_rad_uncorrected_annotated.png)
-<figcaption>TODO</figcaption>
+<figcaption>The measured and modeled radiant intensities for SF4 - SF7 show reasonable agreement across the spectrum. All show the largest peak at 4.3 &#956;m corresponding to a CO<sub>2</sub> emission band. The data is unfortunately noisy due to sensitivity limitations of the instrumentation.</figcaption>
+
+By inspecting the previous figure, it can be seen that radiant intensity measurements show greater sensitivity to changes in oxamide content than changes in chamber pressure.
+The modeled radiant intensities display this same trend as well.
+The reasons for this become more clear by examining the modeled flow field parameters for SF4 - SF7, which are shown in the figure below.
+Parameters are plotted against axial distance downstream from the start of the turbulent mixing region, normalized by the diameter of the plume $$d_0$$ at the start of the turbulent mixing region.
 
 ![plot-all-flow-field]({{ site.baseurl }}/assets/images/modeling-emission/flow_field_compare.png)
-<figcaption>TODO</figcaption>
+<figcaption>For a given oxamide content, the flow field parameters are similar throughout the flow field after the first few lengths in the plume, even with a change in chamber pressure. Across the two oxamide contents (SF4 and SF5 at 0% versus SF6 and SF7 at 8%), the parameters are significantly different.</figcaption>
+
+For a given oxamide content (for instance, SF4 and SF5 at 0% oxamide), although a change in chamber pressure causes the flow field properties to separate for a few $$d_0$$, they quickly converge to similar values as the plume mixes with entrained air and cools.
+However, across oxamide contents (SF4 and SF5 at 0% oxamide versus SF6 and SF7 at 8% oxamide) the flow field properties are significantly different throughout the whole flow field, which ultimately leads to significantly different peak radiant intensity values for different oxamide contents.
 
 ### Example 2: Comparison with Avital et al. Experiment
 
+The developed radiant intensity model was compared to experimental data collected for a small test motor by Avital et al[^2].
+The test used a core-burning propellant grain consisting of 87% ammonium perchlorate oxidizer and 13% hydroxyl-terminated polybutadiene binder.
+The nozzle had a throat diameter of 15 mm, a chamber pressure of 3.8 MPa, and a nozzle exit pressure of 0.27 MPa.
+The experimental radiant intensity data given by Avital et al. is plotted with the output of the differentiable model in the figure below.
+
 ![avital-rad]({{ site.baseurl }}/assets/images/modeling-emission/avital_rad_annotated.png)
-<figcaption>TODO</figcaption>
+<figcaption>The agreement between the radiant intensity spectra for the Avital et al. experimental results and the developed model results is generally good, although the 4.3 &#956;m CO<sub>2</sub> emission band peaks at slightly different values and at slightly different wavelengths between the data and model.</figcaption>
+
+The agreement between the model and the Avital et al. experimental radiant intensity spectra is good.
+The model performs especially well for the 1.87 &#956;m H<sub>2</sub>O band, the 2.7 &#956;m combined CO<sub>2</sub> and H<sub>2</sub>O, and the 3.5 &#956;m HCl band. 
+Some of these bands were not visible in the radiant intensity data or model results for the SF4 - SF7 static fires shown in the previous section due to the low temperatures and small size scales of those plumes.
+The model over-predicts the 4.3 &#956;m CO<sub>2</sub> peak radiant intensity by 19%.
+The center of the 4.3 &#956;m CO<sub>2</sub> band between the model and Avital et al. measurement also differs, with the model predicting the band center near 4.31 &#956;m and the data showing the center near 4.37 &#956;m. 
+
+It should also be noted that the Avital et al. plume had a peak radiant emission that was up to three orders of magnitude larger than the emission from the small end-burning motors discussed in the previous section.
+The developed radiant emission model performs reasonably well for the Avital et al. plume and the small end-burning plumes, which demonstrates the model's robustness for modeling plumes spanning multiple orders of magnitude of radiant emission.
 
 
 ## General Model Description
@@ -108,9 +130,46 @@ The most important of these limitations are described below:
 
 ## In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example
 
+This section will give an in-depth discussion of the chamber thermodynamic equilibrium sub-model as an example.
+A full discussion of all of the sub-models will be available in my thesis when it is published.
 
+Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
+These propellant combustion properties are determined in this model using equilibrium thermodynamics.
+Namely, combustion temperature and products are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
+The implemented governing equations and AeroSandbox implementation methodology are described below.
+
+### Governing Equations
+
+The governing equations for the chamber thermodynamic equilibrium module for gaseous products are given below, following the formulation given by Ponomarenko[^3]:
+
+Minimization of Gibbs free energy for gaseous products:
+
+$$ \hat{g^0_j}(T_c) + \hat{R} T_c \ln \left(\frac{n_j}{n_{gas}} \right) + \hat{R} T_c \ln \left( \frac{p_c}{p_0} \right) - \sum_{i=1}^{N_{elements}} \lambda_{i} a_{ij} = 0 $$
+
+$$ \text{for } j = 1, \ldots, N_{species,gas} $$
+
+Conservation of mass of chemical elements:
+
+$$ \sum_{j=1}^{N_{species}} a_{ij} n_j - \frac{b_{i0}}{\hat{m}_i} = 0 \hspace{0.3in} \text{for } i = 1, \ldots, N_{elements} $$
+
+Conservation of enthalpy:
+
+$$ \sum_{j=1}^{N_{species}} n_j \hat{h}_j^0 - H_0 = 0 $$
+
+Enforcement of molar sum of gaseous products:
+
+$$ \sum_{j=1}^{N_{species,gas}} n_j - n_{gas} = 0 $$
+
+## Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission
+
+![model-concept]({{ site.baseurl }}/assets/images/modeling-emission/peak_intensity_10km.png)
+<figcaption>TODO.</figcaption>
 
 ___
 *Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.*
 
 [^1]: C. B. Ludwig et al. *Handbook of Infrared Radiation from Combustion Gases.* NASA SP-3080. NASA Marshall Space Flight Center, 1973.
+
+[^2]: G. Avital et al. "Experimental and Computational Study of Infrared Emission from Underexpanded Rocket Exhaust Plumes". In: *Journal of Thermophysics and Heat Transfer* 15.4 (Oct. 2001), pp. 377 - 383. issn: 0887-8722, 1533-6808.
+
+[^3]: Alexander Ponomarenko. "RPA: Tool for Liquid Propellant Rocket Engine Analysis C++ Implementation". In: (2010), p. 23.
