@@ -97,7 +97,7 @@ These models will be discussed in greater detail in later sections, but are summ
 
 6. The *radiative transfer* sub-model determines the plume radiant intensity $$J_{\lambda}$$ given temperatures, densities, and species mass fractions throughout the plume. This sub-model integrates the radiative transfer equation along lines-of-sight through the plume, and uses the Ludwig et al. single line group model[^1].
 
-## Implementation in AeroSandbox
+## Implementation of Design Problems AeroSandbox
 
 ### Defining Design Problems
 
@@ -135,7 +135,8 @@ A full discussion of all of the sub-models will be available in my thesis when i
 
 Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
-Namely, combustion temperature and products are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
+Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
+The constituent species of the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero value).
 The implemented governing equations and AeroSandbox implementation methodology are described below.
 
 ### Governing Equations
@@ -146,7 +147,7 @@ Minimization of Gibbs free energy for gaseous products:
 
 $$ \hat{g^0_j}(T_c) + \hat{R} T_c \ln \left(\frac{n_j}{n_{gas}} \right) + \hat{R} T_c \ln \left( \frac{p_c}{p_0} \right) - \sum_{i=1}^{N_{elements}} \lambda_{i} a_{ij} = 0 $$
 
-$$ \text{for } j = 1, \ldots, N_{species,gas} $$
+$$ \text{for } j = 1, \ldots, N_{species} $$
 
 Conservation of mass of chemical elements:
 
@@ -159,6 +160,71 @@ $$ \sum_{j=1}^{N_{species}} n_j \hat{h}_j^0 - H_0 = 0 $$
 Enforcement of molar sum of gaseous products:
 
 $$ \sum_{j=1}^{N_{species,gas}} n_j - n_{gas} = 0 $$
+
+In the above equations, $$j$$ are species, $$i$$ are chemical elements, $$\hat{g^0_j}$$ is molar Gibbs free energy of species $$j$$, $$\hat{h^0_j}$$ is molar enthalpy of species $$j$$, $$H_0$$ is total system enthalpy, $$T_c$$ is the chamber combustion temperature, $$p_c$$ is the chamber pressure, $$p_0$$ is standard state pressure, $$n_j$$ is number of moles of species $$j$$, $$n_{gas}$$ is the number of moles of gas, $$a_{ij}$$ is the number of atoms of element $$i$$ per mole of species $$j$$, $$b_{i0}$$ is the total system mass of element $$i$$, $$\hat{m}_i$$ is the atomic mass of element $$i$$, $$\lambda_i$$ are Lagrange multipliers, $$N_{species}$$ is the number of chemical species in the system, and $$N_{elements}$$ is the number of chemical elements in the system.
+Gibbs free energy can be calculated using $$\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}$$, where $$\hat{s^0_j}$$ is molar entropy.
+
+Lagrange multipliers $$\lambda_i$$ are introduced, following the procedure used by Ponomarenko.
+Using Lagrange multipliers allows the thermodynamic equilibrium problem to be solved as a system of constrained equations, rather than as a true minimization problem.
+This is important for implementation in AeroSandbox, so that the equations can be implemented as a set of problem constraints, rather than as a minimization which would be implemented as part of the problem objective.
+
+### Implementation in AeroSandbox
+
+The above equations are implemented in python with AeroSandbox. 
+First, we instantiate an AeroSandbox optimization environment:
+
+```python
+import aerosandbox as asb
+opti = asb.Opti()
+```
+
+Next, we identify the problem variables: the number of moles of each species $$n_j$$ ($$j$$ variables); the total number of moles of gas $$n_{gas}$$ (1 variable); the equilibrium combustion temperature $$T_c$$ (1 variable); and the Lagrange multipliers $$\lambda_i$$ ($$i$$ variables). 
+These variables are implemented as problem variables.
+The number of moles of each species $$n_j$$ and the lagrange multipliers $$\lambda_i$$ are implemented as vectors of variables.
+
+```python
+# total number of moles n_gas, assuming 1kg of gas total
+n_gas_guess = 1 / .025  # (1kg) / (a reasonable molecular weight)
+n_gas = opti.variable(init_guess=n_gas_guess)
+
+# number of moles of each species n_j
+n_j_guess = 1 / j * np.ones(j) * n_gas_guess  # guess equal number of moles
+n_j = opti.variable(init_guess=n_j_guess)
+
+# lagrange multipliers
+lagrange_guess = np.zeros(n_elements)
+lagrange_mults = opti.variable(init_guess=lagrange_guess)
+
+# chamber temperature
+temp_c = opti.variable(init_guess=2500)  # guess 2500 K flame temperature
+```
+
+The problem has $$ i + j + 2 $$ variables.
+The same number of constraints are required, which are just the governing equations given in the previous section.
+Differentiable expressions for the species molar enthalpy $$\hat{h^0_j}$$ and the species molar entropy $$\hat{s^0_j}$$ were implemented using the NASA 9-coefficient polynomial parametrizations[^4]. 
+
+With the $$\hat{s^0_j}$$ and $$\hat{h^0_j}$$ parametrization, Gibb's free energy was defined:
+```python
+# define Gibb's free energy
+# h_j and s_j are vectors of molar enthalpies and entropies corresponding to 
+# the species in n_j
+g_j = h_j - temp_c * s_j
+```
+
+The governing equations were vectorized and implemented using matrix methods.
+A matrix ```prod_stoich_coef_mat``` (corresponds to $$a_{ij}$$ in the governing equations), of size $$j \times i$$, with each entry $$(j, i)$$ corresponding to the number of atoms of element $$i$$ per mole of species $$j$$ in the products was implemented. Another matrix 
+```python
+# minimize Gibb's free energy for gaseous species
+# combine summation operation into matrix multiplication operation
+opti.subject_to(
+    g_j  +
+    R_univ * temp_c * np.log(n_j / n_gas) +
+    R_univ * temp_c * np.log(p_c / p_0) -
+    (prod_stoich_coef_mat @ mults / (R_univ * temp_c))
+    == 0
+)
+```
+
 
 ## Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission
 
@@ -173,3 +239,5 @@ ___
 [^2]: G. Avital et al. "Experimental and Computational Study of Infrared Emission from Underexpanded Rocket Exhaust Plumes". In: *Journal of Thermophysics and Heat Transfer* 15.4 (Oct. 2001), pp. 377 - 383. issn: 0887-8722, 1533-6808.
 
 [^3]: Alexander Ponomarenko. "RPA: Tool for Liquid Propellant Rocket Engine Analysis C++ Implementation". In: (2010), p. 23.
+
+[^4]: Bonnie J. McBride, Michael J. Zehe, and Sanford Gordon. *NASA Glenn Coefficients for Calculating Thermodynamic Properties of Individual Species.* NTRS Author Affiliations: NASA Glenn Research Center NTRS Report/Patent Number: NASA/TP-2002-211556 NTRS Document ID: 20020085330 NTRS Research Center: Glenn Research Center (GRC). Sept. 1, 2002.

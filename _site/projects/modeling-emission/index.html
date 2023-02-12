@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-02-12T11:52:06-05:00">
+  <meta property="article:published_time" content="2023-02-12T15:05:43-05:00">
 
 
 
@@ -291,7 +291,7 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</a></li><li><a href="#model-comparison-with-experimental-data">Model Comparison with Experimental Data</a><ul><li><a href="#example-1-comparison-with-small-end-burning-motor-experiments">Example 1: Comparison with Small, End-burning Motor Experiments</a></li><li><a href="#example-2-comparison-with-avital-et-al-experiment">Example 2: Comparison with Avital et al. Experiment</a></li></ul></li><li><a href="#general-model-description">General Model Description</a></li><li><a href="#implementation-in-aerosandbox">Implementation in AeroSandbox</a><ul><li><a href="#defining-design-problems">Defining Design Problems</a></li><li><a href="#model-limitations">Model Limitations</a></li></ul></li><li><a href="#in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</a><ul><li><a href="#governing-equations">Governing Equations</a></li></ul></li><li><a href="#integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</a></li></ul>
+              <ul class="toc__menu"><li><a href="#design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</a></li><li><a href="#model-comparison-with-experimental-data">Model Comparison with Experimental Data</a><ul><li><a href="#example-1-comparison-with-small-end-burning-motor-experiments">Example 1: Comparison with Small, End-burning Motor Experiments</a></li><li><a href="#example-2-comparison-with-avital-et-al-experiment">Example 2: Comparison with Avital et al. Experiment</a></li></ul></li><li><a href="#general-model-description">General Model Description</a></li><li><a href="#implementation-of-design-problems-aerosandbox">Implementation of Design Problems AeroSandbox</a><ul><li><a href="#defining-design-problems">Defining Design Problems</a></li><li><a href="#model-limitations">Model Limitations</a></li></ul></li><li><a href="#in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</a><ul><li><a href="#governing-equations">Governing Equations</a></li><li><a href="#implementation-in-aerosandbox">Implementation in AeroSandbox</a></li></ul></li><li><a href="#integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</a></li></ul>
 
             </nav>
           </aside>
@@ -392,7 +392,7 @@ These models will be discussed in greater detail in later sections, but are summ
   </li>
 </ol>
 
-<h2 id="implementation-in-aerosandbox">Implementation in AeroSandbox</h2>
+<h2 id="implementation-of-design-problems-aerosandbox">Implementation of Design Problems AeroSandbox</h2>
 
 <h3 id="defining-design-problems">Defining Design Problems</h3>
 
@@ -443,7 +443,8 @@ A full discussion of all of the sub-models will be available in my thesis when i
 
 <p>Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
-Namely, combustion temperature and products are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
+Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
+The constituent species of the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero value).
 The implemented governing equations and AeroSandbox implementation methodology are described below.</p>
 
 <h3 id="governing-equations">Governing Equations</h3>
@@ -454,7 +455,7 @@ The implemented governing equations and AeroSandbox implementation methodology a
 
 \[\hat{g^0_j}(T_c) + \hat{R} T_c \ln \left(\frac{n_j}{n_{gas}} \right) + \hat{R} T_c \ln \left( \frac{p_c}{p_0} \right) - \sum_{i=1}^{N_{elements}} \lambda_{i} a_{ij} = 0\]
 
-\[\text{for } j = 1, \ldots, N_{species,gas}\]
+\[\text{for } j = 1, \ldots, N_{species}\]
 
 <p>Conservation of mass of chemical elements:</p>
 
@@ -467,6 +468,66 @@ The implemented governing equations and AeroSandbox implementation methodology a
 <p>Enforcement of molar sum of gaseous products:</p>
 
 \[\sum_{j=1}^{N_{species,gas}} n_j - n_{gas} = 0\]
+
+<p>In the above equations, \(j\) are species, \(i\) are chemical elements, \(\hat{g^0_j}\) is molar Gibbs free energy of species \(j\), \(\hat{h^0_j}\) is molar enthalpy of species \(j\), \(H_0\) is total system enthalpy, \(T_c\) is the chamber combustion temperature, \(p_c\) is the chamber pressure, \(p_0\) is standard state pressure, \(n_j\) is number of moles of species \(j\), \(n_{gas}\) is the number of moles of gas, \(a_{ij}\) is the number of atoms of element \(i\) per mole of species \(j\), \(b_{i0}\) is the total system mass of element \(i\), \(\hat{m}_i\) is the atomic mass of element \(i\), \(\lambda_i\) are Lagrange multipliers, \(N_{species}\) is the number of chemical species in the system, and \(N_{elements}\) is the number of chemical elements in the system.
+Gibbs free energy can be calculated using \(\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}\), where \(\hat{s^0_j}\) is molar entropy.</p>
+
+<p>Lagrange multipliers \(\lambda_i\) are introduced, following the procedure used by Ponomarenko.
+Using Lagrange multipliers allows the thermodynamic equilibrium problem to be solved as a system of constrained equations, rather than as a true minimization problem.
+This is important for implementation in AeroSandbox, so that the equations can be implemented as a set of problem constraints, rather than as a minimization which would be implemented as part of the problem objective.</p>
+
+<h3 id="implementation-in-aerosandbox">Implementation in AeroSandbox</h3>
+
+<p>The above equations are implemented in python with AeroSandbox. 
+First, we instantiate an AeroSandbox optimization environment:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">aerosandbox</span> <span class="k">as</span> <span class="n">asb</span>
+<span class="n">opti</span> <span class="o">=</span> <span class="n">asb</span><span class="p">.</span><span class="n">Opti</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Next, we identify the problem variables: the number of moles of each species \(n_j\) (\(j\) variables); the total number of moles of gas \(n_{gas}\) (1 variable); the equilibrium combustion temperature \(T_c\) (1 variable); and the Lagrange multipliers \(\lambda_i\) (\(i\) variables). 
+These variables are implemented as problem variables.
+The number of moles of each species \(n_j\) and the lagrange multipliers \(\lambda_i\) are implemented as vectors of variables.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># total number of moles n_gas, assuming 1kg of gas total
+</span><span class="n">n_gas_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">.</span><span class="mi">025</span>  <span class="c1"># (1kg) / (a reasonable molecular weight)
+</span><span class="n">n_gas</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">n_gas_guess</span><span class="p">)</span>
+
+<span class="c1"># number of moles of each species n_j
+</span><span class="n">n_j_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_gas_guess</span>  <span class="c1"># guess equal number of moles
+</span><span class="n">n_j</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">n_j_guess</span><span class="p">)</span>
+
+<span class="c1"># lagrange multipliers
+</span><span class="n">lagrange_guess</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_elements</span><span class="p">)</span>
+<span class="n">lagrange_mults</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">lagrange_guess</span><span class="p">)</span>
+
+<span class="c1"># chamber temperature
+</span><span class="n">temp_c</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="mi">2500</span><span class="p">)</span>  <span class="c1"># guess 2500 K flame temperature
+</span></code></pre></div></div>
+
+<p>The problem has \(i + j + 2\) variables.
+The same number of constraints are required, which are just the governing equations given in the previous section.
+Differentiable expressions for the species molar enthalpy \(\hat{h^0_j}\) and the species molar entropy \(\hat{s^0_j}\) were implemented using the NASA 9-coefficient polynomial parametrizations<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>.</p>
+
+<p>With the \(\hat{s^0_j}\) and \(\hat{h^0_j}\) parametrization, Gibb’s free energy was defined:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># define Gibb's free energy
+# h_j and s_j are vectors of molar enthalpies and entropies corresponding to 
+# the species in n_j
+</span><span class="n">g_j</span> <span class="o">=</span> <span class="n">h_j</span> <span class="o">-</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">s_j</span>
+</code></pre></div></div>
+
+<p>The governing equations were vectorized and implemented using matrix methods.
+A matrix <code class="language-plaintext highlighter-rouge">prod_stoich_coef_mat</code> (corresponds to \(a_{ij}\) in the governing equations), of size \(j \times i\), with each entry \((j, i)\) corresponding to the number of atoms of element \(i\) per mole of species \(j\) in the products was implemented. Another matrix</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># minimize Gibb's free energy for gaseous species
+# combine summation operation into matrix multiplication operation
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span>
+    <span class="n">g_j</span>  <span class="o">+</span>
+    <span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_j</span> <span class="o">/</span> <span class="n">n_gas</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">p_c</span> <span class="o">/</span> <span class="n">p_0</span><span class="p">)</span> <span class="o">-</span>
+    <span class="p">(</span><span class="n">prod_stoich_coef_mat</span> <span class="o">@</span> <span class="n">mults</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span><span class="p">))</span>
+    <span class="o">==</span> <span class="mi">0</span>
+<span class="p">)</span>
+</code></pre></div></div>
 
 <h2 id="integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</h2>
 
@@ -486,6 +547,9 @@ The implemented governing equations and AeroSandbox implementation methodology a
     </li>
     <li id="fn:3" role="doc-endnote">
       <p>Alexander Ponomarenko. “RPA: Tool for Liquid Propellant Rocket Engine Analysis C++ Implementation”. In: (2010), p. 23. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Bonnie J. McBride, Michael J. Zehe, and Sanford Gordon. <em>NASA Glenn Coefficients for Calculating Thermodynamic Properties of Individual Species.</em> NTRS Author Affiliations: NASA Glenn Research Center NTRS Report/Patent Number: NASA/TP-2002-211556 NTRS Document ID: 20020085330 NTRS Research Center: Glenn Research Center (GRC). Sept. 1, 2002. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
