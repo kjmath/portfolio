@@ -248,7 +248,7 @@ opti.subject_to(
     == 0
 )
 
-# conservation of mass for each species, assuming:
+# conservation of mass for each element, assuming:
 # 1. arbitrarily, 1 kg system mass
 # 2. reactant mole fraction n_k are known
 opti.subject_to(
@@ -266,6 +266,9 @@ opti.subject_to(np.sum(n_j * h_j) - H_0 == 0)
 opti.subject_to(np.sum(n_j) - n_tot == 0) 
 ```
 
+There are as many enforced constraints as variables: the minimization of Gibb's free energy provides one constraint per product species ($$j$$ constraints); the conservation of mass for each element provides one constraint per element ($$i$$ constraints); the conservation of total enthalpy in the reacting system provides one constraint; and the summation of moles provides one constraint.
+Because there are equal numbers of variables and constraints, an objective is not required for this sub-model, since the solution space is already only a single point.
+This chamber thermodynamic equilibrium sub-model can be attached to other sub-models, and other constraints can be applied to the entire optimization problem.
 
 ## Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission
 

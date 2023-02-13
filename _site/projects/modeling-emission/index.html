@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-02-12T20:47:28-05:00">
+  <meta property="article:published_time" content="2023-02-12T21:06:49-05:00">
 
 
 
@@ -614,7 +614,7 @@ The governing equations were vectorized and enforced as constraints on the <code
     <span class="o">==</span> <span class="mi">0</span>
 <span class="p">)</span>
 
-<span class="c1"># conservation of mass for each species, assuming:
+<span class="c1"># conservation of mass for each element, assuming:
 # 1. arbitrarily, 1 kg system mass
 # 2. reactant mole fraction n_k are known
 </span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span>
@@ -631,6 +631,10 @@ The governing equations were vectorized and enforced as constraints on the <code
 <span class="c1"># sum of all n_j equals n_tot
 </span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">n_j</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_tot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> 
 </code></pre></div></div>
+
+<p>There are as many enforced constraints as variables: the minimization of Gibb’s free energy provides one constraint per product species (\(j\) constraints); the conservation of mass for each element provides one constraint per element (\(i\) constraints); the conservation of total enthalpy in the reacting system provides one constraint; and the summation of moles provides one constraint.
+Because there are equal numbers of variables and constraints, an objective is not required for this sub-model, since the solution space is already only a single point.
+This chamber thermodynamic equilibrium sub-model can be attached to other sub-models, and other constraints can be applied to the entire optimization problem.</p>
 
 <h2 id="integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</h2>
 
