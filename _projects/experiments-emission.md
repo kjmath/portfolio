@@ -9,7 +9,9 @@ toc: true
 toc_sticky: true
 ---
 
-I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume infrared radiant emission. This research includes:
+Exhaust plume radiant emission is an important performance parameter for solid rocket vehicles where vehicle visibility is a concern.
+Many motor design parameters influence the plume radiant emission, and understanding these relationships can enable improved design with better plume performance.
+For my graduate research, I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume infrared radiant emission. This research includes:
 
 - designing and building a solid rocket motor with a water-cooled nozzle;
 - developing a process for manufacturing solid rocket propellant, including building a custom vacuum mixer;

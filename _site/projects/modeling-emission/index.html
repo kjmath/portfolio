@@ -1,0 +1,808 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
+  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission - Kelly Mathesius</title>
+<meta name="description" content="I developed and implemented a set of differentiable sub-models for predicting exhaust plume radiant emission for solid rocket motors using the AeroSandbox and CasADi design optimization frameworks. The model showed good agreement with experimental radiant emission data, and can be used to optimize the design of solid rocket powered aircraft.">
+
+
+  <meta name="author" content="Kelly Mathesius">
+  
+  <meta property="article:author" content="Kelly Mathesius">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Kelly Mathesius">
+<meta property="og:title" content="End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission">
+<meta property="og:url" content="http://localhost:4000/portfolio/projects/modeling-emission/">
+
+
+  <meta property="og:description" content="I developed and implemented a set of differentiable sub-models for predicting exhaust plume radiant emission for solid rocket motors using the AeroSandbox and CasADi design optimization frameworks. The model showed good agreement with experimental radiant emission data, and can be used to optimize the design of solid rocket powered aircraft.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/portfolio/assets/images/modeling-emission/banner.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2023-02-13T10:31:09-05:00">
+
+
+
+
+
+
+<link rel="canonical" href="http://localhost:4000/portfolio/projects/modeling-emission/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": null,
+      "url": "http://localhost:4000/portfolio/"
+    
+  }
+</script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/portfolio/feed.xml" type="application/atom+xml" rel="alternate" title="Kelly Mathesius Feed">
+
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/portfolio/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/portfolio/">
+          Kelly Mathesius
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/portfolio/">About</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/projects/">Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/publications/">Publications</a>
+            </li><li class="masthead__menu-item">
+              <a href="/portfolio/assets/files/resume.pdf">Resume</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/portfolio/">
+        <img src="/portfolio/assets/images/bio-photo.jpg" alt="Kelly Mathesius" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/portfolio/" itemprop="url">Kelly Mathesius</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>An engineer, maker, and PhD candidate in the MIT Department of Aeronautics and Astronautics, with a multi-disciplinary skillset in design, fabrication, and modelling and optimization of constrained physical systems.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Cambridge, MA</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:kelly.mathesius@gmail.com" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span></a></li>
+          
+        
+          
+            <li><a href="/portfolio/assets/files/resume.pdf" rel="nofollow noopener noreferrer me"><i class="far fa-fw fa-file-pdf" aria-hidden="true"></i><span class="label">Resume</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/kjmath" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/kelly-mathesius/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+  
+  </div>
+
+
+
+  <article class="page h-entry" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission">
+    <meta itemprop="description" content="I developed and implemented a set of differentiable sub-models for predicting exhaust plume radiant emission for solid rocket motors using the AeroSandbox and CasADi design optimization frameworks. The model showed good agreement with experimental radiant emission data, and can be used to optimize the design of solid rocket powered aircraft.">
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title p-name" itemprop="headline">
+            <a href="http://localhost:4000/portfolio/projects/modeling-emission/" class="u-url" itemprop="url">End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission
+</a>
+          </h1>
+          
+
+
+        </header>
+      
+
+      <section class="page__content e-content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</a></li><li><a href="#model-comparison-with-experimental-data">Model Comparison with Experimental Data</a><ul><li><a href="#example-1-comparison-with-small-end-burning-motor-experiments">Example 1: Comparison with Small, End-burning Motor Experiments</a></li><li><a href="#example-2-comparison-with-avital-et-al-experiment">Example 2: Comparison with Avital et al. Experiment</a></li></ul></li><li><a href="#general-model-description">General Model Description</a></li><li><a href="#implementation-of-design-problems-aerosandbox">Implementation of Design Problems AeroSandbox</a><ul><li><a href="#defining-design-problems">Defining Design Problems</a></li><li><a href="#model-limitations">Model Limitations</a></li></ul></li><li><a href="#in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</a><ul><li><a href="#governing-equations">Governing Equations</a></li><li><a href="#implementation-in-aerosandbox">Implementation in AeroSandbox</a></li></ul></li><li><a href="#integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</a></li></ul>
+
+            </nav>
+          </aside>
+        
+        <p>For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. 
+However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory.
+Typical modeling approaches are computationally expensive, and rely on CFD and complicated integration schemes that are not well-suited for fast, iterative vehicle design.
+To address this gap, I developed simpler models for exhaust plume radiant emission, and implemented them in the fast, flexible <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox</a> design optimization framework.</p>
+
+<p>During my graduate research at MIT, I worked on a broader research effort to design, build, and characterize propulsion systems for a class of small ( &lt; 10 kg), fast (&gt; 100 m s<sup>-1</sup>) aircraft.
+A proposed design for this class of aircraft utilizes a small, end-burning solid rocket motor and a class of slow-burning propellants doped with the burn rate suppressant oxamide, similar to the motors developed, tested, and measured in the static fires described in the <a href="/portfolio/projects/experiments-emission/">exhaust plume radiant emission experiments</a> I conducted.
+This aircraft concept, illustrated below, will be used as a case study to explore the capabilities of the developed plume radiant emission model.</p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/vehicle_design_with_plume.png" alt="vehicle-design" /></p>
+<figcaption>A proposed design for a class of small ( &lt; 10 kg), fast (&gt; 100 m s<sup>-1</sup>) aircraft. Design choices such as propellant composition and nozzle throat area influence the downstream plume flow field and exhaust plume radiant intensity.</figcaption>
+
+<h2 id="design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</h2>
+
+<p>The modeling and optimization work leverages the <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox</a> framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
+AeroSandbox solves design problems using the <a href="https://web.casadi.org/">CasADi</a> framework, which in turn leverages automatic differentiation.
+Automatic differentiation is a method for evaluating computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule.
+It can be used to compute derivatives for gradient-based optimization schemes and provides a computationally efficient method to solve high-dimensional engineering problems.</p>
+
+<p>I successfully developed and implemented an end-to-end differentiable model for exhaust plume radiant emission (discussed further <a href="#general-model-description">below</a>) in the AeroSandbox framework.
+A comparison of the model results to experimental data is shown in the following section.</p>
+
+<h2 id="model-comparison-with-experimental-data">Model Comparison with Experimental Data</h2>
+
+<h3 id="example-1-comparison-with-small-end-burning-motor-experiments">Example 1: Comparison with Small, End-burning Motor Experiments</h3>
+
+<p>In the figure below is a comparison of model results with the <a href="/portfolio/projects/experiments-emission/#results">exhaust plume radiant emission measurements</a> collected during the experiments for my graduate research. 
+For all four static fires, both the measured and modeled spectra show a distinct peak at 4.3 μm corresponding to CO<sub>2</sub> emission.
+Weaker emission peaks corresponding to a CO band at 4.7 μm and a combined CO<sub>2</sub> and H<sub>2</sub>O band at 2.7 μm are also present.
+The measured data and modeled results show reasonable agreement across the spectrum for all four static fires, although the measured experimental data is unfortunately noisy across the spectrum, especially away from the 4.3 μm CO<sub>2</sub> peak where the measured signal is weak.
+Unfortunately, the radiant emission of these small, slow-burning solid rocket motors required operating the radiometric instrumentation near its lower sensitivity limit.
+<!-- Even at the maximum gain setting, the exhaust plume contrast measurements utilized, at most (at the 4.3 &#956;m CO<sub>2</sub> band where the signal was strongest), 7.7% of the dynamic range of the detector. --></p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/plot_all_rad_uncorrected_annotated.png" alt="plot-all-rad" /></p>
+<figcaption>The measured and modeled radiant intensities for SF4 - SF7 show reasonable agreement across the spectrum. All show the largest peak at 4.3 &#956;m corresponding to a CO<sub>2</sub> emission band. The data is unfortunately noisy due to sensitivity limitations of the instrumentation.</figcaption>
+
+<p>By inspecting the previous figure, it can be seen that radiant intensity measurements show greater sensitivity to changes in oxamide content than changes in chamber pressure.
+The modeled radiant intensities display this same trend as well.
+The reasons for this become more clear by examining the modeled flow field parameters for SF4 - SF7, which are shown in the figure below.
+Parameters are plotted against axial distance downstream from the start of the turbulent mixing region, normalized by the diameter of the plume \(d_0\) at the start of the turbulent mixing region.</p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/flow_field_compare.png" alt="plot-all-flow-field" /></p>
+<figcaption>For a given oxamide content, the flow field parameters are similar throughout the flow field after the first few lengths in the plume, even with a change in chamber pressure. Across the two oxamide contents (SF4 and SF5 at 0% versus SF6 and SF7 at 8%), the parameters are significantly different.</figcaption>
+
+<p>For a given oxamide content (for instance, SF4 and SF5 at 0% oxamide), although a change in chamber pressure causes the flow field properties to separate for a few \(d_0\), they quickly converge to similar values as the plume mixes with entrained air and cools.
+However, across oxamide contents (SF4 and SF5 at 0% oxamide versus SF6 and SF7 at 8% oxamide) the flow field properties are significantly different throughout the whole flow field, which ultimately leads to significantly different peak radiant intensity values for different oxamide contents.</p>
+
+<h3 id="example-2-comparison-with-avital-et-al-experiment">Example 2: Comparison with Avital et al. Experiment</h3>
+
+<p>The developed radiant intensity model was compared to experimental data collected for a small test motor by Avital et al<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">1</a></sup>.
+The test used a core-burning propellant grain consisting of 87% ammonium perchlorate oxidizer and 13% hydroxyl-terminated polybutadiene binder.
+The nozzle had a throat diameter of 15 mm, a chamber pressure of 3.8 MPa, and a nozzle exit pressure of 0.27 MPa.
+The experimental radiant intensity data given by Avital et al. is plotted with the output of the differentiable model in the figure below.</p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/avital_rad_annotated.png" alt="avital-rad" /></p>
+<figcaption>The agreement between the radiant intensity spectra for the Avital et al. experimental results and the developed model results is generally good, although the 4.3 &#956;m CO<sub>2</sub> emission band peaks at slightly different values and at slightly different wavelengths between the data and model.</figcaption>
+
+<p>The agreement between the model and the Avital et al. experimental radiant intensity spectra is good.
+The model performs especially well for the 1.87 μm H<sub>2</sub>O band, the 2.7 μm combined CO<sub>2</sub> and H<sub>2</sub>O band, and the 3.5 μm HCl band. 
+Some of these bands were not visible in the radiant intensity data or model results for the SF4 - SF7 static fires shown in the previous section due to the low temperatures and small size scales of those plumes.
+The model over-predicts the 4.3 μm CO<sub>2</sub> peak radiant intensity by 19%.
+The center of the 4.3 μm CO<sub>2</sub> band between the model and Avital et al. measurement also differs, with the model predicting the band center near 4.31 μm and the data showing the center near 4.37 μm.</p>
+
+<p>It should also be noted that the Avital et al. plume had a peak radiant emission that was over three orders of magnitude larger than the emission from the small end-burning motors discussed in the previous section.
+The developed radiant emission model performs reasonably well for the Avital et al. plume and the small end-burning plumes, which demonstrates the model’s robustness for modeling plumes spanning multiple orders of magnitude of radiant emission.</p>
+
+<h2 id="general-model-description">General Model Description</h2>
+
+<p><img src="/portfolio/assets/images/modeling-emission/model_concept-crop.png" alt="model-concept" /></p>
+<figcaption>Six inter-dependent sub-models are used to couple solid rocket motor design with motor exhaust plume radiant emission.</figcaption>
+
+<p>Six end-to-end diffentiable sub-models of different coupled physical phenomena were developed and implemented to predict exhaust plume radiant intensity.
+Their dependencies and information flow are shown in the figure above.
+These models are summarized here:</p>
+
+<ol>
+  <li>
+    <p>The <em>chamber thermodynamic equilibrium</em> sub-model predicts the motor combustion chamber temperature \(T_c\) and species mass fractions \(y_{ic}\) given the propellant composition and chamber pressure \(p_c\). This sub-model uses equilibrium thermodynmics calculations.</p>
+  </li>
+  <li>
+    <p>The <em>motor internal ballistics</em> sub-model determines motor equilibrium mass flow, chamber pressure \(p_c\), and nozzle throat diameter \(d_t\) given chamber temperature \(T_c\), propellant \(a\) and \(n\) values, and desired thrust \(F\). These values are solved using a mass flow balance between the burning propellant and the nozzle exit.</p>
+  </li>
+  <li>
+    <p>The <em>isentropic nozzle flow</em> sub-model determines nozzle exit temperature \(T_e\), pressure \(p_e\), and diameter \(d_e\) given chamber temperature \(T_c\), chamber pressure \(p_c\), and nozzle throat diameter \(d_t\). For simplicity, these values are calculated using isentropic nozzle theory assuming frozen flow in the nozzle.</p>
+  </li>
+  <li>
+    <p>The <em>plume flow field</em> sub-model determines temperatures, densities, pressures, and species concentrations throughout the exhaust plume given nozzle exit properties and freestream conditions. A 1D simplified plume flow field model is implemented that captures the core effects of turbulent entrainment, jet expansion, and non-equilibrium chemistry. This 1D model is efficient and compatible with AeroSandbox, and does not rely black-box CFD codes used by many studies.</p>
+  </li>
+  <li>
+    <p>The <em>afterburning kinetics</em> sub-model determines the species production rates \(\dot{\omega}_i\) throughout the plume given temperatures, densities, and species mass fractions throughout the plume. This sub-model uses a simple, single reaction mechanism with a global reaction rate equation fit to reaction rates predicted by a 28 reaction mechanism. This fitted global reaction rate equation is significantly less stiff than more complicated reaction mechanisms used in other studies, which improves its performance in AeroSandbox.</p>
+  </li>
+  <li>
+    <p>The <em>radiative transfer</em> sub-model determines the plume radiant intensity \(J_{\lambda}\) given temperatures, densities, and species mass fractions throughout the plume. This sub-model integrates the radiative transfer equation along lines-of-sight through the plume, and uses the Ludwig et al. single line group model<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">2</a></sup> for predicting molecular emission.</p>
+  </li>
+</ol>
+
+<h2 id="implementation-of-design-problems-aerosandbox">Implementation of Design Problems AeroSandbox</h2>
+
+<h3 id="defining-design-problems">Defining Design Problems</h3>
+
+<p>All design problems implemented in AeroSandbox are defined as an optimization problem, even if the problem is fully constrained.
+Standard optimization problems are written using four elements:</p>
+
+<ol>
+  <li>
+    <p><em>Variables</em> are quantities in the design problem that are not known; they are degrees of freedom and their values are solved for by the optimizer.</p>
+  </li>
+  <li>
+    <p><em>Constraints</em> put bounds on variables or expressions that are functions of variables. They constrain the feasible design space. Constraints can be defined as equalities or inequalities.</p>
+  </li>
+  <li>
+    <p>The <em>objective</em> is the function in the design problem that is to be minimized by the optimizer. This is often a relevant performance metric.</p>
+  </li>
+  <li>
+    <p><em>Parameters</em> are quantities in the design problem that have a pre-selected value that may be changed to update assumptions or perform design sweeps, but are otherwise treated as a constant by the optimizer during any particular optimization.</p>
+  </li>
+</ol>
+
+<p>AeroSandbox provides straightforward syntax for implementing each of these optimization problem elements for a design problem.
+Each of the sub-models are implemented in separate python classes as fully constrained systems of equations; that is, there are the same number of variables as there are constraints.
+Fully constrained systems do not need an objective function since the feasible space for solutions is already a single point.
+The developed models can be assembled into a larger optimization problem with additional variables, constraints, parameters, and an objective if desired.</p>
+
+<h3 id="model-limitations">Model Limitations</h3>
+
+<p>Despite its great flexibility, the AeroSandbox framework does create some limitations on the types of models that can be used.
+The most important of these limitations are described below:</p>
+
+<ol>
+  <li>
+    <p><em>Glass-box models</em>: AeroSandbox uses automatic differentiation, which evaluates computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule. In order to evaluate these derivatives, AeroSandbox needs direct access to the code for the model. Therefore models in AeroSandbox must be “glass-box”, and coded directly in python; “black-box” codes cannot be used.</p>
+  </li>
+  <li>
+    <p><em>C1-continuity</em>: AeroSandbox uses gradient descent with automatic differentiation to solve optimization problems, which requires that models be C1-continuous with respect to any problem variables. AeroSandbox has several tools for implementing surrogate models to meet the C1-continuity requirement.</p>
+  </li>
+  <li>
+    <p><em>Non-stiff differential equations</em>: AeroSandbox uses a simple trapezoidal integrator for integrating differential equations. This integrator does not converge well for stiff systems of differential equations, and therefore stiff equations should be avoided.</p>
+  </li>
+</ol>
+
+<h2 id="in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</h2>
+
+<p>This section will give an in-depth discussion of the chamber thermodynamic equilibrium sub-model as an example.
+A full discussion of all of the sub-models will be available in my thesis when it is published.</p>
+
+<p>Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
+These propellant combustion properties are determined in this model using equilibrium thermodynamics.
+Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
+The constituent species of the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero mole fraction).
+The implemented governing equations and AeroSandbox implementation methodology are described below.</p>
+
+<h3 id="governing-equations">Governing Equations</h3>
+
+<p>The governing equations for the chamber thermodynamic equilibrium module for gaseous products are given below, following the formulation given by Ponomarenko<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup>:</p>
+
+<p>Minimization of Gibbs free energy for gaseous products:</p>
+
+\[\hat{g^0_j}(T_c) + \hat{R} T_c \ln \left(\frac{n_j}{n_{tot}} \right) + \hat{R} T_c \ln \left( \frac{p_c}{p_0} \right) - \sum_{i=1}^{N_{elements}} \lambda_{i} a_{ij} = 0\]
+
+\[\text{for } j = 1, \ldots, N_{prod}\]
+
+<p>Conservation of mass of chemical elements:</p>
+
+\[\sum_{j=1}^{N_{prod}} a_{ij} n_j - \sum_{k=1}^{N_{reac}} b_{ik} n_k = 0 \hspace{0.3in} \text{for } i = 1, \ldots, N_{elements}\]
+
+<p>Conservation of enthalpy:</p>
+
+\[\sum_{j=1}^{N_{prod}} n_j \hat{h}_j^0 - H_0 = 0\]
+
+<p>Enforcement of molar sum of gaseous products:</p>
+
+\[\sum_{j=1}^{N_{prod}} n_j - n_{tot} = 0\]
+
+<p>The parameters in the governing equations are given in the table below:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Variable</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(i\)</td>
+      <td>chemical elements</td>
+    </tr>
+    <tr>
+      <td>\(j\)</td>
+      <td>product species</td>
+    </tr>
+    <tr>
+      <td>\(k\)</td>
+      <td>reactant components</td>
+    </tr>
+    <tr>
+      <td>\(N_{elements}\)</td>
+      <td>number of chemical elements \(i\)</td>
+    </tr>
+    <tr>
+      <td>\(N_{prod}\)</td>
+      <td>number of product species \(j\)</td>
+    </tr>
+    <tr>
+      <td>\(N_{reac}\)</td>
+      <td>number of reactant components \(k\)</td>
+    </tr>
+    <tr>
+      <td>\(T_c\)</td>
+      <td>chamber temperature [K]</td>
+    </tr>
+    <tr>
+      <td>\(p_c\)</td>
+      <td>chamber pressure [Pa]</td>
+    </tr>
+    <tr>
+      <td>\(p_0\)</td>
+      <td>standard pressure [Pa]</td>
+    </tr>
+    <tr>
+      <td>\(\hat{g^0_j}\)</td>
+      <td>molar Gibbs free energy of species \(j\) [J mol<sup>-1</sup>]</td>
+    </tr>
+    <tr>
+      <td>\(\hat{h^0_j}\)</td>
+      <td>molar enthalpy of species \(j\) [J mol<sup>-1</sup>]</td>
+    </tr>
+    <tr>
+      <td>\(\hat{s^0_j}\)</td>
+      <td>molar entropy of species \(j\) [J mol<sup>-1</sup> K<sup>-1</sup>]</td>
+    </tr>
+    <tr>
+      <td>\(H_0\)</td>
+      <td>total system enthalpy [J]</td>
+    </tr>
+    <tr>
+      <td>\(\lambda_{i}\)</td>
+      <td>Lagrange multiplier for element \(i\)</td>
+    </tr>
+    <tr>
+      <td>\(a_{ij}\)</td>
+      <td>number of atoms of element \(i\) per mole of product species \(j\)</td>
+    </tr>
+    <tr>
+      <td>\(b_{ik}\)</td>
+      <td>number of atoms of element \(i\) per mole of reactant component \(k\)</td>
+    </tr>
+    <tr>
+      <td>\(n_j\)</td>
+      <td>number of moles of product species \(j\)</td>
+    </tr>
+    <tr>
+      <td>\(n_k\)</td>
+      <td>number of moles of reactant component \(k\)</td>
+    </tr>
+    <tr>
+      <td>\(n_{tot}\)</td>
+      <td>total number of moles of product species</td>
+    </tr>
+    <tr>
+      <td>\(\hat{R}\)</td>
+      <td>universal gas constant [J mol<sup>-1</sup> K<sup>-1</sup>]</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Gibbs free energy can be calculated using \(\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}\).
+Lagrange multipliers \(\lambda_i\) are introduced, following the procedure used by Ponomarenko.
+Using Lagrange multipliers allows the thermodynamic equilibrium problem to be solved as a system of constrained equations, rather than as a true minimization problem.
+This is important for implementation in AeroSandbox, so that the equations can be implemented as a set of problem constraints, rather than as a minimization which would be implemented as part of the problem objective.</p>
+
+<h3 id="implementation-in-aerosandbox">Implementation in AeroSandbox</h3>
+
+<p>The above equations are implemented in python with AeroSandbox. 
+First, we instantiate an AeroSandbox optimization environment:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">aerosandbox</span> <span class="k">as</span> <span class="n">asb</span>
+<span class="kn">import</span> <span class="nn">aerosandbox.numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">opti</span> <span class="o">=</span> <span class="n">asb</span><span class="p">.</span><span class="n">Opti</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Next, we identify the problem variables: the number of moles of each product species \(n_j\) (\(N_{prod}\) variables); the total number of moles of gas \(n_{tot}\) (1 variable); the equilibrium combustion temperature \(T_c\) (1 variable); and the Lagrange multipliers \(\lambda_i\) (\(N_{elements}\) variables). 
+These variables are implemented as problem variables.
+The number of moles of each species \(n_j\) and the lagrange multipliers \(\lambda_i\) are implemented as vectors of variables.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># total number of moles n_gas, assuming 1kg of gas total
+# -------------------------
+# guess: (1kg) / (a reasonable molecular weight)
+</span><span class="n">n_tot_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">.</span><span class="mi">025</span>  
+<span class="n">n_tot</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">n_tot_guess</span><span class="p">)</span>
+
+<span class="c1"># number of moles of each species n_j
+# -------------------------
+# guess: equal number of moles
+</span><span class="n">n_j_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n_prod</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_prod</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_tot_guess</span>  
+<span class="n">n_j</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">n_j_guess</span><span class="p">)</span>
+
+<span class="c1"># lagrange multipliers
+# -------------------------
+# guess: zeros, it could be anything
+</span><span class="n">lagrange_guess</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_elements</span><span class="p">)</span>
+<span class="n">lagrange_i</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">lagrange_guess</span><span class="p">)</span>
+
+<span class="c1"># chamber temperature
+# -------------------------
+# guess: 2500 K flame temperature
+</span><span class="n">temp_c</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="mi">2500</span><span class="p">)</span>  
+</code></pre></div></div>
+
+<p>The problem has \(N_{elements} + N_{prod} + 2\) variables.
+The same number of constraints are required, which are just the governing equations given in the previous section.
+Differentiable expressions for the species molar enthalpy \(\hat{h^0_j}(T_c)\) and the species molar entropy \(\hat{s^0_j}(T_c)\) with respect to chamber temperature \(T_c\) were implemented using the NASA 9-coefficient polynomial parametrizations<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>. 
+With the \(\hat{s^0_j}(T_c)\) and \(\hat{h^0_j}(T_c)\) parametrization, Gibbs free energy was defined:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># define Gibbs free energy
+# -------------------------
+# h_j and s_j are vectors of molar enthalpies and entropies 
+# corresponding to the species in n_j at the temperature T_c
+</span><span class="n">g_j</span> <span class="o">=</span> <span class="n">h_j</span> <span class="o">-</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">s_j</span>
+</code></pre></div></div>
+
+<p>Two matrices were defined to help with the calculations.
+First, a matrix <code class="language-plaintext highlighter-rouge">prod_stoich_coef_mat</code>, of size \(j \times i\), with each entry \((j, i)\) corresponding to \(a_{ij}\), the number of atoms of element \(i\) per mole of product species \(j\).
+Second, a matrix <code class="language-plaintext highlighter-rouge">reac_stoich_coef_mat</code>, of size \(k \times i\), with each entry \((k, i)\) corresponding to \(b_{ik}\), the number of atoms of element \(i\) per mole of reactant component \(k\).
+The governing equations were vectorized and enforced as constraints on the <code class="language-plaintext highlighter-rouge">opti</code> instance:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># minimize Gibbs free energy for product species
+# -------------------------
+# combine summation operation into matrix multiplication
+# operation ('@' implements matrix multiplication)
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span>
+    <span class="n">g_j</span>  <span class="o">+</span>
+    <span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_j</span> <span class="o">/</span> <span class="n">n_tot</span><span class="p">)</span> <span class="o">+</span>
+    <span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">p_c</span> <span class="o">/</span> <span class="n">p_0</span><span class="p">)</span> <span class="o">-</span>
+    <span class="p">(</span><span class="n">prod_stoich_coef_mat</span> <span class="o">@</span> <span class="n">lagrange_i</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span><span class="p">))</span>
+    <span class="o">==</span> <span class="mi">0</span>
+<span class="p">)</span>
+
+<span class="c1"># conservation of mass for each element
+# -------------------------
+# assuming arbitrarily 1 kg system mass
+# assuming reactant mole fractions n_k are known
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">prod_stoich_coef_mat</span><span class="p">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">n_j</span><span class="p">)</span> <span class="o">-</span>
+    <span class="p">(</span><span class="n">reac_stoich_coef_mat</span><span class="p">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">n_k</span><span class="p">)</span>
+    <span class="o">==</span> <span class="mi">0</span>
+<span class="p">)</span>
+
+<span class="c1"># conservation of total enthalpy in reacting system
+# -------------------------
+# assumes H_0 is known and calculated from known 
+# reactant mole quantities n_k
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">n_j</span> <span class="o">*</span> <span class="n">h_j</span><span class="p">)</span> <span class="o">-</span> <span class="n">H_0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            
+<span class="c1"># sum of all n_j equals n_tot
+# -------------------------
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">n_j</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_tot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> 
+</code></pre></div></div>
+
+<p>There are as many enforced constraints as variables: the minimization of Gibbs free energy provides one constraint per product species (\(N_{prod}\) constraints); the conservation of mass for each element provides one constraint per element (\(N_{elements}\) constraints); the conservation of total enthalpy in the reacting system provides one constraint; and the summation of moles provides one constraint.
+Because there are equal numbers of variables and constraints, an objective is not required for this sub-model, since the solution space is already only a single point.
+This chamber thermodynamic equilibrium sub-model can be attached to other sub-models, and other constraints can be applied to the entire optimization problem.</p>
+
+<h2 id="integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</h2>
+
+<p>Consider an example of integrated design of a solid rocket powered aircraft using the complete model for radiant emission (all six sub-models).
+For the example, we choose the proposed design for a small, fast aircraft described at the top of this post.
+The aircraft utilizes a small, end-burning solid rocket motor and a class of slow-burning propellants doped with the burn rate suppressant oxamide.
+This aircraft concept is illustrated in the figure below (same figure as at the top of this post).</p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/vehicle_design_with_plume.png" alt="vehicle-design" /></p>
+<figcaption>A proposed design for a class of small ( &lt; 10 kg), fast (&gt; 100 m s<sup>-1</sup>) aircraft. Design choices such as propellant composition and nozzle throat area influence the downstream plume flow field and exhaust plume radiant intensity.</figcaption>
+
+<p>The propellant burn area is fixed by the fuselage diameter.
+The propellant composition is a free variable, but is constrained as a baseline propellant that can be diluted with some mass fraction of oxamide.
+The throat diameter is a free variable, and its value ultimately sets the chamber pressure.
+The thrust is set to match vehicle drag or some other requirement.</p>
+
+<p>The following parameters are chosen:</p>
+<ul>
+  <li>2500 mm<sup>2</sup> propellant burning area</li>
+  <li>10 km altitude</li>
+  <li>Mach 0.8 vehicle speed</li>
+  <li>matched nozzle expansion</li>
+  <li>viewing orthogonal to plume axis of symmetry</li>
+</ul>
+
+<p>Thrust and oxamide content are set as problem parameters in AeroSandbox, and are swept through reasonable values.
+The system is solved for chamber pressure and nozzle throat diameter.
+The resulting radiant intensity, chamber pressure, and specific impulse for each of these configurations are plotted in the design chart below for curves of constant thrust.</p>
+
+<p><img src="/portfolio/assets/images/modeling-emission/peak_intensity_10km.png" alt="model-concept" /></p>
+<figcaption>For a particular aircraft thrust, a range of radiant intensities can be achieved by operating at different oxamide contents and chamber pressures.</figcaption>
+
+<p>This design chart helps to characterize the trade-offs between aircraft thrust, propellant oxamide content, chamber pressure, and plume radiant intensity. 
+For a particular aircraft thrust, a range of radiant intensities can be achived by operating at different oxamide contents and chamber pressures.
+Operating at higher propellant oxamide content yields lower radiant intensities.
+For a particular propellant oxamide mass fraction, the radiant intensity cannot be changed significantly by changing the chamber pressure. 
+A different combination of oxamide content and chamber pressure maximizes the specific impulse for each aircraft thrust.</p>
+
+<hr />
+<p><em>Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.</em></p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:2" role="doc-endnote">
+      <p>G. Avital et al. “Experimental and Computational Study of Infrared Emission from Underexpanded Rocket Exhaust Plumes”. In: <em>Journal of Thermophysics and Heat Transfer</em> 15.4 (Oct. 2001), pp. 377 - 383. issn: 0887-8722, 1533-6808. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:1" role="doc-endnote">
+      <p>C. B. Ludwig et al. <em>Handbook of Infrared Radiation from Combustion Gases.</em> NASA SP-3080. NASA Marshall Space Flight Center, 1973. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Alexander Ponomarenko. “RPA: Tool for Liquid Propellant Rocket Engine Analysis C++ Implementation”. In: (2010), p. 23. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>Bonnie J. McBride, Michael J. Zehe, and Sanford Gordon. <em>NASA Glenn Coefficients for Calculating Thermodynamic Properties of Individual Species.</em> NTRS Author Affiliations: NASA Glenn Research Center NTRS Report/Patent Number: NASA/TP-2002-211556 NTRS Document ID: 20020085330 NTRS Research Center: Glenn Research Center (GRC). Sept. 1, 2002. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/portfolio/projects/manf-process-simulator/" class="pagination--pager" title="Multi-Process Manufacturing System Simulator
+">Previous</a>
+    
+    
+      <a href="/portfolio/projects/popsicle-printer/" class="pagination--pager" title="Popsicle 3D Printer
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+    <ul class="social-icons">
+      
+  
+      
+  
+      
+    </ul>
+  </div>
+  
+  <div class="page__footer-copyright">&copy; 2023 Kelly Mathesius. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    
+<script src="/portfolio/assets/js/main.min.js"></script>
+
+
+
+
+<script src="/portfolio/assets/js/lunr/lunr.min.js"></script>
+<script src="/portfolio/assets/js/lunr/lunr-store.js"></script>
+<script src="/portfolio/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+  </body>
+</html>

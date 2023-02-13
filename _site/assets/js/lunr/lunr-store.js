@@ -1,6 +1,6 @@
 var store = [{
         "title": "3D Printed Titanium Rocket Motor Closure",
-        "excerpt":"I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor. Design This after closure is a part of a rocket motor I use for research of small, low-thrust solid rocket motors...","categories": [],
+        "excerpt":"I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. The closure was used for a small, end-burning solid rocket motor, which posed unique design requirements. These requirements led to the design of a thin, light-weight, tapered closure that was best suited to manufacturing via additive...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/3D-print-closure/",
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
@@ -30,7 +30,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/combustion-instability/composite.png"
       },{
         "title": "Experimental Measurements of Rocket Exhaust Plume Radiant Emission",
-        "excerpt":"I developed and conducted a set of experiments to help understand the relationships between solid rocket motor design variables, such as propellant formulation and motor chamber pressure, and exhaust plume infrared radiant emission. This research includes: designing and building a solid rocket motor with a water-cooled nozzle; developing a process...","categories": [],
+        "excerpt":"Exhaust plume radiant emission is an important performance parameter for solid rocket vehicles where vehicle visibility is a concern. Many motor design parameters influence the plume radiant emission, and understanding these relationships can enable improved design with better plume performance. For my graduate research, I developed and conducted a set...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/experiments-emission/",
         "teaser": "/portfolio/assets/images/experiments-emission/composite.png"
@@ -40,6 +40,12 @@ var store = [{
         "tags": [],
         "url": "/portfolio/projects/manf-process-simulator/",
         "teaser": "/portfolio/assets/images/manf-process-simulator/composite.png"
+      },{
+        "title": "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission",
+        "excerpt":"For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory. Typical modeling approaches are computationally expensive, and rely on...","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/modeling-emission/",
+        "teaser": "/portfolio/assets/images/modeling-emission/banner.png"
       },{
         "title": "Popsicle 3D Printer",
         "excerpt":"Designed and built in collaboration with Juju Wang and Prashanth Prakash. Description My friends and I built a printer to make edible, frozen popsicles. We started with a Velleman K8200 printer, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and...","categories": [],
