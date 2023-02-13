@@ -206,19 +206,27 @@ The number of moles of each species $$n_j$$ and the lagrange multipliers $$\lamb
 
 ```python
 # total number of moles n_gas, assuming 1kg of gas total
-n_tot_guess = 1 / .025  # (1kg) / (a reasonable molecular weight)
+# -------------------------
+# guess: (1kg) / (a reasonable molecular weight)
+n_tot_guess = 1 / .025  
 n_tot = opti.variable(init_guess=n_tot_guess)
 
 # number of moles of each species n_j
-n_j_guess = 1 / j * np.ones(j) * n_gas_guess  # guess equal number of moles
+# -------------------------
+# guess: equal number of moles
+n_j_guess = 1 / n_prod * np.ones(n_prod) * n_tot_guess  
 n_j = opti.variable(init_guess=n_j_guess)
 
 # lagrange multipliers
+# -------------------------
+# guess: zeros, it could be anything
 lagrange_guess = np.zeros(n_elements)
 lagrange_mults = opti.variable(init_guess=lagrange_guess)
 
 # chamber temperature
-temp_c = opti.variable(init_guess=2500)  # guess 2500 K flame temperature
+# -------------------------
+# guess 2500 K flame temperature
+temp_c = opti.variable(init_guess=2500)  
 ```
 
 The problem has $$ i + j + 2 $$ variables.
@@ -228,8 +236,10 @@ Differentiable expressions for the species molar enthalpy $$\hat{h^0_j}(T_c)$$ a
 With the $$\hat{s^0_j}(T_c)$$ and $$\hat{h^0_j}(T_c)$$ parametrization, Gibb's free energy was defined:
 ```python
 # define Gibb's free energy
-# h_j and s_j are vectors of molar enthalpies and entropies corresponding to 
-# the species in n_j at the temperature the temperature T_c
+# -------------------------
+# h_j and s_j are vectors of molar enthalpies and entropies 
+# corresponding to the species in n_j at the temperature 
+# the temperature T_c
 g_j = h_j - temp_c * s_j
 ```
 
@@ -239,7 +249,9 @@ Second, a matrix ```reac_stoich_coef_mat```, of size $$k \times i$$, with each e
 The governing equations were vectorized and enforced as constraints on the ```opti``` instance:
 ```python
 # minimize Gibb's free energy for product species
-# combine summation operation into matrix multiplication operation
+# -------------------------
+# combine summation operation into matrix multiplication
+# operation
 opti.subject_to(
     g_j  +
     R_univ * temp_c * np.log(n_j / n_gas) +
@@ -248,9 +260,10 @@ opti.subject_to(
     == 0
 )
 
-# conservation of mass for each element, assuming:
-# 1. arbitrarily, 1 kg system mass
-# 2. reactant mole fraction n_k are known
+# conservation of mass for each element
+# -------------------------
+# assuming arbitrarily 1 kg system mass
+# assuming reactant mole fraction n_k are known
 opti.subject_to(
     (self.prod_stoich_coef_mat.T @ n_j) -
     (self.reac_stoich_coef_mat.T @ n_k)
@@ -258,11 +271,13 @@ opti.subject_to(
 )
 
 # conservation of total enthalpy in reacting system
-# assumes H_0 is known from known reactant mole fraction n_k
+# -------------------------
+# assumes H_0 is known and calculated from known 
+# reactant mole quantities n_k
 opti.subject_to(np.sum(n_j * h_j) - H_0 == 0)
             
-
 # sum of all n_j equals n_tot
+# -------------------------
 opti.subject_to(np.sum(n_j) - n_tot == 0) 
 ```
 
