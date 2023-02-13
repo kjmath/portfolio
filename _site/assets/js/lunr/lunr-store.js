@@ -41,7 +41,7 @@ var store = [{
         "url": "/portfolio/projects/manf-process-simulator/",
         "teaser": "/portfolio/assets/images/manf-process-simulator/composite.png"
       },{
-        "title": "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Raidant Emission",
+        "title": "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission",
         "excerpt":"For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory. Typical modeling approaches are computationally expensive, and rely on...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/modeling-emission/",

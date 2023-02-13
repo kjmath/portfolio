@@ -1,5 +1,5 @@
 ---
-title: "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Raidant Emission"
+title: "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission"
 header:
   teaser: /assets/images/modeling-emission/banner.png
 excerpt: I developed and implemented a set of differentiable sub-models for predicting exhaust plume radiant emission for solid rocket motors using the AeroSandbox and CasADi design optimization frameworks. The model showed good agreement with experimental radiant emission data, and can be used to optimize the design of solid rocket powered aircraft. 
@@ -28,7 +28,7 @@ AeroSandbox solves design problems using the [CasADi](https://web.casadi.org/) f
 Automatic differentiation is a method for evaluating computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule.
 It can be used to compute derivatives for gradient-based optimization schemes and provides a computationally efficient method to solve high-dimensional engineering problems.
 
-I successfully developed and implemented a differentiable model for exhaust plume radiant emission in the AeroSandbox framework (discussed further [below](#general-model-description)).
+I successfully developed and implemented an end-to-end differentiable model for exhaust plume radiant emission in the AeroSandbox framework (discussed further [below](#general-model-description)).
 A comparison of the model results to experimental data is shown in the following section.
 
 ## Model Comparison with Experimental Data
