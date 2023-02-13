@@ -10,7 +10,7 @@ toc_sticky: true
 mathjax: true
 ---
 For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. 
-However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory.
+<!-- However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory. -->
 Typical modeling approaches are computationally expensive, and rely on CFD and complicated integration schemes that are not well-suited for fast, iterative vehicle design.
 To address this gap, I developed simpler models for exhaust plume radiant emission, and implemented them in the fast, flexible [AeroSandbox](https://github.com/peterdsharpe/AeroSandbox#readme) design optimization framework.
 
@@ -24,11 +24,11 @@ This aircraft concept, illustrated below, will be used as a case study to explor
 ## Design Optimization with CasADi and AeroSandbox
 
 The modeling and optimization work leverages the [AeroSandbox](https://github.com/peterdsharpe/AeroSandbox#readme) framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
-AeroSandbox solves design problems using the [CasADi](https://web.casadi.org/) framework, which in turn leverages automatic differentiation.
+AeroSandbox solves design problems using the [CasADi](https://web.casadi.org/) framework for automatic differentiation.
 Automatic differentiation is a method for evaluating computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule.
 It can be used to compute derivatives for gradient-based optimization schemes and provides a computationally efficient method to solve high-dimensional engineering problems.
 
-I successfully developed and implemented an end-to-end differentiable model for exhaust plume radiant emission (discussed further [below](#general-model-description)) in the AeroSandbox framework.
+I developed and implemented an end-to-end differentiable model for exhaust plume radiant emission (discussed further [below](#general-model-description)) in the AeroSandbox framework.
 A comparison of the model results to experimental data is shown in the following section.
 
 ## Model Comparison with Experimental Data
@@ -45,7 +45,7 @@ Unfortunately, the radiant emission of these small, slow-burning solid rocket mo
 ![plot-all-rad]({{ site.baseurl }}/assets/images/modeling-emission/plot_all_rad_uncorrected_annotated.png)
 <figcaption>The measured and modeled radiant intensities for SF4 - SF7 show reasonable agreement across the spectrum. All show the largest peak at 4.3 &#956;m corresponding to a CO<sub>2</sub> emission band. The data is unfortunately noisy due to sensitivity limitations of the instrumentation.</figcaption>
 
-By inspecting the previous figure, it can be seen that radiant intensity measurements show greater sensitivity to changes in oxamide content than changes in chamber pressure.
+It can be seen in the previous figure that radiant intensity measurements show greater sensitivity to changes in oxamide content than changes in chamber pressure.
 The modeled radiant intensities display this same trend as well.
 The reasons for this become more clear by examining the modeled flow field parameters for SF4 - SF7, which are shown in the figure below.
 Parameters are plotted against axial distance downstream from the start of the turbulent mixing region, normalized by the diameter of the plume $$d_0$$ at the start of the turbulent mixing region.
@@ -72,7 +72,7 @@ Some of these bands were not visible in the radiant intensity data or model resu
 The model over-predicts the 4.3 &#956;m CO<sub>2</sub> peak radiant intensity by 19%.
 The center of the 4.3 &#956;m CO<sub>2</sub> band between the model and Avital et al. measurement also differs, with the model predicting the band center near 4.31 &#956;m and the data showing the center near 4.37 &#956;m. 
 
-It should also be noted that the Avital et al. plume had a peak radiant emission that was over three orders of magnitude larger than the emission from the small end-burning motors discussed in the previous section.
+The Avital et al. plume had a peak radiant emission that was over three orders of magnitude larger than the emission from the small end-burning motors discussed in the previous section.
 The developed radiant emission model performs reasonably well for the Avital et al. plume and the small end-burning plumes, which demonstrates the model's robustness for modeling plumes spanning multiple orders of magnitude of radiant emission.
 
 
@@ -91,7 +91,7 @@ These models are summarized here:
 
 3. The *isentropic nozzle flow* sub-model determines nozzle exit temperature $$T_e$$, pressure $$p_e$$, and diameter $$d_e$$ given chamber temperature $$T_c$$, chamber pressure $$p_c$$, and nozzle throat diameter $$d_t$$. For simplicity, these values are calculated using isentropic nozzle theory assuming frozen flow in the nozzle.
 
-4. The *plume flow field* sub-model determines temperatures, densities, pressures, and species concentrations throughout the exhaust plume given nozzle exit properties and freestream conditions. A 1D simplified plume flow field model is implemented that captures the core effects of turbulent entrainment, jet expansion, and non-equilibrium chemistry. This 1D model is efficient and compatible with AeroSandbox, and does not rely black-box CFD codes used by many studies.
+4. The *plume flow field* sub-model determines temperatures, densities, pressures, and species concentrations throughout the exhaust plume given nozzle exit properties and freestream conditions. A 1D simplified plume flow field model is implemented that captures the core effects of turbulent entrainment, jet expansion, and non-equilibrium chemistry. This 1D model is efficient and compatible with AeroSandbox, and does not rely on black-box CFD codes used by many studies.
 
 5. The *afterburning kinetics* sub-model determines the species production rates $$\dot{\omega}_i$$ throughout the plume given temperatures, densities, and species mass fractions throughout the plume. This sub-model uses a simple, single reaction mechanism with a global reaction rate equation fit to reaction rates predicted by a 28 reaction mechanism. This fitted global reaction rate equation is significantly less stiff than more complicated reaction mechanisms used in other studies, which improves its performance in AeroSandbox.
 
@@ -136,7 +136,7 @@ A full discussion of all of the sub-models will be available in my thesis when i
 Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
 Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
-The constituent species of the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero mole fraction).
+Which species to include in the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero mole fractions).
 The implemented governing equations and AeroSandbox implementation methodology are described below.
 
 ### Governing Equations
@@ -163,28 +163,28 @@ $$ \sum_{j=1}^{N_{prod}} n_j - n_{tot} = 0 $$
 
 The parameters in the governing equations are given in the table below:
 
-| Variable        | Description |
-| -----------     | ----------- |
-| $$i$$           | chemical elements       |
-| $$j$$           | product species        |
-| $$k$$           | reactant components      |
-| $$N_{elements}$$| number of chemical elements $$i$$|
-| $$N_{prod}$$    | number of product species $$j$$|
-| $$N_{reac}$$    | number of reactant components $$k$$|
-| $$T_c$$         | chamber temperature [K] |
-| $$p_c$$         | chamber pressure [Pa]|
-| $$p_0$$         | standard pressure [Pa] |
-| $$\hat{g^0_j}$$ | molar Gibbs free energy of species $$j$$ [J mol<sup>-1</sup>]|
-| $$\hat{h^0_j}$$ |molar enthalpy of species $$j$$ [J mol<sup>-1</sup>]|
-| $$\hat{s^0_j}$$ | molar entropy of species $$j$$ [J mol<sup>-1</sup> K<sup>-1</sup>]|
-| $$H_0$$         | total system enthalpy [J]|
-| $$\lambda_{i}$$ | Lagrange multiplier for element $$i$$ |
-| $$a_{ij}$$ | number of atoms of element $$i$$ per mole of product species $$j$$|
-| $$b_{ik}$$ | number of atoms of element $$i$$ per mole of reactant component $$k$$|
-| $$n_j$$ | number of moles of product species $$j$$|
-| $$n_k$$ | number of moles of reactant component $$k$$|
-| $$n_{tot}$$ | total number of moles of product species|
-| $$\hat{R}$$ | universal gas constant [J mol<sup>-1</sup> K<sup>-1</sup>]|
+| Variable        | Python Variable | Description |
+| -----------     | -----------     | ----------- |
+| $$i$$           | ```i``` |chemical elements       |
+| $$j$$           | ```j``` | product species        |
+| $$k$$           | ```k```| reactant components      |
+| $$N_{elements}$$|```n_elements```|number of chemical elements $$i$$|
+| $$N_{prod}$$    |```n_prod``` |number of product species $$j$$|
+| $$N_{reac}$$    |```n_reac``` |number of reactant components $$k$$|
+| $$T_c$$         |```temp_c```|chamber temperature [K] |
+| $$p_c$$         |```p_c``` |chamber pressure [Pa]|
+| $$p_0$$         |```p_0``` |standard pressure [Pa] |
+| $$\hat{g^0_j}$$ |```g_j``` |molar Gibbs free energy of species $$j$$ [J mol<sup>-1</sup>]|
+| $$\hat{h^0_j}$$ |```h_j``` |molar enthalpy of species $$j$$ [J mol<sup>-1</sup>]|
+| $$\hat{s^0_j}$$ |```s_j``` |molar entropy of species $$j$$ [J mol<sup>-1</sup> K<sup>-1</sup>]|
+| $$H_0$$         |```H_0``` |total system enthalpy [J]|
+| $$\lambda_{i}$$ |```lagrange_i``` |Lagrange multiplier for element $$i$$ |
+| $$a_{ij}$$ |```prod_stoich_coef_mat```|number of atoms of element $$i$$ per mole of product species $$j$$|
+| $$b_{ik}$$ |```reac_stoich_coef_mat``` |number of atoms of element $$i$$ per mole of reactant component $$k$$|
+| $$n_j$$ |```n_j``` |number of moles of product species $$j$$|
+| $$n_k$$ |```n_k``` |number of moles of reactant component $$k$$|
+| $$n_{tot}$$ |```n_tot``` |total number of moles of product species|
+| $$\hat{R}$$ |```R_univ```|universal gas constant [J mol<sup>-1</sup> K<sup>-1</sup>]|
 
 Gibbs free energy can be calculated using $$\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}$$.
 Lagrange multipliers $$\lambda_i$$ are introduced, following the procedure used by Ponomarenko.
