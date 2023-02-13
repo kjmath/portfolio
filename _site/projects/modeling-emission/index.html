@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-02-12T20:23:07-05:00">
+  <meta property="article:published_time" content="2023-02-12T20:47:28-05:00">
 
 
 
@@ -565,6 +565,7 @@ This is important for implementation in AeroSandbox, so that the equations can b
 First, we instantiate an AeroSandbox optimization environment:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">aerosandbox</span> <span class="k">as</span> <span class="n">asb</span>
+<span class="kn">import</span> <span class="nn">aerosandbox.numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="n">opti</span> <span class="o">=</span> <span class="n">asb</span><span class="p">.</span><span class="n">Opti</span><span class="p">()</span>
 </code></pre></div></div>
 
@@ -573,8 +574,8 @@ These variables are implemented as problem variables.
 The number of moles of each species \(n_j\) and the lagrange multipliers \(\lambda_i\) are implemented as vectors of variables.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># total number of moles n_gas, assuming 1kg of gas total
-</span><span class="n">n_gas_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">.</span><span class="mi">025</span>  <span class="c1"># (1kg) / (a reasonable molecular weight)
-</span><span class="n">n_gas</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">n_gas_guess</span><span class="p">)</span>
+</span><span class="n">n_tot_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">.</span><span class="mi">025</span>  <span class="c1"># (1kg) / (a reasonable molecular weight)
+</span><span class="n">n_tot</span> <span class="o">=</span> <span class="n">opti</span><span class="p">.</span><span class="n">variable</span><span class="p">(</span><span class="n">init_guess</span><span class="o">=</span><span class="n">n_tot_guess</span><span class="p">)</span>
 
 <span class="c1"># number of moles of each species n_j
 </span><span class="n">n_j_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">ones</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">*</span> <span class="n">n_gas_guess</span>  <span class="c1"># guess equal number of moles
@@ -590,18 +591,20 @@ The number of moles of each species \(n_j\) and the lagrange multipliers \(\lamb
 
 <p>The problem has \(i + j + 2\) variables.
 The same number of constraints are required, which are just the governing equations given in the previous section.
-Differentiable expressions for the species molar enthalpy \(\hat{h^0_j}\) and the species molar entropy \(\hat{s^0_j}\) were implemented using the NASA 9-coefficient polynomial parametrizations<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>.</p>
+Differentiable expressions for the species molar enthalpy \(\hat{h^0_j}(T_c)\) and the species molar entropy \(\hat{s^0_j}(T_c)\) with respect to chamber temperature \(T_c\) were implemented using the NASA 9-coefficient polynomial parametrizations<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup>.</p>
 
-<p>With the \(\hat{s^0_j}\) and \(\hat{h^0_j}\) parametrization, Gibb’s free energy was defined:</p>
+<p>With the \(\hat{s^0_j}(T_c)\) and \(\hat{h^0_j}(T_c)\) parametrization, Gibb’s free energy was defined:</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># define Gibb's free energy
 # h_j and s_j are vectors of molar enthalpies and entropies corresponding to 
-# the species in n_j
+# the species in n_j at the temperature the temperature T_c
 </span><span class="n">g_j</span> <span class="o">=</span> <span class="n">h_j</span> <span class="o">-</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">s_j</span>
 </code></pre></div></div>
 
-<p>The governing equations were vectorized and implemented using matrix methods.
-A matrix <code class="language-plaintext highlighter-rouge">prod_stoich_coef_mat</code> (corresponds to \(a_{ij}\) in the governing equations), of size \(j \times i\), with each entry \((j, i)\) corresponding to the number of atoms of element \(i\) per mole of species \(j\) in the products was implemented. Another matrix</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># minimize Gibb's free energy for gaseous species
+<p>Two matrices were defined to help with the calculations.
+First, a matrix <code class="language-plaintext highlighter-rouge">prod_stoich_coef_mat</code>, of size \(j \times i\), with each entry \((j, i)\) corresponding to \(a_{ij}\), the number of atoms of element \(i\) per mole of species \(j\).
+Second, a matrix <code class="language-plaintext highlighter-rouge">reac_stoich_coef_mat</code>, of size \(k \times i\), with each entry \((k, i)\) corresponding to \(b_{ik}\), the number of atoms of element \(i\) per mole of species \(k\).
+The governing equations were vectorized and enforced as constraints on the <code class="language-plaintext highlighter-rouge">opti</code> instance:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># minimize Gibb's free energy for product species
 # combine summation operation into matrix multiplication operation
 </span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span>
     <span class="n">g_j</span>  <span class="o">+</span>
@@ -610,6 +613,23 @@ A matrix <code class="language-plaintext highlighter-rouge">prod_stoich_coef_mat
     <span class="p">(</span><span class="n">prod_stoich_coef_mat</span> <span class="o">@</span> <span class="n">mults</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span><span class="p">))</span>
     <span class="o">==</span> <span class="mi">0</span>
 <span class="p">)</span>
+
+<span class="c1"># conservation of mass for each species, assuming:
+# 1. arbitrarily, 1 kg system mass
+# 2. reactant mole fraction n_k are known
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span>
+    <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">prod_stoich_coef_mat</span><span class="p">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">n_j</span><span class="p">)</span> <span class="o">-</span>
+    <span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">reac_stoich_coef_mat</span><span class="p">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">n_k</span><span class="p">)</span>
+    <span class="o">==</span> <span class="mi">0</span>
+<span class="p">)</span>
+
+<span class="c1"># conservation of total enthalpy in reacting system
+# assumes H_0 is known from known reactant mole fraction n_k
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">n_j</span> <span class="o">*</span> <span class="n">h_j</span><span class="p">)</span> <span class="o">-</span> <span class="n">H_0</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            
+
+<span class="c1"># sum of all n_j equals n_tot
+</span><span class="n">opti</span><span class="p">.</span><span class="n">subject_to</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">sum</span><span class="p">(</span><span class="n">n_j</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_tot</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> 
 </code></pre></div></div>
 
 <h2 id="integrated-design-of-small-low-thrust-solid-rocket-motors-including-plume-radiant-emission">Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission</h2>

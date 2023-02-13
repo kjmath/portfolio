@@ -196,6 +196,7 @@ First, we instantiate an AeroSandbox optimization environment:
 
 ```python
 import aerosandbox as asb
+import aerosandbox.numpy as np
 opti = asb.Opti()
 ```
 
@@ -205,8 +206,8 @@ The number of moles of each species $$n_j$$ and the lagrange multipliers $$\lamb
 
 ```python
 # total number of moles n_gas, assuming 1kg of gas total
-n_gas_guess = 1 / .025  # (1kg) / (a reasonable molecular weight)
-n_gas = opti.variable(init_guess=n_gas_guess)
+n_tot_guess = 1 / .025  # (1kg) / (a reasonable molecular weight)
+n_tot = opti.variable(init_guess=n_tot_guess)
 
 # number of moles of each species n_j
 n_j_guess = 1 / j * np.ones(j) * n_gas_guess  # guess equal number of moles
@@ -222,20 +223,22 @@ temp_c = opti.variable(init_guess=2500)  # guess 2500 K flame temperature
 
 The problem has $$ i + j + 2 $$ variables.
 The same number of constraints are required, which are just the governing equations given in the previous section.
-Differentiable expressions for the species molar enthalpy $$\hat{h^0_j}$$ and the species molar entropy $$\hat{s^0_j}$$ were implemented using the NASA 9-coefficient polynomial parametrizations[^4]. 
+Differentiable expressions for the species molar enthalpy $$\hat{h^0_j}(T_c)$$ and the species molar entropy $$\hat{s^0_j}(T_c)$$ with respect to chamber temperature $$T_c$$ were implemented using the NASA 9-coefficient polynomial parametrizations[^4]. 
 
-With the $$\hat{s^0_j}$$ and $$\hat{h^0_j}$$ parametrization, Gibb's free energy was defined:
+With the $$\hat{s^0_j}(T_c)$$ and $$\hat{h^0_j}(T_c)$$ parametrization, Gibb's free energy was defined:
 ```python
 # define Gibb's free energy
 # h_j and s_j are vectors of molar enthalpies and entropies corresponding to 
-# the species in n_j
+# the species in n_j at the temperature the temperature T_c
 g_j = h_j - temp_c * s_j
 ```
 
-The governing equations were vectorized and implemented using matrix methods.
-A matrix ```prod_stoich_coef_mat``` (corresponds to $$a_{ij}$$ in the governing equations), of size $$j \times i$$, with each entry $$(j, i)$$ corresponding to the number of atoms of element $$i$$ per mole of species $$j$$ in the products was implemented. Another matrix 
+Two matrices were defined to help with the calculations.
+First, a matrix ```prod_stoich_coef_mat```, of size $$j \times i$$, with each entry $$(j, i)$$ corresponding to $$a_{ij}$$, the number of atoms of element $$i$$ per mole of species $$j$$.
+Second, a matrix ```reac_stoich_coef_mat```, of size $$k \times i$$, with each entry $$(k, i)$$ corresponding to $$b_{ik}$$, the number of atoms of element $$i$$ per mole of species $$k$$.
+The governing equations were vectorized and enforced as constraints on the ```opti``` instance:
 ```python
-# minimize Gibb's free energy for gaseous species
+# minimize Gibb's free energy for product species
 # combine summation operation into matrix multiplication operation
 opti.subject_to(
     g_j  +
@@ -244,6 +247,23 @@ opti.subject_to(
     (prod_stoich_coef_mat @ mults / (R_univ * temp_c))
     == 0
 )
+
+# conservation of mass for each species, assuming:
+# 1. arbitrarily, 1 kg system mass
+# 2. reactant mole fraction n_k are known
+opti.subject_to(
+    (self.prod_stoich_coef_mat.T @ n_j) -
+    (self.reac_stoich_coef_mat.T @ n_k)
+    == 0
+)
+
+# conservation of total enthalpy in reacting system
+# assumes H_0 is known from known reactant mole fraction n_k
+opti.subject_to(np.sum(n_j * h_j) - H_0 == 0)
+            
+
+# sum of all n_j equals n_tot
+opti.subject_to(np.sum(n_j) - n_tot == 0) 
 ```
 
 
