@@ -1,6 +1,6 @@
 var store = [{
         "title": "3D Printed Titanium Rocket Motor Closure",
-        "excerpt":"I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. I successfully used the closure in a static fire for a small solid rocket motor. Design This after closure is a part of a rocket motor I use for research of small, low-thrust solid rocket motors...","categories": [],
+        "excerpt":"I designed a 3D printed Ti-6Al-4V rocket motor closure in collaboration with Renishaw PLC. The closure was used for a small, end-burning solid rocket motor, which posed unique design requirements. These requirements led to the design of a thin, light-weight, tapered closure that was best suited to manufacturing via additive...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/3D-print-closure/",
         "teaser": "/portfolio/assets/images/printed-closure/printed-closure-composite.png"
