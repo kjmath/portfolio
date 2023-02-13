@@ -171,6 +171,7 @@ The variables in the governing equations are given in the table below:
 | $$N_{elements}$$| number of chemical elements $$i$$|
 | $$N_{prod}$$    | number of product species $$j$$|
 | $$N_{reac}$$    | number of reactant components $$k$$|
+| $$T_c$$         | chamber temperature |
 | $$p_c$$         | chamber pressure |
 | $$p_0$$         | standard pressure |
 | $$\hat{g^0_j}$$ | molar Gibb's free energy|
@@ -183,6 +184,7 @@ The variables in the governing equations are given in the table below:
 | $$n_j$$ | number of moles of product species $$j$$|
 | $$n_k$$ | number of moles of reactant component $$k$$|
 | $$n_{tot}$$ | total number of moles of product species|
+| $$\hat{R}$$ | universal gas constant |
 
 Gibbs free energy can be calculated using $$\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}$$.
 Lagrange multipliers $$\lambda_i$$ are introduced, following the procedure used by Ponomarenko.
@@ -221,11 +223,11 @@ n_j = opti.variable(init_guess=n_j_guess)
 # -------------------------
 # guess: zeros, it could be anything
 lagrange_guess = np.zeros(n_elements)
-lagrange_mults = opti.variable(init_guess=lagrange_guess)
+lagrange_i = opti.variable(init_guess=lagrange_guess)
 
 # chamber temperature
 # -------------------------
-# guess 2500 K flame temperature
+# guess: 2500 K flame temperature
 temp_c = opti.variable(init_guess=2500)  
 ```
 
@@ -254,9 +256,9 @@ The governing equations were vectorized and enforced as constraints on the ```op
 # operation
 opti.subject_to(
     g_j  +
-    R_univ * temp_c * np.log(n_j / n_gas) +
+    R_univ * temp_c * np.log(n_j / n_tot) +
     R_univ * temp_c * np.log(p_c / p_0) -
-    (prod_stoich_coef_mat @ mults / (R_univ * temp_c))
+    (prod_stoich_coef_mat @ lagrange_i / (R_univ * temp_c))
     == 0
 )
 
@@ -265,8 +267,8 @@ opti.subject_to(
 # assuming arbitrarily 1 kg system mass
 # assuming reactant mole fraction n_k are known
 opti.subject_to(
-    (self.prod_stoich_coef_mat.T @ n_j) -
-    (self.reac_stoich_coef_mat.T @ n_k)
+    (prod_stoich_coef_mat.T @ n_j) -
+    (reac_stoich_coef_mat.T @ n_k)
     == 0
 )
 
