@@ -145,25 +145,46 @@ The governing equations for the chamber thermodynamic equilibrium module for gas
 
 Minimization of Gibbs free energy for gaseous products:
 
-$$ \hat{g^0_j}(T_c) + \hat{R} T_c \ln \left(\frac{n_j}{n_{gas}} \right) + \hat{R} T_c \ln \left( \frac{p_c}{p_0} \right) - \sum_{i=1}^{N_{elements}} \lambda_{i} a_{ij} = 0 $$
+$$ \hat{g^0_j}(T_c) + \hat{R} T_c \ln \left(\frac{n_j}{n_{tot}} \right) + \hat{R} T_c \ln \left( \frac{p_c}{p_0} \right) - \sum_{i=1}^{N_{elements}} \lambda_{i} a_{ij} = 0 $$
 
-$$ \text{for } j = 1, \ldots, N_{species} $$
+$$ \text{for } j = 1, \ldots, N_{prod} $$
 
 Conservation of mass of chemical elements:
 
-$$ \sum_{j=1}^{N_{species}} a_{ij} n_j - \frac{b_{i0}}{\hat{m}_i} = 0 \hspace{0.3in} \text{for } i = 1, \ldots, N_{elements} $$
+$$ \sum_{j=1}^{N_{prod}} a_{ij} n_j - \sum_{k=1}^{N_{reac}} b_{ik} n_k = 0 \hspace{0.3in} \text{for } i = 1, \ldots, N_{elements} $$
 
 Conservation of enthalpy:
 
-$$ \sum_{j=1}^{N_{species}} n_j \hat{h}_j^0 - H_0 = 0 $$
+$$ \sum_{j=1}^{N_{prod}} n_j \hat{h}_j^0 - H_0 = 0 $$
 
 Enforcement of molar sum of gaseous products:
 
-$$ \sum_{j=1}^{N_{species,gas}} n_j - n_{gas} = 0 $$
+$$ \sum_{j=1}^{N_{prod}} n_j - n_{tot} = 0 $$
 
-In the above equations, $$j$$ are species, $$i$$ are chemical elements, $$\hat{g^0_j}$$ is molar Gibbs free energy of species $$j$$, $$\hat{h^0_j}$$ is molar enthalpy of species $$j$$, $$H_0$$ is total system enthalpy, $$T_c$$ is the chamber combustion temperature, $$p_c$$ is the chamber pressure, $$p_0$$ is standard state pressure, $$n_j$$ is number of moles of species $$j$$, $$n_{gas}$$ is the number of moles of gas, $$a_{ij}$$ is the number of atoms of element $$i$$ per mole of species $$j$$, $$b_{i0}$$ is the total system mass of element $$i$$, $$\hat{m}_i$$ is the atomic mass of element $$i$$, $$\lambda_i$$ are Lagrange multipliers, $$N_{species}$$ is the number of chemical species in the system, and $$N_{elements}$$ is the number of chemical elements in the system.
-Gibbs free energy can be calculated using $$\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}$$, where $$\hat{s^0_j}$$ is molar entropy.
+The variables in the governing equations are given in the table below:
 
+| Variable        | Description |
+| -----------     | ----------- |
+| $$i$$           | chemical elements       |
+| $$j$$           | product species        |
+| $$k$$           | reactant components      |
+| $$N_{elements}$$| number of chemical elements $$i$$|
+| $$N_{prod}$$    | number of product species $$j$$|
+| $$N_{reac}$$    | number of reactant components $$k$$|
+| $$p_c$$         | chamber pressure |
+| $$p_0$$         | standard pressure |
+| $$\hat{g^0_j}$$ | molar Gibb's free energy|
+| $$\hat{h^0_j}$$ |molar enthalpy of species $$j$$|
+| $$\hat{s^0_j}$$ | molar entropy of species $$j$$|
+| $$H_0$$         | total system enthalpy|
+| $$\lambda_{i}$$ | Lagrange multiplier for element $$i$$ |
+| $$a_{ij}$$ | number of atoms of element $$i$$ per mole of product species $$j$$|
+| $$b_{ik}$$ | number of atoms of element $$i$$ per mole of reactant component $$k$$|
+| $$n_j$$ | number of moles of product species $$j$$|
+| $$n_k$$ | number of moles of reactant component $$k$$|
+| $$n_{tot}$$ | total number of moles of product species|
+
+Gibbs free energy can be calculated using $$\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}$$.
 Lagrange multipliers $$\lambda_i$$ are introduced, following the procedure used by Ponomarenko.
 Using Lagrange multipliers allows the thermodynamic equilibrium problem to be solved as a system of constrained equations, rather than as a true minimization problem.
 This is important for implementation in AeroSandbox, so that the equations can be implemented as a set of problem constraints, rather than as a minimization which would be implemented as part of the problem objective.
@@ -178,7 +199,7 @@ import aerosandbox as asb
 opti = asb.Opti()
 ```
 
-Next, we identify the problem variables: the number of moles of each species $$n_j$$ ($$j$$ variables); the total number of moles of gas $$n_{gas}$$ (1 variable); the equilibrium combustion temperature $$T_c$$ (1 variable); and the Lagrange multipliers $$\lambda_i$$ ($$i$$ variables). 
+Next, we identify the problem variables: the number of moles of each species $$n_j$$ ($$j$$ variables); the total number of moles of gas $$n_{tot}$$ (1 variable); the equilibrium combustion temperature $$T_c$$ (1 variable); and the Lagrange multipliers $$\lambda_i$$ ($$i$$ variables). 
 These variables are implemented as problem variables.
 The number of moles of each species $$n_j$$ and the lagrange multipliers $$\lambda_i$$ are implemented as vectors of variables.
 
