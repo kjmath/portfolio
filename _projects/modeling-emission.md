@@ -23,12 +23,12 @@ This aircraft concept, illustrated below, will be used as a case study to explor
 
 ## Design Optimization with CasADi and AeroSandbox
 
-The modeling and optimization work in this thesis leverages the [AeroSandbox](https://github.com/peterdsharpe/AeroSandbox#readme) framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
+The modeling and optimization work leverages the [AeroSandbox](https://github.com/peterdsharpe/AeroSandbox#readme) framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
 AeroSandbox solves design problems using the [CasADi](https://web.casadi.org/) framework, which in turn leverages automatic differentiation.
 Automatic differentiation is a method for evaluating computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule.
 It can be used to compute derivatives for gradient-based optimization schemes and provides a computationally efficient method to solve high-dimensional engineering problems.
 
-I successfully developed and implemented an end-to-end differentiable model for exhaust plume radiant emission in the AeroSandbox framework (discussed further [below](#general-model-description)).
+I successfully developed and implemented an end-to-end differentiable model for exhaust plume radiant emission (discussed further [below](#general-model-description)) in the AeroSandbox framework.
 A comparison of the model results to experimental data is shown in the following section.
 
 ## Model Comparison with Experimental Data
@@ -67,12 +67,12 @@ The experimental radiant intensity data given by Avital et al. is plotted with t
 <figcaption>The agreement between the radiant intensity spectra for the Avital et al. experimental results and the developed model results is generally good, although the 4.3 &#956;m CO<sub>2</sub> emission band peaks at slightly different values and at slightly different wavelengths between the data and model.</figcaption>
 
 The agreement between the model and the Avital et al. experimental radiant intensity spectra is good.
-The model performs especially well for the 1.87 &#956;m H<sub>2</sub>O band, the 2.7 &#956;m combined CO<sub>2</sub> and H<sub>2</sub>O, and the 3.5 &#956;m HCl band. 
+The model performs especially well for the 1.87 &#956;m H<sub>2</sub>O band, the 2.7 &#956;m combined CO<sub>2</sub> and H<sub>2</sub>O band, and the 3.5 &#956;m HCl band. 
 Some of these bands were not visible in the radiant intensity data or model results for the SF4 - SF7 static fires shown in the previous section due to the low temperatures and small size scales of those plumes.
 The model over-predicts the 4.3 &#956;m CO<sub>2</sub> peak radiant intensity by 19%.
 The center of the 4.3 &#956;m CO<sub>2</sub> band between the model and Avital et al. measurement also differs, with the model predicting the band center near 4.31 &#956;m and the data showing the center near 4.37 &#956;m. 
 
-It should also be noted that the Avital et al. plume had a peak radiant emission that was up to three orders of magnitude larger than the emission from the small end-burning motors discussed in the previous section.
+It should also be noted that the Avital et al. plume had a peak radiant emission that was over three orders of magnitude larger than the emission from the small end-burning motors discussed in the previous section.
 The developed radiant emission model performs reasonably well for the Avital et al. plume and the small end-burning plumes, which demonstrates the model's robustness for modeling plumes spanning multiple orders of magnitude of radiant emission.
 
 
@@ -81,9 +81,9 @@ The developed radiant emission model performs reasonably well for the Avital et 
 ![model-concept]({{ site.baseurl }}/assets/images/modeling-emission/model_concept-crop.png)
 <figcaption>Six inter-dependent sub-models are used to couple solid rocket motor design with motor exhaust plume radiant emission.</figcaption>
 
-Six diffentiable sub-models of different coupled physical phenomena were developed and implemented to predict exhaust plume radiant intensity.
+Six end-to-end diffentiable sub-models of different coupled physical phenomena were developed and implemented to predict exhaust plume radiant intensity.
 Their dependencies and information flow are shown in the figure above.
-These models will be discussed in greater detail in later sections, but are summarized here:
+These models are summarized here:
 
 1. The *chamber thermodynamic equilibrium* sub-model predicts the motor combustion chamber temperature $$T_c$$ and species mass fractions $$y_{ic}$$ given the propellant composition and chamber pressure $$p_c$$. This sub-model uses equilibrium thermodynmics calculations.
 
@@ -93,9 +93,9 @@ These models will be discussed in greater detail in later sections, but are summ
 
 4. The *plume flow field* sub-model determines temperatures, densities, pressures, and species concentrations throughout the exhaust plume given nozzle exit properties and freestream conditions. A 1D simplified plume flow field model is implemented that captures the core effects of turbulent entrainment, jet expansion, and non-equilibrium chemistry. This 1D model is efficient and compatible with AeroSandbox, and does not rely black-box CFD codes used by many studies.
 
-5. The *afterburning kinetics* sub-model determines the species production rates $$\dot{\omega}_i$$ throughout the plume given temperatures, densities, and species mass fractions throughout the plume. This sub-model uses a simple, single reaction mechanism with a global reaction rate equation fit to reaction rates predicted by a 28 reaction mechanism. This fitted global reaction rate equation is significantly less stiff than more complicated reaction mechanisms used in other studies.
+5. The *afterburning kinetics* sub-model determines the species production rates $$\dot{\omega}_i$$ throughout the plume given temperatures, densities, and species mass fractions throughout the plume. This sub-model uses a simple, single reaction mechanism with a global reaction rate equation fit to reaction rates predicted by a 28 reaction mechanism. This fitted global reaction rate equation is significantly less stiff than more complicated reaction mechanisms used in other studies, which improves its performance in AeroSandbox.
 
-6. The *radiative transfer* sub-model determines the plume radiant intensity $$J_{\lambda}$$ given temperatures, densities, and species mass fractions throughout the plume. This sub-model integrates the radiative transfer equation along lines-of-sight through the plume, and uses the Ludwig et al. single line group model[^1].
+6. The *radiative transfer* sub-model determines the plume radiant intensity $$J_{\lambda}$$ given temperatures, densities, and species mass fractions throughout the plume. This sub-model integrates the radiative transfer equation along lines-of-sight through the plume, and uses the Ludwig et al. single line group model[^1] for predicting molecular emission.
 
 ## Implementation of Design Problems AeroSandbox
 
@@ -136,7 +136,7 @@ A full discussion of all of the sub-models will be available in my thesis when i
 Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
 Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
-The constituent species of the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero value).
+The constituent species of the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero mole fraction).
 The implemented governing equations and AeroSandbox implementation methodology are described below.
 
 ### Governing Equations
@@ -161,7 +161,7 @@ Enforcement of molar sum of gaseous products:
 
 $$ \sum_{j=1}^{N_{prod}} n_j - n_{tot} = 0 $$
 
-The variables in the governing equations are given in the table below:
+The parameters in the governing equations are given in the table below:
 
 | Variable        | Description |
 | -----------     | ----------- |
@@ -171,20 +171,20 @@ The variables in the governing equations are given in the table below:
 | $$N_{elements}$$| number of chemical elements $$i$$|
 | $$N_{prod}$$    | number of product species $$j$$|
 | $$N_{reac}$$    | number of reactant components $$k$$|
-| $$T_c$$         | chamber temperature |
-| $$p_c$$         | chamber pressure |
-| $$p_0$$         | standard pressure |
-| $$\hat{g^0_j}$$ | molar Gibb's free energy|
-| $$\hat{h^0_j}$$ |molar enthalpy of species $$j$$|
-| $$\hat{s^0_j}$$ | molar entropy of species $$j$$|
-| $$H_0$$         | total system enthalpy|
+| $$T_c$$         | chamber temperature [K] |
+| $$p_c$$         | chamber pressure [Pa]|
+| $$p_0$$         | standard pressure [Pa] |
+| $$\hat{g^0_j}$$ | molar Gibbs free energy of species $$j$$ [J mol<sup>-1</sup>]|
+| $$\hat{h^0_j}$$ |molar enthalpy of species $$j$$ [J mol<sup>-1</sup>]|
+| $$\hat{s^0_j}$$ | molar entropy of species $$j$$ [J mol<sup>-1</sup> K<sup>-1</sup>]|
+| $$H_0$$         | total system enthalpy [J]|
 | $$\lambda_{i}$$ | Lagrange multiplier for element $$i$$ |
 | $$a_{ij}$$ | number of atoms of element $$i$$ per mole of product species $$j$$|
 | $$b_{ik}$$ | number of atoms of element $$i$$ per mole of reactant component $$k$$|
 | $$n_j$$ | number of moles of product species $$j$$|
 | $$n_k$$ | number of moles of reactant component $$k$$|
 | $$n_{tot}$$ | total number of moles of product species|
-| $$\hat{R}$$ | universal gas constant |
+| $$\hat{R}$$ | universal gas constant [J mol<sup>-1</sup> K<sup>-1</sup>]|
 
 Gibbs free energy can be calculated using $$\hat{g^0_j} = \hat{h^0_j} - T_c \hat{s^0_j}$$.
 Lagrange multipliers $$\lambda_i$$ are introduced, following the procedure used by Ponomarenko.
@@ -202,7 +202,7 @@ import aerosandbox.numpy as np
 opti = asb.Opti()
 ```
 
-Next, we identify the problem variables: the number of moles of each species $$n_j$$ ($$j$$ variables); the total number of moles of gas $$n_{tot}$$ (1 variable); the equilibrium combustion temperature $$T_c$$ (1 variable); and the Lagrange multipliers $$\lambda_i$$ ($$i$$ variables). 
+Next, we identify the problem variables: the number of moles of each product species $$n_j$$ ($$N_{prod}$$ variables); the total number of moles of gas $$n_{tot}$$ (1 variable); the equilibrium combustion temperature $$T_c$$ (1 variable); and the Lagrange multipliers $$\lambda_i$$ ($$N_{elements}$$ variables). 
 These variables are implemented as problem variables.
 The number of moles of each species $$n_j$$ and the lagrange multipliers $$\lambda_i$$ are implemented as vectors of variables.
 
@@ -231,29 +231,27 @@ lagrange_i = opti.variable(init_guess=lagrange_guess)
 temp_c = opti.variable(init_guess=2500)  
 ```
 
-The problem has $$ i + j + 2 $$ variables.
+The problem has $$ N_{elements} + N_{prod} + 2 $$ variables.
 The same number of constraints are required, which are just the governing equations given in the previous section.
 Differentiable expressions for the species molar enthalpy $$\hat{h^0_j}(T_c)$$ and the species molar entropy $$\hat{s^0_j}(T_c)$$ with respect to chamber temperature $$T_c$$ were implemented using the NASA 9-coefficient polynomial parametrizations[^4]. 
-
-With the $$\hat{s^0_j}(T_c)$$ and $$\hat{h^0_j}(T_c)$$ parametrization, Gibb's free energy was defined:
+With the $$\hat{s^0_j}(T_c)$$ and $$\hat{h^0_j}(T_c)$$ parametrization, Gibbs free energy was defined:
 ```python
-# define Gibb's free energy
+# define Gibbs free energy
 # -------------------------
 # h_j and s_j are vectors of molar enthalpies and entropies 
-# corresponding to the species in n_j at the temperature 
-# the temperature T_c
+# corresponding to the species in n_j at the temperature T_c
 g_j = h_j - temp_c * s_j
 ```
 
 Two matrices were defined to help with the calculations.
-First, a matrix ```prod_stoich_coef_mat```, of size $$j \times i$$, with each entry $$(j, i)$$ corresponding to $$a_{ij}$$, the number of atoms of element $$i$$ per mole of species $$j$$.
-Second, a matrix ```reac_stoich_coef_mat```, of size $$k \times i$$, with each entry $$(k, i)$$ corresponding to $$b_{ik}$$, the number of atoms of element $$i$$ per mole of species $$k$$.
+First, a matrix ```prod_stoich_coef_mat```, of size $$j \times i$$, with each entry $$(j, i)$$ corresponding to $$a_{ij}$$, the number of atoms of element $$i$$ per mole of product species $$j$$.
+Second, a matrix ```reac_stoich_coef_mat```, of size $$k \times i$$, with each entry $$(k, i)$$ corresponding to $$b_{ik}$$, the number of atoms of element $$i$$ per mole of reactant component $$k$$.
 The governing equations were vectorized and enforced as constraints on the ```opti``` instance:
 ```python
-# minimize Gibb's free energy for product species
+# minimize Gibbs free energy for product species
 # -------------------------
 # combine summation operation into matrix multiplication
-# operation
+# operation ('@' implements matrix multiplication)
 opti.subject_to(
     g_j  +
     R_univ * temp_c * np.log(n_j / n_tot) +
@@ -265,7 +263,7 @@ opti.subject_to(
 # conservation of mass for each element
 # -------------------------
 # assuming arbitrarily 1 kg system mass
-# assuming reactant mole fraction n_k are known
+# assuming reactant mole fractions n_k are known
 opti.subject_to(
     (prod_stoich_coef_mat.T @ n_j) -
     (reac_stoich_coef_mat.T @ n_k)
@@ -283,23 +281,23 @@ opti.subject_to(np.sum(n_j * h_j) - H_0 == 0)
 opti.subject_to(np.sum(n_j) - n_tot == 0) 
 ```
 
-There are as many enforced constraints as variables: the minimization of Gibb's free energy provides one constraint per product species ($$j$$ constraints); the conservation of mass for each element provides one constraint per element ($$i$$ constraints); the conservation of total enthalpy in the reacting system provides one constraint; and the summation of moles provides one constraint.
+There are as many enforced constraints as variables: the minimization of Gibbs free energy provides one constraint per product species ($$N_{prod}$$ constraints); the conservation of mass for each element provides one constraint per element ($$N_{elements}$$ constraints); the conservation of total enthalpy in the reacting system provides one constraint; and the summation of moles provides one constraint.
 Because there are equal numbers of variables and constraints, an objective is not required for this sub-model, since the solution space is already only a single point.
 This chamber thermodynamic equilibrium sub-model can be attached to other sub-models, and other constraints can be applied to the entire optimization problem.
 
 ## Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission
 
 Consider an example of integrated design of a solid rocket powered aircraft using the complete model for radiant emission (all six sub-models).
-For the example, we choose the proposed design for a small, fast aircraft described at the top of this article.
+For the example, we choose the proposed design for a small, fast aircraft described at the top of this post.
 The aircraft utilizes a small, end-burning solid rocket motor and a class of slow-burning propellants doped with the burn rate suppressant oxamide.
-This aircraft concept is illustrated in the figure below (same figure as at the top of this article).
+This aircraft concept is illustrated in the figure below (same figure as at the top of this post).
 
 ![vehicle-design]({{ site.baseurl }}/assets/images/modeling-emission/vehicle_design_with_plume.png)
 <figcaption>A proposed design for a class of small ( < 10 kg), fast (> 100 m s<sup>-1</sup>) aircraft. Design choices such as propellant composition and nozzle throat area influence the downstream plume flow field and exhaust plume radiant intensity.</figcaption>
 
 The propellant burn area is fixed by the fuselage diameter.
 The propellant composition is a free variable, but is constrained as a baseline propellant that can be diluted with some mass fraction of oxamide.
-The throat diameters is a free variable, and its value ultimately sets the chamber pressure.
+The throat diameter is a free variable, and its value ultimately sets the chamber pressure.
 The thrust is set to match vehicle drag or some other requirement.
 
 The following parameters are chosen:
@@ -314,9 +312,9 @@ The system is solved for chamber pressure and nozzle throat diameter.
 The resulting radiant intensity, chamber pressure, and specific impulse for each of these configurations are plotted in the design chart below for curves of constant thrust.
 
 ![model-concept]({{ site.baseurl }}/assets/images/modeling-emission/peak_intensity_10km.png)
-<figcaption>For a particular aircraft thrust, a range of radiant intensities can be achived by operating at different oxamide contents and chamber pressures.</figcaption>
+<figcaption>For a particular aircraft thrust, a range of radiant intensities can be achieved by operating at different oxamide contents and chamber pressures.</figcaption>
 
-This design chart helps to characterize the trade offs between aircraft thrust, propellant oxamide content, chamber pressure, and plumer adiant intensity. 
+This design chart helps to characterize the trade-offs between aircraft thrust, propellant oxamide content, chamber pressure, and plume radiant intensity. 
 For a particular aircraft thrust, a range of radiant intensities can be achived by operating at different oxamide contents and chamber pressures.
 Operating at higher propellant oxamide content yields lower radiant intensities.
 For a particular propellant oxamide mass fraction, the radiant intensity cannot be changed significantly by changing the chamber pressure. 
