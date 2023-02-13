@@ -2,7 +2,7 @@
 title: "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Raidant Emission"
 header:
   teaser: /assets/images/modeling-emission/banner.png
-excerpt: TODO
+excerpt: I developed and implemented a set of differentiable sub-models for predicting exhaust plume radiant emission for solid rocket motors using the AeroSandbox and CasADi design optimization frameworks. The model showed good agreement with experimental radiant emission data, and can be used to optimize the design of solid rocket powered aircraft. 
 order: 1.1
 share: false
 toc: true
@@ -272,8 +272,38 @@ This chamber thermodynamic equilibrium sub-model can be attached to other sub-mo
 
 ## Integrated Design of Small, Low-Thrust Solid Rocket Motors Including Plume Radiant Emission
 
+Consider an example of integrated design of a solid rocket powered aircraft using the complete model for radiant emission (all six sub-models).
+For the example, we choose the proposed design for a small, fast aircraft described at the top of this article.
+The aircraft utilizes a small, end-burning solid rocket motor and a class of slow-burning propellants doped with the burn rate suppressant oxamide.
+This aircraft concept is illustrated in the figure below (same figure as at the top of this article).
+
+![vehicle-design]({{ site.baseurl }}/assets/images/modeling-emission/vehicle_design_with_plume.png)
+<figcaption>A proposed design for a class of small ( < 10 kg), fast (> 100 m s<sup>-1</sup>) aircraft. Design choices such as propellant composition and nozzle throat area influence the downstream plume flow field and exhaust plume radiant intensity.</figcaption>
+
+The propellant burn area is fixed by the fuselage diameter.
+The propellant composition is a free variable, but is constrained as a baseline propellant that can be diluted with some mass fraction of oxamide.
+The throat diameters is a free variable, and its value ultimately sets the chamber pressure.
+The thrust is set to match vehicle drag or some other requirement.
+
+The following parameters are chosen:
+- 2500 mm<sup>2</sup> propellant burning area
+- 10 km altitude
+- Mach 0.8 vehicle speed
+- matched nozzle expansion
+- viewing orthogonal to plume axis of symmetry
+
+Thrust and oxamide content are set as problem parameters in AeroSandbox, and are swept through reasonable values.
+The system is solved for chamber pressure and nozzle throat diameter.
+The resulting radiant intensity, chamber pressure, and specific impulse for each of these configurations are plotted in the design chart below for curves of constant thrust.
+
 ![model-concept]({{ site.baseurl }}/assets/images/modeling-emission/peak_intensity_10km.png)
-<figcaption>TODO.</figcaption>
+<figcaption>For a particular aircraft thrust, a range of radiant intensities can be achived by operating at different oxamide contents and chamber pressures.</figcaption>
+
+This design chart helps to characterize the trade offs between aircraft thrust, propellant oxamide content, chamber pressure, and plumer adiant intensity. 
+For a particular aircraft thrust, a range of radiant intensities can be achived by operating at different oxamide contents and chamber pressures.
+Operating at higher propellant oxamide content yields lower radiant intensities.
+For a particular propellant oxamide mass fraction, the radiant intensity cannot be changed significantly by changing the chamber pressure. 
+A different combination of oxamide content and chamber pressure maximizes the specific impulse for each aircraft thrust.
 
 ___
 *Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.*
