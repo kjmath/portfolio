@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-02-13T14:22:12-05:00">
+  <meta property="article:published_time" content="2023-02-13T14:35:37-05:00">
 
 
 
@@ -602,7 +602,7 @@ First, we instantiate an AeroSandbox optimization environment:</p>
 These variables are implemented as problem variables.
 The number of moles of each species \(n_j\) and the lagrange multipliers \(\lambda_i\) are implemented as vectors of variables.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># total number of moles n_gas, assuming 1kg of gas total
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># total number of moles n_tot, assuming 1kg of gas total
 # -------------------------
 # guess: (1kg) / (a reasonable molecular weight)
 </span><span class="n">n_tot_guess</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">.</span><span class="mi">025</span>  
@@ -633,7 +633,7 @@ With the \(\hat{s^0_j}(T_c)\) and \(\hat{h^0_j}(T_c)\) parametrization, Gibbs fr
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># define Gibbs free energy
 # -------------------------
 # h_j and s_j are vectors of molar enthalpies and entropies 
-# corresponding to the species in n_j at the temperature T_c
+# corresponding to the species in n_j at temp_c
 </span><span class="n">g_j</span> <span class="o">=</span> <span class="n">h_j</span> <span class="o">-</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">s_j</span>
 </code></pre></div></div>
 

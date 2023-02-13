@@ -207,7 +207,7 @@ These variables are implemented as problem variables.
 The number of moles of each species $$n_j$$ and the lagrange multipliers $$\lambda_i$$ are implemented as vectors of variables.
 
 ```python
-# total number of moles n_gas, assuming 1kg of gas total
+# total number of moles n_tot, assuming 1kg of gas total
 # -------------------------
 # guess: (1kg) / (a reasonable molecular weight)
 n_tot_guess = 1 / .025  
@@ -239,7 +239,7 @@ With the $$\hat{s^0_j}(T_c)$$ and $$\hat{h^0_j}(T_c)$$ parametrization, Gibbs fr
 # define Gibbs free energy
 # -------------------------
 # h_j and s_j are vectors of molar enthalpies and entropies 
-# corresponding to the species in n_j at the temperature T_c
+# corresponding to the species in n_j at temp_c
 g_j = h_j - temp_c * s_j
 ```
 
