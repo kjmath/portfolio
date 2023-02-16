@@ -36,7 +36,7 @@
 
 
 
-  <meta property="article:published_time" content="2023-02-13T14:35:37-05:00">
+  <meta property="article:published_time" content="2023-02-15T20:54:38-05:00">
 
 
 
@@ -444,7 +444,7 @@ A full discussion of all of the sub-models will be available in my thesis when i
 <p>Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
 Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
-Which species to include in the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero mole fractions).
+Which species to include in the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to near-zero mole fractions).
 The implemented governing equations and AeroSandbox implementation methodology are described below.</p>
 
 <h3 id="governing-equations">Governing Equations</h3>
@@ -649,7 +649,7 @@ The governing equations were vectorized and enforced as constraints on the <code
     <span class="n">g_j</span>  <span class="o">+</span>
     <span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">n_j</span> <span class="o">/</span> <span class="n">n_tot</span><span class="p">)</span> <span class="o">+</span>
     <span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">p_c</span> <span class="o">/</span> <span class="n">p_0</span><span class="p">)</span> <span class="o">-</span>
-    <span class="p">(</span><span class="n">prod_stoich_coef_mat</span> <span class="o">@</span> <span class="n">lagrange_i</span> <span class="o">/</span> <span class="p">(</span><span class="n">R_univ</span> <span class="o">*</span> <span class="n">temp_c</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">prod_stoich_coef_mat</span> <span class="o">@</span> <span class="n">lagrange_i</span><span class="p">)</span>
     <span class="o">==</span> <span class="mi">0</span>
 <span class="p">)</span>
 
