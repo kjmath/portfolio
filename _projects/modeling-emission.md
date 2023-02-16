@@ -136,7 +136,7 @@ A full discussion of all of the sub-models will be available in my thesis when i
 Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
 Namely, combustion temperature and products species mole fractions are determined by minimizing their Gibbs free energy subject to conservation of mass and enthalpy.
-Which species to include in the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to a near-zero mole fractions).
+Which species to include in the combustion products are simply guessed at using the common combustion products for solid rocket propellants (and species that are not present will simply solve to near-zero mole fractions).
 The implemented governing equations and AeroSandbox implementation methodology are described below.
 
 ### Governing Equations
@@ -256,7 +256,7 @@ opti.subject_to(
     g_j  +
     R_univ * temp_c * np.log(n_j / n_tot) +
     R_univ * temp_c * np.log(p_c / p_0) -
-    (prod_stoich_coef_mat @ lagrange_i / (R_univ * temp_c))
+    (prod_stoich_coef_mat @ lagrange_i)
     == 0
 )
 
