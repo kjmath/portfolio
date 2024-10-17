@@ -23,4 +23,4 @@ gem "minimal-mistakes-jekyll"
 
 # gem "faraday-retry", "~> 2.0"
 
-gem "webrick", "~> 1.8"
+gem "webrick", "~> 1.8.2"
