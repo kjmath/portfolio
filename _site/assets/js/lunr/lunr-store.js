@@ -77,6 +77,18 @@ var store = [{
         "url": "/portfolio/publications/oxamide-paper/",
         "teaser": null
       },{
+        "title": "Integrated Design of Solid Rocket Powered Vehicles Including Exhaust Plume Radiant Emission",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/publications/phd-thesis/",
+        "teaser": null
+      },{
+        "title": "Experimental Study of Low-Thrust, End-Burning Solid Rocket Motors Including Plume Radiant Emission",
+        "excerpt":"Kelly J. Mathesius, Michael E. Knotts, Matthew T. Vernacchia, and R. John Hansman. “Experimental Study of Low-Thrust, End-Burning Solid Rocket Motors Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets (2024).   Open access version can be found here.    ","categories": [],
+        "tags": [],
+        "url": "/portfolio/publications/plume_experiments-paper/",
+        "teaser": null
+      },{
         "title": "Manufacturing Methods for a Solid Rocket Motor Propelling a Small, Fast Flight Vehicle",
         "excerpt":" ","categories": [],
         "tags": [],

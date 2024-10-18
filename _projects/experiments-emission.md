@@ -3,7 +3,7 @@ title: "Experimental Measurements of Rocket Exhaust Plume Radiant Emission"
 header:
   teaser: /assets/images/experiments-emission/composite.png
 excerpt: I designed and conducted a set of experiments to measure the effects of propellant formulation and motor chamber pressure on exhaust plume infrared radiant emission for small solid rocket motors.
-order: 1
+order: 1.1
 share: false
 toc: true
 toc_sticky: true
@@ -165,6 +165,6 @@ For a larger motor with more emission, a band centered at 2.7 &#956;m due to bot
 However, these weaker emission bands are not very pronounced for these small, low-thrust motors.
 
 ___
-*Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.*
+*Much of the discussion on this page was borrowed from my [PhD thesis](  https://hdl.handle.net/1721.1/151348).*
 
 [^1]: The thrust stand was originally designed and built by Dr. Matthew Vernacchia for his doctoral [thesis work](https://dspace.mit.edu/handle/1721.1/127069). Modifications were made for this work.

@@ -3,8 +3,8 @@ permalink: /
 title: "About"
 ---
 
-I'm Kelly Mathesius - an engineer, maker, and PhD Candidate in the MIT Department of Aeronautics and Astronautics, graduating in June 2023. I currently do research in high-temperature materials, solid rocket propulsion, rocket exhaust plume radiant emission, and computational optimization of aircraft design. 
+I’m Kelly Mathesius – a Research & Development Engineer at Formlabs with a PhD in Aeronautics and Astronautics from MIT. I currently develop models to understand and optimize stereolithography printing process physics, as well as query, analyze, and visualize print metric data to drive print algorithm development. 
 
-I have demonstrated project experience in design, fabrication, additive manufacturing, modelling and optimization of constrained physical systems, scientific software, and technical communication. I enjoy working on challenging, multi-disciplinary projects in emerging technologies. Check out some of my projects [here]({{ site.baseurl }}/projects).
+I have a multi-disciplinary skillset in computational modeling, scientific software, optimization of constrained systems, data analysis, manufacturing, and technical communication. Check out some of my projects [here]({{ site.baseurl }}/projects).
 
 ![wide-bio-photo]({{ site.baseurl }}/assets/images/wide-bio-photo.jpeg){: .align-center}

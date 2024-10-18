@@ -3,7 +3,7 @@ title: "End-to-End Differentiable Models and Optimization for Solid Rocket Power
 header:
   teaser: /assets/images/modeling-emission/banner.png
 excerpt: I developed and implemented a set of differentiable sub-models for predicting exhaust plume radiant emission for solid rocket motors using the AeroSandbox and CasADi design optimization frameworks. The model showed good agreement with experimental radiant emission data, and can be used to optimize the design of solid rocket powered aircraft. 
-order: 1.1
+order: 1.0
 share: false
 toc: true
 toc_sticky: true
@@ -321,7 +321,7 @@ For a particular propellant oxamide mass fraction, the radiant intensity cannot 
 A different combination of oxamide content and chamber pressure maximizes the specific impulse for each aircraft thrust.
 
 ___
-*Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.*
+*Much of the discussion on this page was borrowed from my [PhD thesis](  https://hdl.handle.net/1721.1/151348).*
 
 [^1]: C. B. Ludwig et al. *Handbook of Infrared Radiation from Combustion Gases.* NASA SP-3080. NASA Marshall Space Flight Center, 1973.
 
