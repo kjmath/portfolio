@@ -42,7 +42,7 @@ var store = [{
         "teaser": "/portfolio/assets/images/manf-process-simulator/composite.png"
       },{
         "title": "End-to-End Differentiable Models and Optimization for Solid Rocket Powered Aircraft with Plume Radiant Emission",
-        "excerpt":"For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. Typical modeling approaches are computationally expensive, and rely on CFD and complicated integration schemes that are not well-suited for fast, iterative vehicle design. To address this gap, I...","categories": [],
+        "excerpt":"See my published journal paper on this project on AIAA (or find an open access pdf here). For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. Typical modeling approaches are computationally expensive, and rely on CFD and...","categories": [],
         "tags": [],
         "url": "/portfolio/projects/modeling-emission/",
         "teaser": "/portfolio/assets/images/modeling-emission/banner.png"
@@ -87,6 +87,12 @@ var store = [{
         "excerpt":"Kelly J. Mathesius, Michael E. Knotts, Matthew T. Vernacchia, and R. John Hansman. “Experimental Study of Low-Thrust, End-Burning Solid Rocket Motors Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets (2024).   Open access version can be found here.    ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/plume_experiments-paper/",
+        "teaser": null
+      },{
+        "title": "End-to-End Differentiable Model for Optimization of Rocket-Powered Vehicles Including Plume Radiant Emission",
+        "excerpt":"Kelly J. Mathesius, Peter D. Sharpe, and R. John Hansman. “End-to-End Differentiable Model for Optimization of Rocket-Powered Vehicles Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets (2024).   Open access version can be found here.    ","categories": [],
+        "tags": [],
+        "url": "/portfolio/publications/plume_optimization-paper/",
         "teaser": null
       },{
         "title": "Manufacturing Methods for a Solid Rocket Motor Propelling a Small, Fast Flight Vehicle",

@@ -9,6 +9,9 @@ toc: true
 toc_sticky: true
 mathjax: true
 ---
+
+See my published journal paper on this project on <a href="https://doi.org/10.2514/1.A36168" target="_blank" rel="noopener">AIAA</a> (or find an open access pdf <a href="/portfolio/assets/files/plume_model.pdf" target="_blank" rel="noopener">here</a>).
+
 For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. 
 <!-- However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory. -->
 Typical modeling approaches are computationally expensive, and rely on CFD and complicated integration schemes that are not well-suited for fast, iterative vehicle design.
