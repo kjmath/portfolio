@@ -10,7 +10,7 @@ toc_sticky: true
 mathjax: true
 ---
 
-See my published journal paper on this project on [AIAA](https://doi.org/10.2514/1.A36168) (or find an open access pdf [here](/portfolio/assets/files/plume_model.pdf).
+See my published journal paper on this project on [AIAA](https://doi.org/10.2514/1.A36168) (or find an open access pdf [here](/portfolio/assets/files/plume_model.pdf)).
 
 For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. 
 <!-- However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory. -->
@@ -84,11 +84,11 @@ The developed radiant emission model performs reasonably well for the Avital et 
 ![model-concept]({{ site.baseurl }}/assets/images/modeling-emission/model_concept-crop.png)
 <figcaption>Six inter-dependent sub-models are used to couple solid rocket motor design with motor exhaust plume radiant emission.</figcaption>
 
-Six end-to-end diffentiable sub-models of different coupled physical phenomena were developed and implemented to predict exhaust plume radiant intensity.
+Six end-to-end differentiable sub-models of different coupled physical phenomena were developed and implemented to predict exhaust plume radiant intensity.
 Their dependencies and information flow are shown in the figure above.
 These models are summarized here:
 
-1. The *chamber thermodynamic equilibrium* sub-model predicts the motor combustion chamber temperature $$T_c$$ and species mass fractions $$y_{ic}$$ given the propellant composition and chamber pressure $$p_c$$. This sub-model uses equilibrium thermodynmics calculations.
+1. The *chamber thermodynamic equilibrium* sub-model predicts the motor combustion chamber temperature $$T_c$$ and species mass fractions $$y_{ic}$$ given the propellant composition and chamber pressure $$p_c$$. This sub-model uses equilibrium thermodynamics calculations.
 
 2. The *motor internal ballistics* sub-model determines motor equilibrium mass flow, chamber pressure $$p_c$$, and nozzle throat diameter $$d_t$$ given chamber temperature $$T_c$$, propellant $$a$$ and $$n$$ values, and desired thrust $$F$$. These values are solved using a mass flow balance between the burning propellant and the nozzle exit.
 
@@ -134,7 +134,8 @@ The most important of these limitations are described below:
 ## In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example
 
 This section will give an in-depth discussion of the chamber thermodynamic equilibrium sub-model as an example.
-A full discussion of all of the sub-models will be available in my thesis when it is published.
+The full code for this sub-model is available on [GitHub](https://github.com/kjmath/rocket-snippets/tree/main/src/chamber_equilibrium_model). 
+A full discussion of all of the sub-models is published with [AIAA](https://doi.org/10.2514/1.A36168) (or find an open access pdf [here](/portfolio/assets/files/plume_model.pdf)).
 
 Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.
@@ -318,7 +319,7 @@ The resulting radiant intensity, chamber pressure, and specific impulse for each
 <figcaption>For a particular aircraft thrust, a range of radiant intensities can be achieved by operating at different oxamide contents and chamber pressures.</figcaption>
 
 This design chart helps to characterize the trade-offs between aircraft thrust, propellant oxamide content, chamber pressure, and plume radiant intensity. 
-For a particular aircraft thrust, a range of radiant intensities can be achived by operating at different oxamide contents and chamber pressures.
+For a particular aircraft thrust, a range of radiant intensities can be achieved by operating at different oxamide contents and chamber pressures.
 Operating at higher propellant oxamide content yields lower radiant intensities.
 For a particular propellant oxamide mass fraction, the radiant intensity cannot be changed significantly by changing the chamber pressure. 
 A different combination of oxamide content and chamber pressure maximizes the specific impulse for each aircraft thrust.
