@@ -36,7 +36,7 @@ Condensed phases -- typically soot or alumina particles, if present -- usually p
 A collection of experiments measuring chamber pressure, thrust, and exhaust plume radiant emission for small, end-burning solid rocket motors were conducted. 
 The same end-burning motor configuration (discussed [below](#test-motor-design)) is used for all experiments, such that each motor firing had the same propellant burning area.
 
-A core test matrix of four motor static fires evaluates the effects of oxamide (a propellant burn rate supressant) and operating chamber pressure on exhaust plume radiant emission for small solid rocket motors.
+A core test matrix of four motor static fires evaluates the effects of oxamide (a propellant burn rate suppressant) and operating chamber pressure on exhaust plume radiant emission for small solid rocket motors.
 A baseline propellant formulation containing either 0 or 8% oxamide was used for the tests (discussed [here](#propellant)).
 For each of the two oxamide contents, two static fires with different throat diameters were conducted.
 The throat diameters were chosen so that the operating chamber pressure of the motors would be approximately 1 MPa and 2.5 MPa.
@@ -65,7 +65,7 @@ The tapered design is desirable, since the pressure load on the nozzle due to pr
 
 ### Formula
 
-Two different propellant formulations were used: a "baseline" formulation, and formulation with 8% oxamide burn rate supressant.
+Two different propellant formulations were used: a "baseline" formulation, and formulation with 8% oxamide burn rate suppressant.
 The baseline propellant formulation for these experiments is an ammonium perchlorate composite propellant with 80% ammonium perchlorate oxidizer and 20% hydroxyl-terminated polybutadiene based binder.
 To create the 8% oxamide formula, the baseline propellant formulation is simply diluted with the desired mass fraction of the additive.
 
@@ -74,7 +74,7 @@ To create the 8% oxamide formula, the baseline propellant formulation is simply 
 ![mixer]({{ site.baseurl }}/assets/images/experiments-emission/mixer-good.png)
 
 Mixing propellant under vacuum helps to remove water and other volatiles from the propellant precursors and prevent air from being mixed into the propellant during mixing.
-Because commercial vaccuum mixers with appropriate volume and power requirements cost over $15k and have several months lead time, a custom vacuum mixer was built.
+Because commercial vacuum mixers with appropriate volume and power requirements cost over $15k and have several months lead time, a custom vacuum mixer was built.
 
 The propellant was mixed in a custom vacuum mixer made from a heavily modified Bosch Universal Plus MUM6N10 kitchen mixer with a 6.2 L capacity.
 The mixer has a single rotating shaft that passes up through the center of the bowl, with an attachment for two geared paddles for mixing in the bowl. 
