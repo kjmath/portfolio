@@ -23,6 +23,12 @@ var store = [{
         "url": "/portfolio/projects/ceramic-nozzle-dev/",
         "teaser": "/portfolio/assets/images/ceramic-nozzle-dev/ceramic-nozzle-dev-composite.png"
       },{
+        "title": "Chamber Thermodynamic Equilibrium Solver",
+        "excerpt":" ","categories": [],
+        "tags": [],
+        "url": "/portfolio/projects/chamber-model/",
+        "teaser": "/portfolio/assets/images/chamber-model/composite.png"
+      },{
         "title": "Combustion Instability Modeling in Solid Rocket Motors",
         "excerpt":" ","categories": [],
         "tags": [],
