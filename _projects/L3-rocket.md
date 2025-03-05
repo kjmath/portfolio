@@ -20,7 +20,7 @@ inspected by a certification committee.
 
 The rocket is a 6-inch diameter, 99-inch long, custom build rocket. The airframe consists of phenolic tubing with a 2-ply fiberglass overwrap and a fiberglass nosecone. ½ inch plywood bulkheads and centering rings are used throughout. The fins are ¼ inch plywood with a 2-ply fiberglass tip-to-tip layup. The rocket flew on a CTI M1230 motor. 
 
-The rocket had a dry weight of 25.0 lbs, and an expected apogee 8,090 feet. The rocket utilized a dual-separation, dual-deploy recovery scheme: the rocket seperates twice in two different events during its descent, and a different parachute is deployed during each of those seperations. The airframe aft of the avionics bay houses the drogue parachute (a small parachute deployed during the first rocket seperation event), and the airframe forward of the avionics bay houses the main parachute (a large parachute deployed during the second rocket seperation event). 
+The rocket had a dry weight of 25.0 lbs, and an expected apogee 8,090 feet. The rocket utilized a dual-separation, dual-deploy recovery scheme: the rocket separates twice in two different events during its descent, and a different parachute is deployed during each of those separations. The airframe aft of the avionics bay houses the drogue parachute (a small parachute deployed during the first rocket separation event), and the airframe forward of the avionics bay houses the main parachute (a large parachute deployed during the second rocket separation event). 
 
 ![L3-drawing]({{ site.baseurl }}/assets/images/L3-rocket/L3-drawing.png)
 <figcaption>Drawings of the L3 rocket showing critical features, as well as the locations of the center of gravity and center or pressure.</figcaption>
@@ -61,7 +61,7 @@ Fillets were applied with epoxy at every interface between the fins and the airf
 ![fin-internal-fillets]({{ site.baseurl }}/assets/images/L3-rocket/fin_internal-fillets.png)
 <figcaption>Epoxy fillets were added at all interfaces between the fins and airframe.</figcaption>
 
-A two-ply tip-to-tip fiberglass layup was done across each of the fin pairs. The first ply was cut to be slighly smaller than the fins. The second ply was cut slightly larger than the fins, and then trimmed and sanded flush to the fins after application and epoxy cure. The cut fiberglass plies were coated with epoxy, and then applied to the surface of the fins, which were prepared with 400 grit sand paper. An image of one of these tip-to-tip layups is shown below.
+A two-ply tip-to-tip fiberglass layup was done across each of the fin pairs. The first ply was cut to be slightly smaller than the fins. The second ply was cut slightly larger than the fins, and then trimmed and sanded flush to the fins after application and epoxy cure. The cut fiberglass plies were coated with epoxy, and then applied to the surface of the fins, which were prepared with 400 grit sand paper. An image of one of these tip-to-tip layups is shown below.
 
 ![fin-tip-to-tip]({{ site.baseurl }}/assets/images/L3-rocket/fin-tip-to-tip.JPG)
 <figcaption>A tip-to-tip fiberglass layup was applied to each fin pair to increase strength and stiffness of the fins.</figcaption>
@@ -77,10 +77,10 @@ The nosecone bulkhead attachment was done in two pieces. An outer ring was first
 
 An inner bulkhead then bolts into this ring with 8 4-40 screws. A u-bolt is attached to this bulkhead to provide an interface for recovery webbing. This bulk head can be seen below.
 
-Ballast was required for this rocket, both to ensure its stability and keep it under the maximum alitude allowed by the launch field. The ballast was attached to the removable inner bulkhead, and was mounted such that it would be attached inside of the nosecone. A container was 3D printed with a high infill density to provide a sturdy mounting point for the ballast. 3.5 pounds of lead shot is contained in this container in a plastic bag. This container is bolted onto the inner bulkhead with 6 4-40 screws, as shown below.
+Ballast was required for this rocket, both to ensure its stability and keep it under the maximum altitude allowed by the launch field. The ballast was attached to the removable inner bulkhead, and was mounted such that it would be attached inside of the nosecone. A container was 3D printed with a high infill density to provide a sturdy mounting point for the ballast. 3.5 pounds of lead shot is contained in this container in a plastic bag. This container is bolted onto the inner bulkhead with 6 4-40 screws, as shown below.
 
 ![ballast-in-container]({{ site.baseurl }}/assets/images/L3-rocket/ballast-in-container.png)
-<figcaption>A 3D printed container was used to secure lead shot ballst in the nosecone of the rocket.</figcaption>
+<figcaption>A 3D printed container was used to secure lead shot ballast in the nosecone of the rocket.</figcaption>
 <br>
 
 ![ballast-on-bulkhead]({{ site.baseurl }}/assets/images/L3-rocket/ballast-on-bulkhead.png)
@@ -90,7 +90,7 @@ Ballast was required for this rocket, both to ensure its stability and keep it u
 
 ### Deployment Sequence
 
-A dual-separation, dual-deploy scheme was utilized in the recovery of this rocket. The seperations are initiated with ematches in black powder pyrotechnic charges. 
+A dual-separation, dual-deploy scheme was utilized in the recovery of this rocket. The separations are initiated with e-matches in black powder pyrotechnic charges. 
 
 The aft portion of airframe houses the drogue chute. The primary drogue charge fires at apogee, and the backup fires after apogee with 3 second delay. The rocket separates at the interface between the avionics bay and the aft section of airframe.
 
@@ -108,23 +108,23 @@ The Rocketman recommended descent rate charts were utilized to determine the des
 
 ### Control Devices
 
-The primary altimeter used is a StratologgerCF, and the backup is an Adept22. Both utilize barometric altitude sensing with a resolution of 1 foot. Schurter rotary switches mounted to the switch band on the outside of the avionics bay are used to safe/arm the altimeters on the launch pad. This external mounting of the switches allows for easy arming/safing of the altimeters. Each altimiter is powered by an independent 9V battery. Altimeters and batteries are mounted to a 3D printed sled. This sled was in turn mounted to two 1/4-20 threaded rods that ran through the avionics bay. The altimeters mounted to the sled are shown in the images below.
+The primary altimeter used is a StratologgerCF, and the backup is an Adept22. Both utilize barometric altitude sensing with a resolution of 1 foot. Schurter rotary switches mounted to the switch band on the outside of the avionics bay are used to safe/arm the altimeters on the launch pad. This external mounting of the switches allows for easy arming/safing of the altimeters. Each altimeter is powered by an independent 9V battery. Altimeters and batteries are mounted to a 3D printed sled. This sled was in turn mounted to two 1/4-20 threaded rods that ran through the avionics bay. The altimeters mounted to the sled are shown in the images below.
 
 ![adept]({{ site.baseurl }}/assets/images/L3-rocket/adept.png)
 ![strattologger]({{ site.baseurl }}/assets/images/L3-rocket/strattologger.png)
-<figcaption>Altitmeters mounted and wired to the 3D prited sled.</figcaption>
+<figcaption>Altimeters mounted and wired to the 3D printed sled.</figcaption>
 
-Pyrotechnic devices were tested successfully in a full-powered ground test with 3.9 grams of black powder in each separation charge initiated by ematches. Packed charges on the avionics bay bulkhead can be seen below. 
+Pyrotechnic devices were tested successfully in a full-powered ground test with 3.9 grams of black powder in each separation charge initiated by e-matches. Packed charges on the avionics bay bulkhead can be seen below. 
 
 ![packed-charges]({{ site.baseurl }}/assets/images/L3-rocket/packed-charges.png)
-<figcaption>Avionis bay bulkhead with packed charges (covered in blue tape) and ematches (orange wires).</figcaption>
+<figcaption>Avionis bay bulkhead with packed charges (covered in blue tape) and e-matches (orange wires).</figcaption>
 
 ## Stability Evaluation
 
 OpenRocket was used to determine the CP location. The CG location was physically measured by assembling the rocket and finding the balance point. Both these quantities are shown in the image below. Assuming a 12' launch rail, this gives a stability of 1.6 calibers at the rail-end velocity.
 
 ![stability]({{ site.baseurl }}/assets/images/L3-rocket/stability.png)
-<figcaption>The CG (63.0" from the nosecone) is forward of the CP (72.4") from the nosecone, giving a passively stable vehicle with 1.6 calibers of stabillity.</figcaption>
+<figcaption>The CG (63.0" from the nosecone) is forward of the CP (72.4") from the nosecone, giving a passively stable vehicle with 1.6 calibers of stability.</figcaption>
 
 ## Flight
 
@@ -134,13 +134,13 @@ The rocket was successfully flown and recovered at a launch site in Berwick, Mai
 <figcaption>The completed rocket on the launch rail just before launch.</figcaption>
 {: .text-center}
 
-The parachute deployements occured as planned, and the rocket was recovered safely in re-flyable condition. An image of the seperated rocket in descent under the main parachute is shown in the figure below.
+The parachute deployments occurred as planned, and the rocket was recovered safely in re-flyable condition. An image of the separated rocket in descent under the main parachute is shown in the figure below.
 
 ![dual-deploy]({{ site.baseurl }}/assets/images/L3-rocket/dual-deploy.JPG){:width="75%"}{: .align-center}
 <figcaption>Rocket descending under the main parachute.</figcaption>
 {: .text-center}
 
-According to flight data from the StrattoLogger alitimeter onboard, the rocket achieved an apogee of 8691', and a maximum of speed of 1012 ft/s or Mach 0.96. The maximum altitude was within 8% of the predicted apogee of 8090' estimated using OpenRocket.
+According to flight data from the StrattoLogger altimeter onboard, the rocket achieved an apogee of 8691', and a maximum of speed of 1012 ft/s or Mach 0.96. The maximum altitude was within 8% of the predicted apogee of 8090' estimated using OpenRocket.
 
 ![dual-deploy]({{ site.baseurl }}/assets/images/L3-rocket/altitude-plot.png)
 <figcaption>Annotated plot of the rocket altitude vs. time since launch.</figcaption>
