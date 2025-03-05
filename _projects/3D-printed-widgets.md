@@ -12,7 +12,7 @@ A random collection of neat things I've designed and printed.
 
 ## Drill Alignment Jig
 
-A drill alignment jig with press-fit drill bushings. The two-piece jig clamps around an awkardly shaped part and lets me align the drill bit easily.
+A drill alignment jig with press-fit drill bushings. The two-piece jig clamps around an awkwardly shaped part and lets me align the drill bit easily.
 
 ![drill-jig]({{ site.baseurl }}/assets/images/3D-printed-widgets/drill-jig.jpg){:width="75%"}{: .align-center}
 
