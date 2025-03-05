@@ -156,7 +156,7 @@ The spread in the thermocouple measurements is possibly due to slight variations
 
 A transient thermal simulation of the nozzle was run to compare against the measured thermocouple data from SF8 and verify the alumina-silicate nozzle material thermal conductivity.
 A 2D axisymmetric finite element analysis was used to simulate the temperature at the nozzle bond line.
-The nozzle internal convection coefficients were based on a seperate computational fluid dynamics analysis (see [here](https://dspace.mit.edu/handle/1721.1/127069), section 9.2.3.1), which were adjusted for the chamber pressures in this research motor using the Bartz heat flux correlation.
+The nozzle internal convection coefficients were based on a separate computational fluid dynamics analysis (see [here](https://dspace.mit.edu/handle/1721.1/127069), section 9.2.3.1), which were adjusted for the chamber pressures in this research motor using the Bartz heat flux correlation.
 An external convective boundary condition with an adiabatic wall temperature of 298 K and a convection coefficient of 10 W m<sup>-2</sup> K<sup>-1</sup> is assumed to account for natural convection at the outer surface of the motor.
 The alumina silicate is assumed to have a constant thermal conductivity of 2.5 W m<sup>-1</sup> K<sup>-1</sup> [^1].
 
@@ -167,7 +167,7 @@ Again, the thermocouple data shows an initial peak due to the flame leakage arou
 The temperature then decreases after the laser holder falls away and the excess heat is distributed through the large heat capacity of the motor case.
 Then, the temperature increases again as the heat from the hot combustion gases soaks through the nozzle to the bond line.
 After the initial peak in thermocouple temperature due to the flame leakage, the agreement between the thermocouple data and the simulation is surprisingly good.
-This suggests that the alumia-silicate material is behaving as expected, and has acceptable thermal performance in the context of a rocket nozzle for a small, long-endurance motor.
+This suggests that the alumina-silicate material is behaving as expected, and has acceptable thermal performance in the context of a rocket nozzle for a small, long-endurance motor.
 
 ![temp-compare]({{ site.baseurl }}/assets/images/ceramic-nozzle-dev/temp-compare.png){:width="100%"}{: .align-center}
 <figcaption>The simulated bond line temperature shows good agreement with the thermocouple data after the initial temperature peak due to flame leakage around the laser holder before it released.</figcaption>{: .text-center}
