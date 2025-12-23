@@ -13,7 +13,7 @@ toc_sticky: true
 <figcaption>Video from an onboard camera on L3 rocket.</figcaption>
 
 ## Overview
-I designed, built, and flew a high-power rocket as part of the National Association of Rocketry [Level 3 Certification program](https://www.nar.org/high-power-rocketry-info/level-3-hpr-certification/). This certification involves building, flying, and successfully recovering a rocket that safely use an M impulse class or higher commercial solid rocket motor. The rocket design, performance analysis, and recovered vehicle are
+I designed, built, and flew a high-power rocket as part of the National Association of Rocketry [Level 3 Certification program](https://narocket.clubexpress.com/HPRCertification){:target="_blank" rel="noopener noreferrer"}. This certification involves building, flying, and successfully recovering a rocket that safely use an M impulse class or higher commercial solid rocket motor. The rocket design, performance analysis, and recovered vehicle are
 inspected by a certification committee.
 
 ## General Description of Rocket and Flight Operation
@@ -117,7 +117,7 @@ The primary altimeter used is a StratologgerCF, and the backup is an Adept22. Bo
 Pyrotechnic devices were tested successfully in a full-powered ground test with 3.9 grams of black powder in each separation charge initiated by e-matches. Packed charges on the avionics bay bulkhead can be seen below. 
 
 ![packed-charges]({{ site.baseurl }}/assets/images/L3-rocket/packed-charges.png)
-<figcaption>Avionis bay bulkhead with packed charges (covered in blue tape) and e-matches (orange wires).</figcaption>
+<figcaption>Avionics bay bulkhead with packed charges (covered in blue tape) and e-matches (orange wires).</figcaption>
 
 ## Stability Evaluation
 

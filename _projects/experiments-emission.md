@@ -165,6 +165,6 @@ For a larger motor with more emission, a band centered at 2.7 &#956;m due to bot
 However, these weaker emission bands are not very pronounced for these small, low-thrust motors.
 
 ___
-*Much of the discussion on this page was borrowed from my [PhD thesis](  https://hdl.handle.net/1721.1/151348).*
+*Much of the discussion on this page was borrowed from my [PhD thesis](  https://hdl.handle.net/1721.1/151348){:target="_blank" rel="noopener noreferrer"}.*
 
-[^1]: The thrust stand was originally designed and built by Dr. Matthew Vernacchia for his doctoral [thesis work](https://dspace.mit.edu/handle/1721.1/127069). Modifications were made for this work.
+[^1]: The thrust stand was originally designed and built by Dr. Matthew Vernacchia for his doctoral [thesis work](https://dspace.mit.edu/handle/1721.1/127069){:target="_blank" rel="noopener noreferrer"}. Modifications were made for this work.

@@ -14,7 +14,7 @@ toc_sticky: true
 
 ## Description
 
-My friends and I built a printer to make edible, frozen popsicles. We started with a [Velleman K8200 printer](https://www.velleman.eu/products/view/?id=412554), which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and is rigidly attached to a piece of aluminum framing. This made it easier for us to change out the filament extruder for our custom slush extruder. 
+My friends and I built a printer to make edible, frozen popsicles. We started with a [Velleman K8200 printer](https://www.velleman.eu/products/view/?id=412554){:target="_blank" rel="noopener noreferrer"}, which uses a bed-XY design. With this printer design, the print head only moves in the Z direction, and is rigidly attached to a piece of aluminum framing. This made it easier for us to change out the filament extruder for our custom slush extruder. 
 
 ### Slush extruder
 

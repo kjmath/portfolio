@@ -34,7 +34,7 @@ Before designing the parts, I did some brief hand calculations to verify the hoo
 
 ## Manufacturing
 
-The part was printed using a powder bed fusion process at Renishaw PLC. After completing the design, I created two STEP files for the manufacturer: one with the as-printed geometry, and one with the final machined geometry. I also created an engineering drawing with GD&T to communicate the final required dimensions and tolerances. This drawing can be seen below, or a PDF of this drawing can also be viewed [here]({{ site.baseurl }}/assets/images/printed-closure/aft-section-drawing.pdf).
+The part was printed using a powder bed fusion process at Renishaw PLC. After completing the design, I created two STEP files for the manufacturer: one with the as-printed geometry, and one with the final machined geometry. I also created an engineering drawing with GD&T to communicate the final required dimensions and tolerances. This drawing can be seen below, or a PDF of this drawing can also be viewed [here]({{ site.baseurl }}/assets/images/printed-closure/aft-section-drawing.pdf){:target="_blank" rel="noopener noreferrer"}.
 
 ![aft-section-drawing]({{ site.baseurl }}/assets/images/printed-closure/aft-section-drawing.jpg)
 <figcaption>Drawing of the aft closure.</figcaption>

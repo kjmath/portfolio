@@ -37,7 +37,7 @@
 
 
 
-  <meta property="article:published_time" content="2025-12-23T12:40:02-05:00">
+  <meta property="article:published_time" content="2025-12-23T13:12:33-05:00">
 
 
 
@@ -329,12 +329,12 @@
             </nav>
           </aside>
         
-        <p>See my published journal paper on this project on <a href="https://doi.org/10.2514/1.A36168">AIAA</a> (or find an open access pdf <a href="/portfolio/assets/files/plume_model.pdf">here</a>).</p>
+        <p>See my published journal paper on this project on <a href="https://doi.org/10.2514/1.A36168" target="_blank" rel="noopener noreferrer">AIAA</a> (or find an open access pdf <a href="/portfolio/assets/files/plume_model.pdf" target="_blank" rel="noopener noreferrer">here</a>).</p>
 
 <p>For applications where vehicle visibility is a concern, exhaust plume radiant emission is an important aspect of solid rocket powered vehicle performance. 
 <!-- However, it is often not considered during the design phase, despite significant physical couplings with motor propulsion and trajectory. -->
 Typical modeling approaches are computationally expensive, and rely on CFD and complicated integration schemes that are not well-suited for fast, iterative vehicle design.
-To address this gap, I developed simpler models for exhaust plume radiant emission, and implemented them in the fast, flexible <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox</a> design optimization framework.</p>
+To address this gap, I developed simpler models for exhaust plume radiant emission, and implemented them in the fast, flexible <a href="https://github.com/peterdsharpe/AeroSandbox#readme" target="_blank" rel="noopener noreferrer">AeroSandbox</a> design optimization framework.</p>
 
 <p>During my graduate research at MIT, I worked on a broader research effort to design, build, and characterize propulsion systems for a class of small ( &lt; 10 kg), fast (&gt; 100 m s<sup>-1</sup>) aircraft.
 A proposed design for this class of aircraft utilizes a small, end-burning solid rocket motor and a class of slow-burning propellants doped with the burn rate suppressant oxamide, similar to the motors developed, tested, and measured in the static fires described in the <a href="/portfolio/projects/experiments-emission/">exhaust plume radiant emission experiments</a> I conducted.
@@ -345,8 +345,8 @@ This aircraft concept, illustrated below, will be used as a case study to explor
 
 <h2 id="design-optimization-with-casadi-and-aerosandbox">Design Optimization with CasADi and AeroSandbox</h2>
 
-<p>The modeling and optimization work leverages the <a href="https://github.com/peterdsharpe/AeroSandbox#readme">AeroSandbox</a> framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
-AeroSandbox solves design problems using the <a href="https://web.casadi.org/">CasADi</a> framework for automatic differentiation.
+<p>The modeling and optimization work leverages the <a href="https://github.com/peterdsharpe/AeroSandbox#readme" target="_blank" rel="noopener noreferrer">AeroSandbox</a> framework, a flexible framework for implementing and solving high-dimensional engineering problems including fully- or under-constrained systems of nonlinear, implicit, and differential equations.
+AeroSandbox solves design problems using the <a href="https://web.casadi.org/" target="_blank" rel="noopener noreferrer">CasADi</a> framework for automatic differentiation.
 Automatic differentiation is a method for evaluating computational function derivatives by decomposing functions into elementary functions which have known derivatives, and then combining those derivatives using the chain rule.
 It can be used to compute derivatives for gradient-based optimization schemes and provides a computationally efficient method to solve high-dimensional engineering problems.</p>
 
@@ -474,8 +474,8 @@ The most important of these limitations are described below:</p>
 <h2 id="in-depth-sub-model-implementation-discussion-chamber-thermodynamic-equilibrium-example">In Depth Sub-model Implementation Discussion: Chamber Thermodynamic Equilibrium Example</h2>
 
 <p>This section will give an in-depth discussion of the chamber thermodynamic equilibrium sub-model as an example.
-The full code for this sub-model is available on <a href="https://github.com/kjmath/rocket-snippets/tree/main/src/chamber_equilibrium_model">GitHub</a>. 
-A full discussion of all of the sub-models is published with <a href="https://doi.org/10.2514/1.A36168">AIAA</a> (or find an open access pdf <a href="/portfolio/assets/files/plume_model.pdf">here</a>).</p>
+The full code for this sub-model is available on <a href="https://github.com/kjmath/rocket-snippets/tree/main/src/chamber_equilibrium_model" target="_blank" rel="noopener noreferrer">GitHub</a>. 
+A full discussion of all of the sub-models is published with <a href="https://doi.org/10.2514/1.A36168" target="_blank" rel="noopener noreferrer">AIAA</a> (or find an open access pdf <a href="/portfolio/assets/files/plume_model.pdf" target="_blank" rel="noopener noreferrer">here</a>).</p>
 
 <p>Propellant combustion temperature and product species fractions are calculated in the chamber thermodynamic equilibrium model.
 These propellant combustion properties are determined in this model using equilibrium thermodynamics.

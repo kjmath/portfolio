@@ -24,13 +24,13 @@ Typical solid rocket motors rely on transient methods -- such as ablation or hea
 
 ## Nozzle material and design considerations
 
-These nozzles are designed for a small, rocket-powered, low-thrust, long-endurance aircraft concept described [here](https://doi.org/10.2514/1.B38104). This aircraft concept utilizes a long-endurance solid rocket motor with a specially developed class of slow-burning solid rocket propellants.
+These nozzles are designed for a small, rocket-powered, low-thrust, long-endurance aircraft concept described [here](https://doi.org/10.2514/1.B38104){:target="_blank" rel="noopener noreferrer"}. This aircraft concept utilizes a long-endurance solid rocket motor with a specially developed class of slow-burning solid rocket propellants.
 
 The materials and design for these nozzles should be chosen to provide a high maximum service temperature (the operating temperature of the nozzle is 1500 - 2000 K), a low thermal conductivity (< 5 W m<sup>-1</sup> K<sup>-1</sup>), and good thermal shock properties with a critical fracture temperature change $$ \Delta T_f$$ > 1000 K. 
 
 ## Nozzle 1: Two-piece ceramic nozzle with 3D printed cellular ceramic insulator
 
-*This nozzle was designed in collaboration with Dr. Matthew Vernacchia, and more information can be found in our paper [here](https://doi.org/10.2514/1.B38104).* 
+*This nozzle was designed in collaboration with Dr. Matthew Vernacchia, and more information can be found in our paper [here](https://doi.org/10.2514/1.B38104){:target="_blank" rel="noopener noreferrer"}.* 
 
 Dr. Vernacchia and I designed a two-piece nozzle configuration with a 3D printed cellular ceramic nozzle insulator. The two-piece nozzle configuration, illustrated generally in the figure below, uses a nozzle insulator and contoured nozzle insert which are manufactured separately and then bonded together with a silica adhesive. The contoured nozzle insert is turned from boron nitride rod.
 
@@ -156,7 +156,7 @@ The spread in the thermocouple measurements is possibly due to slight variations
 
 A transient thermal simulation of the nozzle was run to compare against the measured thermocouple data from SF8 and verify the alumina-silicate nozzle material thermal conductivity.
 A 2D axisymmetric finite element analysis was used to simulate the temperature at the nozzle bond line.
-The nozzle internal convection coefficients were based on a separate computational fluid dynamics analysis (see [here](https://dspace.mit.edu/handle/1721.1/127069), section 9.2.3.1), which were adjusted for the chamber pressures in this research motor using the Bartz heat flux correlation.
+The nozzle internal convection coefficients were based on a separate computational fluid dynamics analysis (see [here](https://dspace.mit.edu/handle/1721.1/127069){:target="_blank" rel="noopener noreferrer"}, section 9.2.3.1), which were adjusted for the chamber pressures in this research motor using the Bartz heat flux correlation.
 An external convective boundary condition with an adiabatic wall temperature of 298 K and a convection coefficient of 10 W m<sup>-2</sup> K<sup>-1</sup> is assumed to account for natural convection at the outer surface of the motor.
 The alumina silicate is assumed to have a constant thermal conductivity of 2.5 W m<sup>-1</sup> K<sup>-1</sup> [^1].
 
@@ -189,7 +189,7 @@ Because any leak area through the crack is significantly smaller than the nozzle
 ___
 *Much of the discussion on this page was borrowed from my (not yet complete) PhD thesis.*
 
-[^1]: Source: [Wonderstone Technical Datasheet](http://wonderstone.co.za/wp-content/uploads/2020/04/02-Wonderstone-Technical-Datasheet-2018.pdf)
+[^1]: Source: [Wonderstone Technical Datasheet](http://wonderstone.co.za/wp-content/uploads/2020/04/02-Wonderstone-Technical-Datasheet-2018.pdf){:target="_blank" rel="noopener noreferrer"}
 [^2]: Biot number is defined as $$\beta \equiv h l / k$$, where $$h$$ is convective heat transfer coefficient, $$k$$ is thermal conductivity, and $$l$$ is characteristic length. $$\beta \gg 1$$ indicates that there are strong temperature gradients within a body due to convection at a surface, and that material conductivity is not large enough to distribute heat away from the surface. For the nozzles in this work, $$h \approx$$ 3000 W m<sup>-2</sup> K<sup>-1</sup>, $$k \approx$$ 2.5 W m<sup>-1</sup> K<sup>-1</sup>, and $$l \approx$$ 1 cm, and so $$\beta \approx 12 \gg 1$$.
 [^3]: Source: John B. Wachtman, W. Roger Cannon, and M. John Matthewson. "Mechanical Properties of Ceramics (2nd Edition)" Publisher: John Wiley & Sons. issn: 978-0-471-73581-6.
 [^4]: I'd like to thank MIT undergraduate researchers Insuh Na and Justin Schiavo for their help in setting up and conducting these experiments.
