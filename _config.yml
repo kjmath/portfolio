@@ -75,12 +75,15 @@ author:
     - label: "Resume"
       icon: "far fa-fw fa-file-pdf"
       url: /assets/files/resume.pdf
+      new_tab: true
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/kjmath"
+      new_tab: true
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/kelly-mathesius/"
+      new_tab: true
 
 footer:
   links:

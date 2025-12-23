@@ -7,3 +7,4 @@ main:
     url: /publications/
   - title: "Resume"
     url: /assets/files/resume.pdf
+    target: _blank
