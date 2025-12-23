@@ -3,8 +3,8 @@ permalink: /
 title: "About"
 ---
 
-I’m Kelly Mathesius – a Research & Development Engineer at Formlabs with a PhD from MIT in Space Propulsion. I currently develop models to understand and optimize stereolithography printing process physics, as well as query, analyze, and visualize print metric data to drive print algorithm development. 
+I’m Kelly Mathesius -- a Research and Development Engineer at Formlabs and MIT AeroAstro PhD. I build physics-based and data-driven models and SQL/Python pipelines to design and optimize real-world products and systems.
 
-I have a multi-disciplinary skillset in computational modeling, scientific software, optimization of constrained systems, data analysis, manufacturing, and technical communication. Check out some of my projects [here]({{ site.baseurl }}/projects).
+Check out some of my projects [here]({{ site.baseurl }}/projects).
 
 ![wide-bio-photo]({{ site.baseurl }}/assets/images/wide-bio-photo.jpeg){: .align-center}

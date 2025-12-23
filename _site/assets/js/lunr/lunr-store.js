@@ -66,7 +66,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development",
-        "excerpt":"Matthew T. Vernacchia, Kelly J. Mathesius, and R. John Hansman. “Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development”. In: Journal of Propulsion and Power 38.1 (2022).   Open access version can be found here.    ","categories": [],
+        "excerpt":"Matthew T. Vernacchia, Kelly J. Mathesius, and R. John Hansman. “Low-Thrust Solid Rocket Motors for Small, Fast Aircraft Propulsion: Design and Development”. In: Journal of Propulsion and Power 38.1 (2022).   AIAA entry can be found here.   ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/low-thrust-paper/",
         "teaser": null
@@ -78,7 +78,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications",
-        "excerpt":"Matthew T. Vernacchia, Kelly J. Mathesius, and R. J. Hansman. “Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications”. In: Journal of Propulsion and Power 37.5 (2021).   Open access version can be found here.    ","categories": [],
+        "excerpt":"Matthew T. Vernacchia, Kelly J. Mathesius, and R. J. Hansman. “Slow-Burn Ammonium Perchlorate Propellants with Oxamide: Burn Rate Model, Testing, and Applications”. In: Journal of Propulsion and Power 37.5 (2021).   AIAA entry can be found here.    ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/oxamide-paper/",
         "teaser": null
@@ -90,13 +90,13 @@ var store = [{
         "teaser": null
       },{
         "title": "Experimental Study of Low-Thrust, End-Burning Solid Rocket Motors Including Plume Radiant Emission",
-        "excerpt":"Kelly J. Mathesius, Michael E. Knotts, Matthew T. Vernacchia, and R. John Hansman. “Experimental Study of Low-Thrust, End-Burning Solid Rocket Motors Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets (2024).   Open access version can be found here.    ","categories": [],
+        "excerpt":"Kelly J. Mathesius, Michael E. Knotts, Matthew T. Vernacchia, and R. John Hansman. “Experimental Study of Low-Thrust, End-Burning Solid Rocket Motors Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets 62.2 (2025).   AIAA entry can be found here.    ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/plume_experiments-paper/",
         "teaser": null
       },{
         "title": "End-to-End Differentiable Model for Optimization of Rocket-Powered Vehicles Including Plume Radiant Emission",
-        "excerpt":"Kelly J. Mathesius, Peter D. Sharpe, and R. John Hansman. “End-to-End Differentiable Model for Optimization of Rocket-Powered Vehicles Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets (2024).   Open access version can be found here.    ","categories": [],
+        "excerpt":"Kelly J. Mathesius, Peter D. Sharpe, and R. John Hansman. “End-to-End Differentiable Model for Optimization of Rocket-Powered Vehicles Including Plume Radiant Emission”. In: Journal of Spacecraft and Rockets 62.3 (2025).   AIAA entry can be found here.    ","categories": [],
         "tags": [],
         "url": "/portfolio/publications/plume_optimization-paper/",
         "teaser": null

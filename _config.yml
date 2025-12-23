@@ -64,10 +64,9 @@ author:
   name   : "Kelly Mathesius"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : >
-    A Research & Development Engineer at Formlabs with a PhD from MIT in 
-    Space Propulsion, focused on data 
-    analysis, computational modelling and optimization, manufacturing, and 
-    technical communication.
+    An R&D Engineer at Formlabs and MIT PhD. 
+    I build physics-based and data-driven models and SQL/Python pipelines 
+    to design and optimize real-world products and systems.
   location: "Cambridge, MA"
   links:
     - label: "Email"
