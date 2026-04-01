@@ -64,9 +64,7 @@ author:
   name   : "Kelly Mathesius"
   avatar : "/assets/images/bio-photo.jpg"
   bio    : >
-    An R&D Engineer at Formlabs with an MIT PhD. 
-    I build physics-based and data-driven models and SQL/Python pipelines 
-    to design and optimize engineering systems.
+    An R&D Engineer at Formlabs with an MIT PhD. I work on physics-based modeling and scientific machine learning for engineering systems.
   location: "Cambridge, MA"
   links:
     - label: "Email"
